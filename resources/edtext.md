@@ -10,7 +10,7 @@ Educational Texts
  * Radius/energy/etc.
 5. Modules
  * dipole magnets
-  + These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets
+ 	+ These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets
  * Quadrupole magnets
   + These magnets focus the beam in one direction
  * RF accelerators
