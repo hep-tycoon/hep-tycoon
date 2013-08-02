@@ -1,28 +1,24 @@
 Educational Texts Test
 ======================
 
-First header
+Colliders
 ------------
 
-Items
- * Item 1
- * Item 2
+1. ee
+2. pp
+3. linear
+4. Circular
 
-1. Hello
-2. Goodbye
-
- 1. Colliders
-  *ee
-  *pp
-  *linear
-  *Circular
- 2. Detectors (different sections)
-  *muon chambers
-  *hadronic calorimeter
-  *electromagnetic calorimeter
-  *vertex locator
-  *RICH
+Detectors (different sections)
+------------------------------
+1. muon chambers
+2. hadronic calorimeter
+3. electromagnetic calorimeter
+4. vertex locator
+5. RICH
 	
- 3. The physics of the different types of data
- 4. Info about scientists if we have names
- 5. 
+The physics of the different types of data
+-------------------------------------------
+
+Info about scientists if we have names
+-------------------------------------- 
