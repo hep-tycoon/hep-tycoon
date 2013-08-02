@@ -14,6 +14,7 @@ Educational Texts
  * Quadrupole magnets
   + These magnets focus the beam in one direction
  * RF accelerators
+  + these devices use electric fileds to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can only change its acceleration
  * Kicker magnets
  * Beam dump
  * Collimaters
