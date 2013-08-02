@@ -12,7 +12,7 @@ Educational Texts
  * dipole magnets
     	+ These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets
  * Quadrupole magnets
- 	+ These magnets focus the beam in one direction
+    	* These magnets focus the beam in one direction
  * RF accelerators
   	+ these devices use electric fileds to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can only change its acceleration
  * Kicker magnets
