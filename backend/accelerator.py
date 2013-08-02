@@ -2,40 +2,61 @@ class Accelerator:
     """
         An abstract base class for accelerators in the game.
     """
-    def __init__(self, name, price, slots, rate, quality):
+    def __init__(self, name, technology, particles):
         self._name = name
-        self._price = price
-        self._slots = slots
+        self._technology = technology
+        self._particles = particles
+        self._techtree = accelerators[technology][particles]
+        if not self._techtree:
+            raise Exception('Could not find a tech tree for the given technology and particles.')
+        self._level = 0
         self._detectors = []
-        self._rate = rate
-        self._quality = quality
 
     def __str__(self):
         return 'Accelerator {}'.format(self._name)
+
+    def upgrade(self, keep_detectors=[]):
+        # to be implemented!
+        pass
 
     @property
     def name(self):
         return self._name
 
     @property
-    def price(self):
-        return self._price
+    def technology(self):
+        return self._technology
 
     @property
-    def slots(self):
-        return self._slots
+    def particles(self):
+        return self._particles
+
+    @property
+    def level(self):
+        return self._level
 
     @property
     def detectors(self):
         return self._detectors
+    
+    @property
+    def slots(self):
+        return self._techtree['slots']
 
     @property
     def rate(self):
-        return self._rate
+        """
+            The collision rate of the accelerator.
+        """
+        return self._techtree['rate']
 
     @property
     def quality(self):
-        return self._quality
+        """
+            The beam quality of the accelerator.
+            Maybe we should replace this with another term.
+        """
+        return self._techtree['quality']
 
     def add_detector(self, detector):
         if len(self._detectors) < self._slots:
@@ -43,23 +64,37 @@ class Accelerator:
         else:
             raise Exception('All available slots are already used.', 'Try to upgrade your accelerator.')
 
-# maybe we should to this differently ('upgrade' function for example)
-#linear_ee_accelerator_1 = Accelerator('Linear ee Accelerator Lv. 1', 1, 1, 1, 1)
-#linear_ee_accelerator_2 = Accelerator('Linear ee Accelerator Lv. 2', 1, 2, 1, 1)
-#linear_ee_accelerator_3 = Accelerator('Linear ee Accelerator Lv. 3', 1, 3, 1, 1)
-#linear_ee_accelerator_4 = Accelerator('Linear ee Accelerator Lv. 4', 1, 4, 1, 1)
-#
-#linear_pp_accelerator_1 = Accelerator('Linear pp Accelerator Lv. 1', 1, 1, 1, 1)
-#linear_pp_accelerator_2 = Accelerator('Linear pp Accelerator Lv. 2', 1, 2, 1, 1)
-#linear_pp_accelerator_3 = Accelerator('Linear pp Accelerator Lv. 3', 1, 3, 1, 1)
-#linear_pp_accelerator_4 = Accelerator('Linear pp Accelerator Lv. 4', 1, 4, 1, 1)
-#
-#circular_ee_accelerator_1 = Accelerator('Circular ee Accelerator Lv. 1', 1, 1, 1, 1)
-#circular_ee_accelerator_2 = Accelerator('Circular ee Accelerator Lv. 2', 1, 2, 1, 1)
-#circular_ee_accelerator_3 = Accelerator('Circular ee Accelerator Lv. 3', 1, 3, 1, 1)
-#circular_ee_accelerator_4 = Accelerator('Circular ee Accelerator Lv. 4', 1, 4, 1, 1)
-#
-#circular_pp_accelerator_1 = Accelerator('Circular pp Accelerator Lv. 1', 1, 1, 1, 1)
-#circular_pp_accelerator_2 = Accelerator('Circular pp Accelerator Lv. 2', 1, 2, 1, 1)
-#circular_pp_accelerator_3 = Accelerator('Circular pp Accelerator Lv. 3', 1, 3, 1, 1)
-#circular_pp_accelerator_4 = Accelerator('Circular pp Accelerator Lv. 4', 1, 4, 1, 1)
+
+# describe the different types of accelerators in the game
+accelerators = {
+    'linear': {
+        'ee': [
+            {price=1, slots=1, rate=1, quality=1},  # Level 1
+            {price=1, slots=2, rate=1, quality=1},  # Level 2
+            {price=1, slots=3, rate=1, quality=1},  # Level 3
+            {price=1, slots=4, rate=1, quality=1}   # Level 4
+        ],
+        'pp': [
+            {price=1, slots=1, rate=1, quality=1},  # Level 1
+            {price=1, slots=2, rate=1, quality=1},  # Level 2
+            {price=1, slots=3, rate=1, quality=1},  # Level 3
+            {price=1, slots=4, rate=1, quality=1}   # Level 4
+            
+        ]
+    }, 
+    'circular': {
+        'ee': [
+            {price=1, slots=1, rate=1, quality=1},  # Level 1
+            {price=1, slots=2, rate=1, quality=1},  # Level 2
+            {price=1, slots=3, rate=1, quality=1},  # Level 3
+            {price=1, slots=4, rate=1, quality=1}   # Level 4
+        ],
+        'pp': [
+            {price=1, slots=1, rate=1, quality=1},  # Level 1
+            {price=1, slots=2, rate=1, quality=1},  # Level 2
+            {price=1, slots=3, rate=1, quality=1},  # Level 3
+            {price=1, slots=4, rate=1, quality=1}   # Level 4
+            
+        ]
+    } 
+}
