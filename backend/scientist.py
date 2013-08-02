@@ -2,12 +2,12 @@ GLOBAL_SKILL = 1
 
 def random_name():
     from random import choice
+    from string import uppercase
     """
         Construct a random name for a scientist.
     """
-    first_names = ['Hans', 'Peter', 'Klaus', 'Kevin', 'Lennaert']
-    last_names = ['Hansen', 'Petersen', 'Klausen', 'Dungs', 'Maguire', 'Bel']
-    return '{} {}'.format(choice(first_names), choice(last_names))
+    names = ['Hansen', 'Petersen', 'Klausen', 'Dungs', 'Maguire', 'Bel']
+    return '{}. {}. {}'.format(choice(uppercase), choice(uppercase), choice(names))
 
 
 class Scientist:
