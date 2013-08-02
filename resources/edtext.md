@@ -8,8 +8,8 @@ Items
  * Item 1
  * Item 2
 
- 1. Hello
- 2. Goodbye
+1. Hello
+2. Goodbye
 
  1. Colliders
   *ee
