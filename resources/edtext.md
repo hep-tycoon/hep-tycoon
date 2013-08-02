@@ -10,11 +10,11 @@ Educational Texts
  * Radius/energy/etc.
 5. Modules
  * dipole magnets
-    	+ These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets
+    	+ These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets.
  * Quadrupole magnets
-    	+ These magnets focus the beam in one direction
+    	+ These magnets focus the beam in one direction. Two of these magnets work together to squeeze the beam, first in one direction, and then another.
  * RF accelerators
-    	+ These devices use electric fileds to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can only change its acceleration
+    	+ These devices use electric fileds to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can change its acceleration and direction.
  * Kicker magnets
  * Beam dump
  * Collimaters
@@ -27,6 +27,7 @@ Educational Texts
 2. hadronic calorimeter
 3. electromagnetic calorimeter
 4. vertex locator
+ * These devices measure the point in space where an interaction takes place. They are placed very close to the particle bema. 
 5. RICH
 6. Shape
 	
