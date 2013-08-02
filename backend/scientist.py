@@ -5,8 +5,8 @@ def random_name():
     """
         Construct a random name for a scientist.
     """
-    first_names = ['Hans', 'Peter', 'Klaus']
-    last_names = ['Hansen', 'Petersen', 'Klausen']
+    first_names = ['Hans', 'Peter', 'Klaus', 'Kevin', 'Lennaert']
+    last_names = ['Hansen', 'Petersen', 'Klausen', 'Dungs', 'Maguire', 'Bel']
     return '{} {}'.format(choice(first_names), choice(last_names))
 
 
@@ -18,6 +18,13 @@ class Scientist:
         self._name = random_name()
         self._salary = salary
         self._skill = GLOBAL_SKILL
+
+    def __str__(self):
+        """
+            Return a string identifying the scientist.
+            At this point it's just the name since skill and salary are the same for all of them.
+        """
+        return '{}'.format(self._name)
 
     @property
     def name(self):
