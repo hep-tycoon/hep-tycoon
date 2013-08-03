@@ -55,6 +55,7 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/Bunches.png "Bunches")
 ![alt text](/img/RFaccelerator.png "Bunches")
  * Kicker magnets
+	+ Usually large particle colliders have smaller colliders that speed up the bunches before they are injected into the main collider.
  * Beam dump
  * Collimaters
  * bunches
