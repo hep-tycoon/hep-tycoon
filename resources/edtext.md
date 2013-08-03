@@ -64,10 +64,11 @@ We will have short sections of text in game and a section with more information
  		+ Typical beam dumps are made of large blocks of graphite to absorb the beam. Magnets are used to unfocus the beam before if reaches the beam dump so that it has less intensity.
 ![alt text](/img/BeamDump.png "Beam Dump")
  * Collimators
- 	+ These are used to shape the beam
- 	+ Like the beam dump, these devices absorb particles which have moved too far away from the center of the beam. Usually collimators are placed before detectors to p
- * bunches
+ 		+ These are used to shape the beam
+ 		+ Like the beam dump, these devices absorb particles which have moved too far away from the center of the beam. Usually collimators are placed before detectors to protect the sensitive equiptment from being damaged.
 6. Luminosity
+	* The higher the luminosity the more collisons per second.
+	* This quantity is the number of particles per unit area per unit time. The integral of the luminosity with respect to time (Integrated Luminosity) gives the rate, the number of interactions per unit time.
 
 #Detectors (different sections)
 
