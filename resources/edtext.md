@@ -44,11 +44,13 @@ We will have short sections of text in game and a section with more information
     	+ These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets.
     	+ A dipole magnet is an electromagnet used in particle accelerators to create a homogeneous magnetic field over some distance. Particle motion in that field will be circular in a plane perpendicular to the field and collinear to the direction of particle motion and free in the direction orthogonal to it. Thus, a particle injected into a dipole magnet will travel on a circular or helical trajectory. By adding several dipole sections on the same plane, the bending radial effect of the beam increases.
     	+ http://en.wikipedia.org/wiki/Dipole_magnet
-![alt text](/img/DipoleMagnet.png "Dipole schematic")
+![alt text](/img/DipoleMagnet1.png "Dipole schematic")
  * Quadrupole magnets
     	+ These magnets focus the beam in one direction. Two of these magnets work together to squeeze the beam, first in one direction, and then another.
+    	+ A quadrupole magnet is made up of four magnets arranged so that the force on a beam of charged particles is towards the center of the beam in one direction. Two of these types of magnets in series but with 90 degree orientations to each other, focus the particle beam.
+![alt text](/img/Quadrupole.png "Quadrupole schematic")
  * RF accelerators
-    	+ These devices use electric fileds to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can change its acceleration and direction.
+    	+ These devices use electric fields to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can change its acceleration and direction.
  * Kicker magnets
  	+ 
  * Beam dump
