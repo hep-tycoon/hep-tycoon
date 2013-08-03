@@ -1,3 +1,5 @@
+from ht_exceptions import NegativeSalaryException, NegativeNumberScientistsException
+
 class HR(object):
     """
         Manage human resources in the game.
@@ -66,6 +68,10 @@ class HR(object):
             If there are not enough free positions, only some of the are hired.
             The function returns the number of scientists actually hired.
         """
+        if salary < 0:
+            raise NegativeSalaryException()
+        if n < 0:
+            raise NegativeSalaryException()
         if n > self.positions:
             n = self.positions  # hire as many as possible
         self._scientists.extend([Scientist(salary) for i in range(n)])
@@ -79,6 +85,8 @@ class HR(object):
 
             The function returns the number of scientists fired and the penalty for that.
         """
+        if n < 0:
+            raise NegativeNumberScientistsException()
         if n > self.num_scientists:
             n = self.num_scientists
         penalty = sum([s.firing_penalty for s in self._scientists[:n]])
@@ -97,5 +105,7 @@ class HR(object):
             Set the salary for all the scientists.
             This is only valid as long as all scientists are treated the same.
         """
+        if salary < 0:
+            raise NegativeSalaryException()
         for s in self._scientists:
             s.salary = salary
