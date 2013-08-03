@@ -31,7 +31,7 @@
           <li><a href="#dc">Data centre</a></li>
           <li><a href="#">Technology</a></li>
         </ul>
-        <p class="navbar-text pull-right"><big>Current funds: <span class="label label-info" id="iFunds">&euro; 9001</span></big></p>
+        <p class="navbar-text pull-right"><big>Current funds: <span class="label label-info" id="iFunds">JTN 9001</span></big></p>
       </div>
     </div>
     <div class="container">
@@ -44,7 +44,7 @@
             <div class="progress-bar" style="width: 70%"></div>
           </div>
           <p class="pull-right"><strong><span id="iGrantPts">450</span>/<span id="iReqGrantPts">1000</span></strong> <span class="glyphicon glyphicon-briefcase"></span></p>
-          <p>Upon completion, receive <span class="glyphicon glyphicon-magnet"></span> <span id="iGrantFunds">1000</span></p>
+          <p>Upon completion, receive <strong>JTN 200</strong></p>
         </div>
         <div class="panel panel-primary" id="staff" ng-controller="Scientists">
           <div class="panel-heading">
@@ -171,7 +171,7 @@
                   Power On
                 </a>
             </div>
-            <p>Operating cost: <span class="glyphicon glyphicon-magnet"></span> <span id="iAcceleratorCost">{{cost}}</span> per hour</p></li> 
+            <p>Operating cost: <strong>{{cost|currency}}</strong> per hour</p></li> 
           </ul>
         </div>
         <div class="panel panel-primary" ng-controller="Detectors">
