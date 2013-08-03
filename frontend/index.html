@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-glyphicons.css">
     <link rel="stylesheet" href="css/hep-tycoon.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/ajax.js"></script>
     <title>HEP Tycoon</title>
   </head>
   <body>
@@ -44,30 +41,13 @@
             </form>
             </li>
             <li class="list-group-item">
-              <h4><span id="iScientistCount">2</span> Employed scientists (room for <span id="iMaxScientists">10</span> total)</h4>
+            <h4><span id="iScientistCount">-</span> Employed scientists (room for <span id="iMaxScientists">10</span> total)</h4>
               <div class="table-scroll">
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr><th>Name</th></tr>
                   </thead>
-                  <tbody>
-                    <tr><td>L.J. Bel</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
-                    <tr><td>K. Dungs</td></tr>
+                  <tbody id="iScientistsList">
                   </tbody>
                 </table>
               </div>
@@ -183,7 +163,7 @@
           </div>
           <div class="modal-footer">
             <a href="#" class="btn">Cancel</a>
-            <a href="#" class="btn btn-info">Hire</a>
+            <a href="#" class="btn btn-info" id="hireScientistsBtn">Hire</a>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -206,5 +186,9 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/ui.js"></script>
   </body>
 </html>
