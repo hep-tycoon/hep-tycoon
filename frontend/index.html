@@ -40,7 +40,7 @@
           <div class="progress progress-striped active">
             <div class="progress-bar" style="width: 45%"></div>
           </div>
-          <p class="text-right"><strong><span id="iGrantPts">450</span>/<span id="iReqGrantPts">1000</span> Grant points</strong></p>
+          <p class="pull-right"><strong><span id="iGrantPts">450</span>/<span id="iReqGrantPts">1000</span></strong> <span class="glyphicon glyphicon-briefcase"></span></p>
           <p>Upon completion, receive <span class="glyphicon glyphicon-magnet"></span> <span id="iGrantFunds">1000</span></p>
         </div>
         <div class="panel panel-primary">
@@ -55,16 +55,16 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="pull-right">
-                <a href="#" class="btn btn-success">Upgrade (cost <span id="iUpgradeCost">200</span>)</a>
+                <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-wrench"></span> Upgrade (cost <span id="iUpgradeCost">200</span>)</a>
               </div>
               <div>
-                Level <span id="iAcceleratorLvl">1</span> <span id="acceleratorDesc">linear electron-positron collider</span><br>
-                &radic;s = <span id="iCmsEnergy">42</span> TeV
+                <p>Level <span id="iAcceleratorLvl">1</span> <span id="acceleratorDesc">linear electron-positron collider</span><br>
+                &radic;s = <span id="iCmsEnergy">42</span> TeV</p>
               </div>
             </li>
-            <li class="list-group-item">Operating cost: <span class="glyphicon glyphicon-magnet"></span> <span id="iAcceleratorCost">100</span> per hour</li> 
+            <li class="list-group-item"><p>Operating cost: <span class="glyphicon glyphicon-magnet"></span> <span id="iAcceleratorCost">100</span> per hour</p></li> 
             <li class="list-group-item">
-              Current status:
+              <p>Current status:</p>
               <div class="progress progress-striped">
                 <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
               </div>
@@ -84,13 +84,13 @@
                   <input type="number" class="form-control" id="iHireScientists" min="1" placeholder="1">
                 </div>
                 <div class="col-lg-4"> 
-                  <button type="submit" class="btn btn-default">Hire</button>
+                  <button type="submit" class="btn btn-info" data-target="#modConfirmHire" data-toggle="modal">Hire</button>
                 </div>
               </div>
               <span class="help-block">Cost: <span id="iHireScientistsCost">2000</span></span>
             </fieldset>
           </form>
-          <h4><span id="iScientistCount">2</span> Employed scientists</h4>
+          <h4><span id="iScientistCount">2</span> Employed scientists (room for <span id="iMaxScientists">10</span> total)</h4>
           <table class="table table-striped table-hover">
             <thead>
               <tr><th>Name</th></tr>
@@ -126,7 +126,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="pull-right">
-                <a href="#" class="btn btn-success">Upgrade (cost <span id="iUpgradeCost">200</span>)</a>
+                <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-wrench"></span> Upgrade (cost <span id="iUpgradeCost">200</span>)</a>
               </div>
               <div>
                 <p>Level <span id="iDataCentreLvl">1</span> Data Centre</p>
@@ -150,6 +150,24 @@
           <div class="modal-footer">
             <a href="#" class="btn">Cancel</a>
             <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Shutdown</a>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- Modal: confirm scientist hire -->
+    <div class="modal fade" id="modConfirmHire">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Hire scientists</h4>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to hire <span id="iHireScientistsCount">100</span> scientists for <span id="iHireScientistsCost">1000</span>?
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn">Cancel</a>
+            <a href="#" class="btn btn-info">Hire</a>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
