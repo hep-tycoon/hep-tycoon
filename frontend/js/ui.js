@@ -37,3 +37,4 @@ function jetons(input, $filter) {
 
 $('a[data-toggle=tooltip]').tooltip();
 
+$('a[data-popover="hover"]').popover({ title: 'get title', content: 'get content from md', html: true, trigger: 'hover' });
