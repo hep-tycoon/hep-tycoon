@@ -29,3 +29,11 @@ class NegativeNumberScientistsException(HTException):
             'negative number of scientists',
             'You cannot provide a negative number of scientists.'
         )
+
+
+class NoMoreFreeSlotsException(HTException):
+    def __init__(self):
+        super(NoMoreFreeSlotsException, self).__init__(
+            'no more free slots',
+            'You cannot add another detector since there are no more free slots.'    
+        )
