@@ -1,3 +1,11 @@
+def upgrade_technology_hook(original_function):
+    def new_function(self, *args, **kwargs):
+        result = original_function(self, *args, **kwargs)
+        self.update_max_number_scientists()  # update maximum number of scientists
+        return result
+    return new_function
+
+
 class GameManager(object):
     """
         The core piece of code that manages the game.
@@ -25,17 +33,17 @@ class GameManager(object):
     
     def accelerator_stop(self): pass
 
-    @GameManager.upgrade_technology_hook
+    @upgrade_technology_hook
     def accelerator_upgrade(self): pass
     
     def detector_buy(self): pass
     
     def detector_remove(self): pass
     
-    @GameManager.upgrade_technology_hook
+    @upgrade_technology_hook
     def detector_upgrade(self): pass
     
-    @GameManager.upgrade_technology_hook
+    @upgrade_technology_hook
     def datacentre_upgrade(self): pass
     
     def hr_hire(self): pass
@@ -48,11 +56,9 @@ class GameManager(object):
     
     def pay_salaries(self): pass
 
-    @staticmethod
-    def upgrade_technology_hook(original_function):
-        def new_function(*args, **kwargs):
-            result = original_function(args, kwargs)
-            # update maximum number of scientists
-            self._hr_manager.max_scientists = sum([t.num_scientists for t in self.all_technology])
-            return result
-        return new_function
+    def update_max_number_scientists(self):
+        """
+            Update the maximum number of scientists in the human resources manager.
+            Invoked after technology upgrade.
+        """
+        self._hr_manager.max_scientists = sum([t.num_scientists for t in self.all_technology])
