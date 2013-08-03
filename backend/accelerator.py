@@ -64,37 +64,3 @@ class Accelerator(object):
         else:
             raise Exception('All available slots are already used.', 'Try to upgrade your accelerator.')
 
-
-# describe the different types of accelerators in the game
-accelerators = {
-    'linear': {
-        'ee': [
-            {price=1, slots=1, rate=1, quality=1},  # Level 1
-            {price=1, slots=2, rate=1, quality=1},  # Level 2
-            {price=1, slots=3, rate=1, quality=1},  # Level 3
-            {price=1, slots=4, rate=1, quality=1}   # Level 4
-        ],
-        'pp': [
-            {price=1, slots=1, rate=1, quality=1},  # Level 1
-            {price=1, slots=2, rate=1, quality=1},  # Level 2
-            {price=1, slots=3, rate=1, quality=1},  # Level 3
-            {price=1, slots=4, rate=1, quality=1}   # Level 4
-            
-        ]
-    }, 
-    'circular': {
-        'ee': [
-            {price=1, slots=1, rate=1, quality=1},  # Level 1
-            {price=1, slots=2, rate=1, quality=1},  # Level 2
-            {price=1, slots=3, rate=1, quality=1},  # Level 3
-            {price=1, slots=4, rate=1, quality=1}   # Level 4
-        ],
-        'pp': [
-            {price=1, slots=1, rate=1, quality=1},  # Level 1
-            {price=1, slots=2, rate=1, quality=1},  # Level 2
-            {price=1, slots=3, rate=1, quality=1},  # Level 3
-            {price=1, slots=4, rate=1, quality=1}   # Level 4
-            
-        ]
-    } 
-}
