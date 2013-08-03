@@ -92,5 +92,6 @@ def methods_json():
     import json
     print json.dumps(methods)
 
+methods_json()
 if __name__ == '__main__':
     app.run()
