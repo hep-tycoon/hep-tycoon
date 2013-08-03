@@ -50,6 +50,7 @@ We will have short sections of text in game and a section with more information
  * RF accelerators
     	+ These devices use electric fileds to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can change its acceleration and direction.
  * Kicker magnets
+ 	+ 
  * Beam dump
  * Collimaters
  * bunches
