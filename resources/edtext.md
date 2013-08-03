@@ -83,7 +83,9 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/VertexDetector.png "Silicon Vertex detector modules for the LHCb")
 	* Source: http://www.sciencedaily.com/
 2. electromagnetic calorimeter
- * measures the energy and position of 
+ * measures the energy and position of charged and neutral particles.
+ * When a particle interacts with an electromagnetic calorimeter it loses energy to atoms and other particles inside the detector. These secondary particles then give their energy to adjacent atoms and particles and a "partilce shower is created." The detector sees these showers and can add up the total energy of the shower to determine what the energy of the particle was. Sometimes particles are completely absorbed by the electromagnetic calorimeter and stop.
+![alt text](/img/Simple_Slice.png "Typical detector layout, showing particle showers")
 3. Magnet
 4. hadronic calorimeter
 5. RICH
