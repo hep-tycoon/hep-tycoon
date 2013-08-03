@@ -108,7 +108,7 @@ We will have short sections of text in game and a section with more information
 8. Shape
  * A detectors shpae determines what type of decays it is best suited to observing.
  * Drum shapped detectors like CMS and ATLAS on the LHC, are designed to completely surround the collision point so that they can discover new particles.
-![alt text](/img/JetCone.png "Jet breaking sound barrier")
+![alt text](/img/CMS_Shape.png "Drum shaped detector")
  * Source: http://www.ncp.edu.pk/NCP-OLD/images/rpc/cms_3d_detector_50.gif
  * Wedge shaped detectors like LHCb on the LHC are suited to studying charm and beauty physics. These types of decays involve hadrons which contain charm or beauty quarks. The decay products from these particles are created with high momentum in the same direction. So there is no need for the detector to surround the interaction point.
 ![alt text](/img/Shape_LHCb.png "Shape of the LHCb detector to study Charm and beauty physics")
