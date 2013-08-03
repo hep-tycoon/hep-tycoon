@@ -13,10 +13,12 @@ We will have short sections of text in game and a section with more information
 3. linear
 4. Circular
  * Cyclotron
-    	+ A cyclotron is an early form of particle accelerator which produces charged particles at the center of a circle and uses rapidly varying RF electric fields to accelerate the particles. It uses a static magnetic field to keep the particles in a spiral trajectory away from the center of the circle.
+    	+ A cheap and compact acceletrator of charged particles with relatively high luminosity. However, it can't acceletrate particles to a very high energy because it doesn't adjust for relativistic effects 
+    	+ A cyclotron is an early form of particle accelerator which produces charged particles at the center of a circle and uses rapidly varying RF electric fields to accelerate the particles. It uses a static magnetic field to keep the particles in a spiral trajectory away from the center of the circle. It can then fire the beam out in a stright line to use in experiments. See http://en.wikipedia.org/wiki/Cyclotron#Principle_of_operation
 ![alt text](/img/Cyclotron_patent.png "Cyclotron Schematic")
     	+ http://en.wikipedia.org/wiki/File:Cyclotron_patent.png
  * Syncotron
+    	+ A syncotron is a more advanced cyclotron that that takes relitivitic effect into account and so can accelerate particles to higher energies
  * Radius/energy/etc.
 5. Modules
  * dipole magnets
@@ -63,3 +65,4 @@ We will have short sections of text in game and a section with more information
 
 1. Proton source
 2. Antimatter
+3. Luminosity
