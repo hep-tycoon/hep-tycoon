@@ -8,9 +8,19 @@ p
   font-size: 16px;
 }
 
+.panel
+{
+  overflow: hidden;
+}
+
 .btn
 {
   width: 140px;
+}
+
+.btn-double-width
+{
+  width: 280px;
 }
 
 .form-control
