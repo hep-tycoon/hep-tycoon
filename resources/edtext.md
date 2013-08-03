@@ -68,7 +68,7 @@ We will have short sections of text in game and a section with more information
  		+ Like the beam dump, these devices absorb particles which have moved too far away from the center of the beam. Usually collimators are placed before detectors to protect the sensitive equiptment from being damaged.
 6. Luminosity
 	* The higher the luminosity the more collisons per second.
-	* This quantity is the number of particles per unit area per unit time. The integral of the luminosity with respect to time (Integrated Luminosity) gives the rate, the number of interactions per unit time.
+	* This quantity is the number of particles per unit area per unit time. The integral of the luminosity with respect to time (Integrated Luminosity) gives the rate, the number of interactions per unit time. Luminosity is measured in inverse femtobarns (fb^{-1}).
 
 #Detectors (different sections)
 
