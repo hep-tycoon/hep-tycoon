@@ -1,21 +1,21 @@
-  • Start by making up a reasearch organisation name (YES)
-		○ Maybe you pick a head scientists and a few starting scientists which have different bonuses and are part of your research organisation
-		○ These initial scientists will be better than the ones who turn up at the start of the game, just to get you going
-		○ Your director is selected from these organisation scientists
-	• World map where you buy your green field site
-	• The better your rating the better the scientists   
-	• Higher INFLUENCE lets you get better grants.  (YES)
+* Start by making up a reasearch organisation name (YES)
+	* Maybe you pick a head scientists and a few starting scientists which have different bonuses and are part of your research organisation
+	* These initial scientists will be better than the ones who turn up at the start of the game, just to get you going
+	* Your director is selected from these organisation scientists
+* World map where you buy your green field site
+* The better your rating the better the scientists   
+* Higher INFLUENCE lets you get better grants.  (YES)
 		○ The better your experiments work (collisions per second) the better your influence
 		○ Good Scientists bring influence
 		○ Holding conferences etc. 
-	• Pop up windows with little tasks  (YES)
+* Pop up windows with little tasks  (YES)
 		○ Save the summer student from the tunnels
 		○ End of the world scenario ???? (don't think the judges would like this
 		○ Visiting dignatory
 		○ Film crew
 		○ Tom Hanks
-	• I think it should be more like "Sim Hospital" than "Roller coaster tycoon"
-	• Buildables  
+* I think it should be more like "Sim Hospital" than "Roller coaster tycoon"
+* Buildables  
 		○ Experiments (YES)
 			§ Start small with proton or electron (cheap) or whatever source, neutrino source (expensive)
 			§ Linear
@@ -61,7 +61,7 @@
 				□ Maybe these tunnels should develop naturally to connect buildings (coding challenge)
 				□ Summer student temple 
 			§ Something to do with internet connection
-	• People
+* People
 		○ You must  attract SCIENTISTS by having a good rating (YES)
 			§ Give scientists names
 			§ maybe you can choose which ones you want, have to have enough office space for everyone
@@ -86,7 +86,7 @@
 			§ Security (safety, prevent fanatics)
 			§ Cleaning (happiness of staff)
 			§ Gift shop/reception/tour guides (money)
-	• Money (YES)
+* Money (YES)
 		○ Called  ?
 			§ Fermi's?
 			§ Dirac Dollars ?
@@ -95,13 +95,13 @@
 		○ You make money from publications and events like conferences
 			§ More scientists more publications, more and better experiments means more scientists
 		○ Have to pay for electricity
-	• Graphics
+* Graphics (NOT YET)
 		○ Simple green starting canvas
 		○ With a grid to add different sized buildings and roads
 		○ Circular accelerators will be a challenge
 		○ Automatically connnecting buildings with tunnels will be a challenge.
 		○ Building accelerator connections and things will be like making train tracks. Under or over ground
-	• Choose goal at start (NOT YET)
+* Choose goal at start (NOT YET)
 		○ Neutrino physics
 		○ Higgs search
 		○ CPV search
