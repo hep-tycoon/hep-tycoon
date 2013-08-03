@@ -67,11 +67,11 @@ def upgrade_accelerator():
     return jsonify()
 
 @app.route("/datacenter")
-def upgrade_datacenter():
+def get_datacenter():
     return jsonify(**gamemanager.datacenter.json())
 
 @app.route("/detectors")
-def upgrade_datacenter():
+def get_detectors():
     detectors = gamemanager.accelerator.detectors
     return jsonify(detectors=detectors)
 
