@@ -83,31 +83,39 @@ class DataCentre(Technology):
         The data centre stores data until it's processed by scientists.
     """
     def __init__(self, storage_capacity, **kwargs):
+        from collections import deque
+        """
+        """
         super(DataCentre, self).__init__(**kwargs)
-        self._storage_capacity = storage_capacity
-        self._storage = []
+        self._storage = deque(maxlen=storage_capacity)
 
     @property
     def storage_capacity(self):
-        return self._storage_capacity
+        return self._storage.maxlen
+
+    @storage_capacity.setter
+    def storage_capacity(self, value):
+        old = self._storage
+        self._storage = deque(old, maxlen=value)
 
     @property
     def storage_used(self):
-        return sum([d.size for d in self._storage])
+        return len(self._storage)
 
     @property
     def storage_free(self):
         return self.storage_capacity - self.storage_used
 
-    def store(self, dataset):
-        if self.storage_free > 0:
-            if self.storage_free < dataset.size:
-                dataset.size = self.storage_free
-            self._storage.append(dataset)
+    def empty(self):
+        return self.storage_used == 0
 
-    def retrieve(self, size):
-        if self.storage_used <= 0:  # although it should never be 0
+    def store(self, dataset):
+        self._storage.append(dataset)
+
+    def retrieve(self):
+        if self.empty():
             return None
+        return self._storage.popleft()
 
 
 def query_tech_tree(path):
