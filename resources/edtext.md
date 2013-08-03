@@ -8,7 +8,7 @@ We will have short sections of text in game and a section with more information
 #Colliders
 
 1. ee
-    	+ Colliders with electron electron beams have  
+ * Colliders with electron electron beams have  
 2. pp
 3. linear
 4. Circular
