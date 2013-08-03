@@ -47,3 +47,7 @@ function Scientists($scope){
 
 }
 
+function updateScientists(){
+    $("#staff").scope().updateEmployees();
+}
+

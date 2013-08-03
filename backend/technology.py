@@ -20,6 +20,7 @@ class Technology(object):
         return self.level < self.max_level - 1
 
     def upgrade_from_tech_tree(self):
+        assert self.can_upgrade
         return from_tech_tree(*self.query[:-1] + [self.level + 1])
 
     def json(self):

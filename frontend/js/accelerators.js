@@ -1,6 +1,6 @@
 
 function Accelerators($scope) {
-    $scope.active = true;
+    $scope.active = false;
     $scope.level = 1;
     $scope.description = "linear electron-positron collider";
     $scope.name = "LEP";
@@ -24,6 +24,8 @@ function Accelerators($scope) {
     $scope.upgrade = function(){
       upgrade_accelerator(function(){
         $scope.update();
+        updateScientists();
+        updateDetectors();
       });
     };
 

@@ -8,6 +8,7 @@ function DataCenter($scope){
     $scope.upgrade = function(){
         upgrade_datacenter(function(){
             $scope.update();
+            updateScientists();
         });
     };
 
