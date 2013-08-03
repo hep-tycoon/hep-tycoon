@@ -34,7 +34,7 @@ ul.list-group li.list-group-item h1
   margin-top: -12px;
 }
 
-.table-scroll
+.scrollable
 {
   max-height: 200px;
   overflow-y: scroll;
