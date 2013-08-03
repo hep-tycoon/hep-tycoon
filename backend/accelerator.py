@@ -1,4 +1,4 @@
-class Accelerator:
+class Accelerator(object):
     """
         An abstract base class for accelerators in the game.
     """
