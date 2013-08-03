@@ -8,7 +8,7 @@ We will have short sections of text in game and a section with more information
 #Colliders
 
 1. ee
- *
+    	+ Colliders with electron electron beams have  
 2. pp
 3. linear
 4. Circular
@@ -19,6 +19,7 @@ We will have short sections of text in game and a section with more information
     	+ http://en.wikipedia.org/wiki/File:Cyclotron_patent.png
  * Syncotron
     	+ A syncotron is a more advanced cyclotron that that takes relitivitic effect into account and so can accelerate particles to higher energies
+    	+ These devices can have different types of magnets, each with a specific job. 
  * Radius/energy/etc.
 5. Modules
  * dipole magnets
