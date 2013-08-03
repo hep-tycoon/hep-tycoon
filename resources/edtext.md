@@ -38,11 +38,13 @@ We will have short sections of text in game and a section with more information
  	+ The radius of the circular collider determines the energy of the particles. The particles move in a circle due to magnetic fields. The radius of curvature depends on the energy of the particles and the strength of the magnetic field. See http://www.egglescliffe.org.uk/physics/particles/newfolder/acc1.html
  ![alt text](/img/Radius.png "LHC Schematic")
  	+ 
-
- * /energy/etc.
+ 	
 5. Modules
  * dipole magnets
     	+ These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets.
+    	+ A dipole magnet is an electromagnet used in particle accelerators to create a homogeneous magnetic field over some distance. Particle motion in that field will be circular in a plane perpendicular to the field and collinear to the direction of particle motion and free in the direction orthogonal to it. Thus, a particle injected into a dipole magnet will travel on a circular or helical trajectory. By adding several dipole sections on the same plane, the bending radial effect of the beam increases.
+    	+ http://en.wikipedia.org/wiki/Dipole_magnet
+![alt text](/img/DipoleMagnet.png "Dipole schematic")
  * Quadrupole magnets
     	+ These magnets focus the beam in one direction. Two of these magnets work together to squeeze the beam, first in one direction, and then another.
  * RF accelerators
