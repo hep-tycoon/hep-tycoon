@@ -49,6 +49,15 @@ class Scientist(object):
         self._salary = salary
 
     @property
+    def productivity(self):
+        from math import exp
+        import settings
+        """
+            Very cool logistic function for the productivity of the scientist.
+        """
+        return 2.0 / (1 + exp(-settings.GLOBAL_PRODUCTIVITY_CONVERSION * self.salary)) - 1
+
+    @property
     def skill(self):
         return self._skill
 

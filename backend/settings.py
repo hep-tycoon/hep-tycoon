@@ -5,5 +5,6 @@
 
 # Scientist
 GLOBAL_SKILL = 1  # the scientists' skill
+GLOBAL_PRODUCTIVITY_CONVERSION = 1  # conversion factor between salary and productivity
 GLOBAL_FIRING_PENALTY_FACTOR = 2
 GLOBAL_FIRING_PENALTY_CONSTANT = 1
