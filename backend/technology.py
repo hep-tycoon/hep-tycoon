@@ -3,39 +3,31 @@ class Technology(object):
         Implement a piece of technology in the game.
         This is a base class for several other classes.
     """
-    def __init__(self, name, price, running_costs, num_scientists):
-        self._name = name
-        self._price = price
-        self._running_costs = running_costs
-        self._num_scientists = num_scientists
+    def __init__(self, name, price, running_costs, num_scientists, level, max_level, query):
+        self.name = name
+        self.price = price
+        self.running_costs = running_costs
+        self.num_scientists = num_scientists
+        self.level = level
+        self.max_level = max_level
+        self.query = query
 
-    @property
-    def name(self):
-        return self._name
+    def can_upgrade(self):
+        return self.level < self.max_level
 
-    @property
-    def price(self):
-        return self._price
-
-    @property
-    def running_costs(self):
-        return self._running_costs
-
-    @property
-    def num_scientists(self):
-        return self._num_scientists
-
+    def upgrade_from_tech_tree(self):
+        return from_tech_tree(*self.query[:-1] + [self.level + 1])
 
 class Accelerator(Technology):
     """
         An accelerator can store a number of experiments.
     """
-    def __init__(self, name, price, running_costs, num_scientists, slots, rate, purity):
-        super(Accelerator, self).__init__(name, price, running_costs, num_scientists)
-        self._slots = slots
-        self._rate = rate
-        self._purity = purity
-        self._detectors = []
+    def __init__(self, slots, rate, purity, **kwargs):
+        super(Accelerator, self).__init__(**kwargs)
+        self.slots = slots
+        self.rate = rate
+        self.purity = purity
+        self.detectors = []
 
     def add_detector(self, detector):
         """
@@ -55,50 +47,25 @@ class Accelerator(Technology):
         pass  # implement!
 
     @property
-    def slots(self):
-        return self._slots
-
-    @property
     def free_slots(self):
         return self._slots - len(self._detectors)
-
-    @property
-    def detectors(self):
-        return self._detectors
-
-    @property
-    def rate(self):
-        return self._rate
-
-    @property
-    def purity(self):
-        return self._purity
-
 
 class Detector(Technology):
     """
         A detector processes events from the accelerator and produces data.
     """
-    def __init__(self, name, price, running_costs, num_scientists, purity_factor, rate_factor):
-        super(Detector, self).__init__(name, price, running_costs, num_scientists)
-        self._purity_factor = purity_factor
-        self._rate_factor = rate_factor
-
-    @property
-    def purity_factor(self):
-        return self._purity_factor
-
-    @property
-    def rate_factor(self):
-        return self._rate_factor
+    def __init__(self, purity_factor, rate_factor, **kwargs):
+        super(Detector, self).__init__(**kwargs)
+        self.purity_factor = purity_factor
+        self.rate_factor = rate_factor
 
 
 def DataCentre(Technology):
     """
         The data centre stores data until it's processed by scientists.
     """
-    def __init__(self, name, price, running_costs, num_scientists, storage_capacity):
-        super(DataCentre, self).__init__(name, price, running_costs, num_scientists)
+    def __init__(self, storage_capacity, **kwargs):
+        super(DataCentre, self).__init__(**kwargs)
         self._storage_capacity = storage_capacity
 
     @property
@@ -106,8 +73,32 @@ def DataCentre(Technology):
         return self._storage_capacity
 
 
+def query_tech_tree(path):
+    act = techtree
+    for segment in path:
+        act = act[segment]
+    return act
+
+def from_tech_tree(*query):
+    query = list(query)
+    tech_type = query[0]
+    if tech_type == "accelerators":
+        tech_class = Accelerator
+    elif tech_type == "detectors":
+        tech_class = Detector
+    elif tech_type == "datacentres":
+        tech_class = DataCentre
+    levels = query_tech_tree(query[:-1])
+    data = levels[query[-1]].copy()
+    data["level"] = query[-1]
+    data["max_level"] = len(levels)
+    data["query"] = query
+    return tech_class(**data)
+
+
 # load the technology tree from a file (beta)
 techtree = None
 with open('techtree.json') as tt_file:
     from json import load
     techtree = load(tt_file)
+
