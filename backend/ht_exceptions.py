@@ -37,3 +37,10 @@ class NoMoreFreeSlotsException(HTException):
             'no more free slots',
             'You cannot add another detector since there are no more free slots.'    
         )
+
+class BankruptcyException(HTException):
+    def __init__(self):
+        super(BankruptcyException, self).__init__(
+            'bankrupt',
+            'You are bankrupt!'
+        )
