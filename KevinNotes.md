@@ -5,52 +5,52 @@
 * World map where you buy your green field site
 * The better your rating the better the scientists   
 * Higher INFLUENCE lets you get better grants.  (YES)
-		○ The better your experiments work (collisions per second) the better your influence
-		○ Good Scientists bring influence
-		○ Holding conferences etc. 
+	* The better your experiments work (collisions per second) the better your influence
+	* Good Scientists bring influence
+	* Holding conferences etc. 
 * Pop up windows with little tasks  (YES)
-		○ Save the summer student from the tunnels
-		○ End of the world scenario ???? (don't think the judges would like this
-		○ Visiting dignatory
-		○ Film crew
-		○ Tom Hanks
+	* Save the summer student from the tunnels
+	* End of the world scenario ???? (don't think the judges would like this
+	* Visiting dignatory
+	* Film crew
+	* Tom Hanks
 * I think it should be more like "Sim Hospital" than "Roller coaster tycoon"
 * Buildables  
-		○ Experiments (YES)
-			§ Start small with proton or electron (cheap) or whatever source, neutrino source (expensive)
-			§ Linear
-				□ Better quality
-			§ Circular
-				□ Better rate
-				□ You should be able to pick the colliding particle and the TeV, which determines the radius
-				□ Determine how  many dipoles(maybe a default)/quadrupoles(increase focus and luminosity, collisions per second)/beam dump (improves safety)/ can attach colliders together with kicker magnets and connecting lines/RF accelerators.
-			§ Collider
-				□ Ee
-					® Better quality
-				□ PP
-					® Better rate
-			§ Can tune your device to  what ever levels you want
-				□ But need certain pre accelerators to do certain things 
-					® Booster 
-					® Etc.
-				□ Bunch number
-				□ Density
-				□ Energy
-				□ But can have an accident if you go too high
-				□ Beam dump prevents an accident 
-			§ Detectors
-				□ You can choose the layout of your detector. Choose what layer comes first in the onion
-				□ Choose shape, like CMS or LHCb. Different shapes?
-			§ Workshops
-				□ Means you don’t have to import materials
-				□ Things are cheaper
-			§ Antimatter
-			§ Also other experiments
-				□ Neutrino experiment
-				□ Cosmic observatory 
-				□ Gravitational waves
-				□ Others  …
-		○ Buildings (NOT YET)
+	* Experiments (YES)
+		+ Start small with proton or electron (cheap) or whatever source, neutrino source (expensive)
+		+ Linear
+			- Better quality
+		+ Circular
+			- Better rate
+			- You should be able to pick the colliding particle and the TeV, which determines the radius
+			- Determine how  many dipoles(maybe a default)/quadrupoles(increase focus and luminosity, collisions per second)/beam dump (improves safety)/ can attach colliders together with kicker magnets and connecting lines/RF accelerators.
+		+ Collider
+			- Ee
+				+ Better quality
+			- PP
+				+ Better rate
+			- Can tune your device to  what ever levels you want
+				+ But need certain pre accelerators to do certain things 
+					- Booster 
+					- Etc.
+				+ Bunch number
+				+ Density
+				+ Energy
+				+ But can have an accident if you go too high
+				+ Beam dump prevents an accident 
+			- Detectors
+				+ You can choose the layout of your detector. Choose what layer comes first in the onion
+				+ Choose shape, like CMS or LHCb. Different shapes?
+			- Workshops
+				+ Means you don’t have to import materials
+				+ Things are cheaper
+			- Antimatter
+			- Also other experiments
+				+ Neutrino experiment
+				+ Cosmic observatory 
+				+ Gravitational waves
+				+ Others  …
+		+ Buildings (NOT YET)
 			§ Restaurant(subsidised and not subsidised)
 			§ Theaters (makes summer students and Ph.D students smarter, scientists happier, increases publications, can hold conferences if its big enough)  
 			§ Bar (happiness)
