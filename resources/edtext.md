@@ -96,6 +96,10 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/AtlasMagnet.png "The Atlas solenoid")
  * Source: http://www.ep.ph.bham.ac.uk/DiscoveringParticles/lhc/experiments/images/atlas-large.jpg
 6. RICH
+ * RICH detectors are used to measure the velocity and position of particles using the Cerenkov effect
+ * RICH stands for Ring Imaging CHerenkov detector. The Cernenkov effect is similar to the cone of water vapour produced by a jet breaking the sound barrier. See the image below.
+![alt text](/img/JetCone.png "Jet breaking sound barrier")
+ * Source: http://i.telegraph.co.uk/multimedia/archive/01410/hornet_1410652c.jpg
 7. Muon chambers
 8. Shape
 	
