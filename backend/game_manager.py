@@ -8,8 +8,8 @@ class GameManager(object):
         """
         """
         self._lab_name = lab_name
-        self._data_centre = technology.from_tech_tree('Data Centre', level=0)  # working on this
-        self._accelerator = technology.from_tech_tree('Accelerator', type=accelerator_type, 0)
+        self._data_centre = technology.from_tech_tree('datacentre', 0)  # working on this
+        self._accelerator = technology.from_tech_tree('accelerator', accelerator_geometry, accelerator_particles, 0)
         self._funds = settings.INITIAL_FUNDS - self._accelerator.price
         self._hr_manager = HR(self._accelerator.num_scientists)
 
