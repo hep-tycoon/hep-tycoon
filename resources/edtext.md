@@ -60,10 +60,12 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/Kicker.png "Kicker")
 		+ http://aea.web.psi.ch/Urs_Rohrer/MyWeb/moregifs2/pkc0.gif
  * Beam dump
- 	* This system increases safety by allowing the operator to dump the beam if there is a problem
- 	* Typical beam dumps are made of large blocks of graphite to absorb the beam. Magnets are used to unfocus the beam before if reaches the beam dump so that it has less intensity.
+ 		+ This system increases safety by allowing the operator to dump the beam if there is a problem
+ 		+ Typical beam dumps are made of large blocks of graphite to absorb the beam. Magnets are used to unfocus the beam before if reaches the beam dump so that it has less intensity.
 ![alt text](/img/BeamDump.png "Beam Dump")
- * Collimaters
+ * Collimators
+ 	+ These are used to shape the beam
+ 	+ Like the beam dump, these devices absorb particles which have moved too far away from the center of the beam. Usually collimators are placed before detectors to p
  * bunches
 6. Luminosity
 
