@@ -19,7 +19,9 @@ We will have short sections of text in game and a section with more information
     	+ http://en.wikipedia.org/wiki/File:Cyclotron_patent.png
  * Syncotron
     	+ A syncotron is a more advanced cyclotron that that takes relitivitic effect into account and so can accelerate particles to higher energies
-    	+ These devices can have different types of magnets, each with a specific job. 
+    	+ These devices can have different types of magnets, each with a specific job. See http://en.wikipedia.org/wiki/Synchrotron
+![alt text](/img/Syncotron.png "Syncotron Schematic")
+    	+ 
  * Radius/energy/etc.
 5. Modules
  * dipole magnets
