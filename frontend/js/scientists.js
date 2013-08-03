@@ -1,6 +1,6 @@
 
-
 function Scientists($scope){
+
     $scope.updateEmployees = function(){
         list_scientists(function(data){
             $scope.scientists = data.scientists;
