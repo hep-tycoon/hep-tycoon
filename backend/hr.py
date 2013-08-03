@@ -174,4 +174,4 @@ class Scientist(object):
             Construct a random name for a scientist.
         """
         names += ['Dungs', 'Maguire', 'Bel', 'Bengoa']
-        return '{}. {}. {}'.format(choice(uppercase), choice(uppercase), choice(names))
+        return '{}. {}'.format(choice(uppercase), choice(names))
