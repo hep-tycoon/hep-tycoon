@@ -101,6 +101,8 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/JetCone.png "Jet breaking sound barrier")
  * Source: http://i.telegraph.co.uk/multimedia/archive/01410/hornet_1410652c.jpg
 7. Muon chambers
+ * These chambers are used to detect muons. Muons interact weakly so these chambers must be very thick. So thick that other particles can't go through them.
+ * A muon is an elemental particle similar to an electron but much heavier. The electron, muon and tau along with their associated neutrinoes make up the three lepton generations. Each generation is heavier than the one before. So muons are heavier than electrons and taus are havier than muons. Muons have a relatively long decay time, so they are relatively stable. This means they can pass through several meters of iron without being stopped. This is why the muon chambers must be very thick. The chambers do not stop the muons, they only slow them down by recording their positions. 
 8. Shape
 	
 #The physics of the different types of data
