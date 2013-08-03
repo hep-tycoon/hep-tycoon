@@ -118,17 +118,16 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/BubbleChamber.png "Bubble Chamber")
 * Source: http://www.learner.org/courses/physics/visual/img_lrg/bubble_chamber.jpg
 
-#The physics of the different types of data
+#Physics Goals
 
 1. Higgs search
  * Searching for the higgs boson involves looking for certain decay producs of the higgs. The higgs boson is the particle that mediates the Higgs field, which give mass to matter. See https://en.wikipedia.org/wiki/Higgs_boson. The LHC at CERN was built to discover the higgs boson. On 4th July 2012 the discovery of the Higgs boson was announced at CERN.
 ![alt text](/img/HiggsFound.png "Graph Showing the discovery of the Higgs Boson")
  * Source: http://muon.files.wordpress.com/2012/07/plot-cms-gg.gif
-2. B physics
-3. Charm
+2. Charm and Beauty Physics fro CPV
+ * Charm and Beauty physics decays involve hadrons which contain charm or beauty quarks. Physicists study these decays to learn about CP. C stands for charge conjugation, the operation which switches a particle with its anti-particle and P stands for parity, the operation analogous to switching a system with its mirror image. Physicists want to prove that the CP symmetry is violated by the weak interaction. They also want to find out to what extent CP is violated.  
 4. Neutrino physics
-5. CPV
-6. SUSY
+5. SUSY
 
 #People
 
