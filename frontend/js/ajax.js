@@ -15,10 +15,36 @@ function ajax(method, object, callback) {
     });
 }
 
+function format(type, val){
+    val += "";
+    switch(type){
+        case "int":
+            if(!/^\d+$/.test(val)){
+                throw "Invalid int " + val;
+            }
+            return val;
+        case "float":
+            if(!~val.indexOf(".")){
+                val += ".0";
+            }
+            if(!/^\d+\.\d+$/.test(val)){
+                throw "Invalid float " + val;
+            }
+            return val;
+    }
+    throw "Undefined type " + type;
+}
+
 function ajax_sugar(url, arg_names){
     var args = Array.prototype.slice.call(arguments, 2);
-    url = url.replace(/<([^>]+)>/g, function(){
-        return args.shift();
+    url = url.replace(/<([^>]+)>/g, function(_, name){
+        var val = args.shift();
+        var pos = name.indexOf(":");
+        if(pos > 0){
+            var type = name.substring(0, pos);
+            val = format(type, val);
+        }
+        return val;
     });
     ajax("GET", url, args.shift());
 }
