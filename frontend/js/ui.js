@@ -45,7 +45,7 @@ function formatDate(date){
   var month = MONTHS[date.getMonth()];
   var day = "0" + date.getDate();
   day = day.substring(day.length-2);
-  return day + " " + month + " " + date.getFullYear();
+  return month + " " + date.getFullYear();
 }
 
 function updateClock(){
