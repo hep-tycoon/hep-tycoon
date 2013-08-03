@@ -4,7 +4,7 @@
 
 from flask import Flask, jsonify
 
-app = Flask('HEP Tycoon Testserver')
+app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 
 # testing the hr
 from backend.hr import HR
@@ -40,6 +40,16 @@ def fire_scientists(n):
         'penalty': penalty
     })
 
+def methods_json():
+    methods = []
+    for rule in app.url_map.iter_rules():
+        methods.append({
+            "url": rule.rule,
+            "args": list(rule.arguments),
+            "name": rule.endpoint
+        })
+    import json
+    print json.dumps(methods)
 
 if __name__ == '__main__':
     app.run()
