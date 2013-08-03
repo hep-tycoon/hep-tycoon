@@ -1,4 +1,4 @@
-GameManager(object):
+class GameManager(object):
     """
         The core piece of code that manages the game.
     """
