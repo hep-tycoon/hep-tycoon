@@ -8,7 +8,7 @@ angular.module("Tycoon", [])
 
 function jetons(input, $filter) {
   var curSymbol = curSymbol || "JTN ";
-  var decPlaces = decPlaces || 2;
+  var decPlaces = decPlaces || 0;
   var thouSep = thouSep || ",";
   var decSep = decSep || ".";
 
