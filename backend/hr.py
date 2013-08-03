@@ -167,10 +167,11 @@ class Scientist(object):
 
     @staticmethod
     def random_name():
+        from nobel import names
         from random import choice
         from string import uppercase
         """
             Construct a random name for a scientist.
         """
-        names = ['Hansen', 'Petersen', 'Klausen', 'Dungs', 'Maguire', 'Bel', 'Bengoa']
+        names = names + ['Dungs', 'Maguire', 'Bel', 'Bengoa']
         return '{}. {}. {}'.format(choice(uppercase), choice(uppercase), choice(names))
