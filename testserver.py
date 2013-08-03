@@ -85,11 +85,12 @@ def get_detectors():
     detectors = gamemanager.accelerator.detectors
 
     all_detectors = set(technology.query_tech_tree(["detectors"]).keys())
-    installed = set([d.name for d in detectors])
+    installed = set([d.slug for d in detectors])
     avaliable = all_detectors.difference(installed)
 
     return jsonify(
         detectors=[d.json() for d in detectors],
+        max_detectors=gamemanager.accelerator.slots,
         free_slots=gamemanager.accelerator.free_slots,
         available=[technology.from_tech_tree("detectors", d, 0).json() for d in avaliable],
     )

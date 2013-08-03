@@ -199,8 +199,8 @@
             <div ng-repeat="detector in detectors">
               <li class="list-group-item">
                 <div class="pull-right btn-group">
-                    <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgradeCost|currency}})</small></a>
-                    <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.removeCost|currency}})</small></a>
+                    <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgradeCost|currency}})</small></a>
+                    <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.removeCost|currency}})</small></a>
                 </div>
                 <h4>{{detector.name}}</h4>
                 <p>{{detector.description}}</p>

@@ -63,15 +63,19 @@ class GameManager(object):
     def accelerator_upgrade(self):
         assert self.accelerator.can_upgrade
         self.accelerator = self.accelerator.upgrade_from_tech_tree()
-    
+
+    @upgrade_technology_hook
     def detector_buy(self, slug):
         self.accelerator.add_detector(technology.from_tech_tree("detectors", slug, 0))
-    
-    def detector_remove(self): pass
-    
+
     @upgrade_technology_hook
-    def detector_upgrade(self): pass
-    
+    def detector_remove(self, slug):
+        self.accelerator.remove_detector(slug)
+
+    @upgrade_technology_hook
+    def detector_upgrade(self, slug):
+        self.accelerator.upgrade_detector(slug)
+
     @upgrade_technology_hook
     def datacentre_upgrade(self):
         assert self.data_centre.can_upgrade

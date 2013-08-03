@@ -37,6 +37,12 @@ class Accelerator(Technology):
         self.purity = purity
         self.detectors = []
 
+    def get_index_by_slug(self, slug):
+        for i,d in enumerate(self.detectors):
+            if d.slug == slug:
+                return i
+        raise Exception("Slug not found")
+
     def add_detector(self, detector):
         """
             Add a detector to the accelerator.
@@ -46,6 +52,13 @@ class Accelerator(Technology):
         if self.free_slots <= 0:
             raise NoMoreFreeSlotsException()
         self.detectors.append(detector)
+
+    def remove_detector(self, slug):
+        del self.detectors[self.get_index_by_slug(slug)]
+
+    def upgrade_detector(self, slug):
+        i = self.get_index_by_slug(slug)
+        self.detectors[i] = self.detectors[i].upgrade_from_tech_tree()
 
     def run(self, time):
         from data_set import DataSet
@@ -87,12 +100,16 @@ class Detector(Technology):
     def process_events(self, size, purity):
         return (size * self.rate_factor, purity * self.purity_factor)
 
+    @property
+    def slug(self):
+        return self.query[-2]
+
     def json(self):
         res = Technology.json(self)
         res.update({
             "purity_factor": self.purity_factor,
             "rate_factor": self.rate_factor,
-            "slug": self.query[-2]
+            "slug": self.slug
         })
         return res
 
