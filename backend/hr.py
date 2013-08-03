@@ -82,7 +82,7 @@ class HR(object):
         if n > self.num_scientists:
             n = self.num_scientists
         penalty = sum([s.firing_penalty for s in self._scientists[:n]])
-        del(self._scientists[:n]
+        del(self._scientists[:n])
         return n, penalty
 
     def sum_salary(self):
