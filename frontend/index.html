@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-glyphicons.css">
     <link rel="stylesheet" href="css/hep-tycoon.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/ajax.js"></script>
     <title>HEP Tycoon</title>
   </head>
   <body>
@@ -37,7 +34,7 @@
           <p class="pull-right"><strong><span id="iGrantPts">450</span>/<span id="iReqGrantPts">1000</span></strong> <span class="glyphicon glyphicon-briefcase"></span></p>
           <p>Upon completion, receive <span class="glyphicon glyphicon-magnet"></span> <span id="iGrantFunds">1000</span></p>
         </div>
-        <div class="panel panel-primary" id="staff">
+        <div class="panel panel-primary" id="staff" ng-controller="Scientists">
           <div class="panel-heading">
             <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Scientists</h3>
           </div>
@@ -58,18 +55,22 @@
               <fieldset>
                 <legend><span class="glyphicon glyphicon-shopping-cart"></span> Hire new scientists</legend>
                 <div class="form-group">
-                  <input type="number" class="form-control" id="iHireScientists" min="1" placeholder="1">
-                  <button type="submit" class="btn btn-success pull-right" data-target="#modConfirmHire" data-toggle="modal">Hire</button>
+                  <input type="number" class="form-control" ng-model="hireScientistsCount" min="1" placeholder="1">
+                  <button type="submit" class="btn btn-info pull-right" data-target="#modConfirmHire" data-toggle="modal">Hire</button>
                 </div>
-                <span class="help-block">Cost: <span id="iHireScientistsCost">2000</span></span>
+                <span class="help-block">Cost: <span id="iHireScientistsCost">{{hireScientistsCost|currency}}</span></span>
               </fieldset>
             </form>
             </li>
             <li class="list-group-item">
-            <h4><span id="iScientistCount">-</span> Employed scientists (room for <span id="iMaxScientists">10</span> total)</h4>
+            <h4>{{scientists.length}} Employed scientists (room for {{maxScientists}} total)</h4>
               <div class="well scrollable">
                 <table class="table table-striped table-hover">
-                  <tbody id="iScientistsList">
+                  <thead>
+                    <tr><th>Name</th></tr>
+                  </thead>
+                  <tbody id="iScientistsList" ng-repeat="scientist in scientists">
+                    <tr><td>{{scientist}}</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -79,14 +80,50 @@
                 <fieldset>
                   <legend><span class="glyphicon glyphicon-fire"></span> Fire scientists</legend>
                   <div class="form-group">
-                    <input type="number" class="form-control" id="iFireScientistsInput" min="1" max="2" placeholder="1">
+                    <input type="number" class="form-control" ng-model="fireScientistsCount" min="1" max="100" placeholder="1">
                     <button type="submit" class="btn btn-danger pull-right" data-target="#modConfirmFire" data-toggle="modal">Fire</button>
                   </div>
-                  <span class="help-block">Cost: <span id="iFireScientistsCost">2000</span></span>
+                  <span class="help-block">Cost: {{fireScientistsCost|currency}}</span>
                 </fieldset>
               </form>
             </li>
           </ul>
+          <!-- Modal: confirm scientist hire -->
+          <div class="modal fade" id="modConfirmHire">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Hire scientists</h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to hire {{hireScientistsCount}} scientists for {{hireScientistsCost*hireScientistsCount|currency}} per month?
+                </div>
+                <div class="modal-footer">
+                  <a href="#" class="btn">Cancel</a>
+                  <a href="#" class="btn btn-info" id="hireScientistsBtn" ng-click="hire()">Hire</a>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          <!-- Modal: confirm scientist fire -->
+          <div class="modal fade" id="modConfirmFire">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Fire scientists</h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to fire {{fireScientistsCount}} scientists? You will have to pay them {{fireScientistsCount*fireScientistsCost|currency}} in severence payments.
+                </div>
+                <div class="modal-footer">
+                  <a href="#" class="btn">Cancel</a>
+                  <a href="#" class="btn btn-danger" id="iFireScientistsBtn" ng-click="fire()">Fire</a>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
         </div>
       </div>
       <div class="col-lg-6">
@@ -168,63 +205,11 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <!-- Modal: confirm scientist salary adjustment -->
-    <div class="modal fade" id="modConfirmSalary">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Adjust scientist salaries</h4>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to adjust the salaries of your scientists to <span id="iScientistSalary">100</span>?
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn">Cancel</a>
-            <a href="#" class="btn btn-info" id="hireScientistsBtn">Adjust</a>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- Modal: confirm scientist hire -->
-    <div class="modal fade" id="modConfirmHire">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Hire scientists</h4>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to hire <span id="iHireScientistsCount">100</span> scientists for <span id="iHireScientistsCost">1000</span>?
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn">Cancel</a>
-            <a href="#" class="btn btn-success" id="hireScientistsBtn">Hire</a>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- Modal: confirm scientist fire -->
-    <div class="modal fade" id="modConfirmFire">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Fire scientists</h4>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to fire <span id="iFireScientistsCount">100</span> scientists? You will have to pay them <span id="iFireScientistsCost">1000</span> in severence payments.
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn">Cancel</a>
-            <a href="#" class="btn btn-danger" id="iFireScientistsBtn">Fire</a>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/ajax.js"></script>
+    <script src="js/scientists.js"></script>
     <script src="js/ui.js"></script>
   </body>
 </html>

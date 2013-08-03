@@ -22,21 +22,3 @@ $("#iFireScientistsBtn").click(function(){
     );
 });
 
-function updateEmployees(){
-    list_scientists(function(data){
-        var scientists = data.scientists;
-        $("#iScientistCount").text(scientists.length);
-        var $target = $("#iScientistsList").empty();
-        scientists.forEach(function(name){
-            $target.append(
-                $("<tr/>").append("<td/>").text(name)
-            );
-        });
-    });
-}
-
-updateEmployees();
-
-
-
-
