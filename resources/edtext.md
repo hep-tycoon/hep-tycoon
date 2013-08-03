@@ -72,7 +72,7 @@ We will have short sections of text in game and a section with more information
 	* This quantity is the number of particles per unit area per unit time. The integral of the luminosity with respect to time (Integrated Luminosity) gives the rate, the number of interactions per unit time. Luminosity is measured in inverse femtobarns (fb^{-1}).
 	* http://cas.web.cern.ch/cas/Bulgaria-2010/Talks-web/Herr-1-web.pdf
 
-#Detectors (different sections)
+#Detectors
 
 *Most particle physics detectors have a similar layout. The sections below explain the different parts of the following schematic.
 ![alt text](/img/CMS_Slice.png "Typical detector slice")
@@ -113,6 +113,10 @@ We will have short sections of text in game and a section with more information
  * Wedge shaped detectors like LHCb on the LHC are suited to studying charm and beauty physics. These types of decays involve hadrons which contain charm or beauty quarks. The decay products from these particles are created with high momentum in the same direction. So there is no need for the detector to surround the interaction point.
 ![alt text](/img/Shape_LHCb.png "Shape of the LHCb detector to study Charm and beauty physics")
 9. Bubble Chamber
+ * A bubble chamber is an old form of particle detector that detects and records the tracks of charged particles
+ * Bubble chambers contain a superheated liquid. When charged particles pass thorugh the liquid they vapourize it which results in the formation of bubbles along the particles track. These detectors were used historically to detect cosmic rays and were not used with accelerators.
+![alt text](/img/BubbleChamber.png "Bubble Chamber")
+* Source: http://www.learner.org/courses/physics/visual/img_lrg/bubble_chamber.jpg
 
 #The physics of the different types of data
 
