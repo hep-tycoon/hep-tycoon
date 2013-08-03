@@ -14,9 +14,10 @@
         <div class="container">
           <a class="navbar-brand" href="#">HEP Tycoon</a>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Facility</a></li>
-            <li><a href="#staff">Staff</a></li>
-            <li><a href="#">Data</a></li>
+            <li><a href="#staff">Scientists</a></li>
+            <li><a href="#accelerator">Accelerator</a></li>
+            <li><a href="#detectors">Detectors</a></li>
+            <li><a href="#dc">Data centre</a></li>
             <li><a href="#">Technology</a></li>
           </ul>
           <p class="navbar-text pull-right"><big>Current funds: <span class="label label-info" id="iFunds">&euro; 9001</span></big></p>
@@ -127,23 +128,22 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="panel panel-primary" ng-controller="Accelerators">
+        <div class="panel panel-primary" id="accelerator" ng-controller="Accelerators">
           <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-forward"></span> Accelerator</h3>
+                    
+            <h3 class="panel-title"><span class="glyphicon glyphicon-forward"></span> Accelerator
+              <span class="label label-success pull-right" ng-show="active">Running</span>
+              <span class="label label-warning pull-right" ng-hide="active">Shut down</span></h3>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
             <h1>
                 {{name}}
-                <small>
-                    <span class="label label-success pull-right" ng-show="active">Active</span>
-                    <span class="label label-warning pull-right" ng-hide="active">Inactive</span>
-                </small>
             </h1>
             </li>
              <li class="list-group-item">
               <div class="pull-right">
-                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br>(cost <span id="iUpgradeCost">200</span>)</a>
+                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost <span id="iUpgradeCost">200</span>)</small></a>
               </div>
               <div>
                 <p>Level {{level}} {{description}}</p>
