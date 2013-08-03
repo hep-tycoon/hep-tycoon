@@ -3,10 +3,11 @@ class Technology(object):
         Implement a piece of technology in the game.
         This is a base class for several other classes.
     """
-    def __init__(self, name, price, running_costs):
+    def __init__(self, name, price, running_costs, num_scientists):
         self._name = name
         self._price = price
         self._running_costs = running_costs
+        self._num_scientists = num_scientists
 
     @property
     def name(self):
@@ -20,13 +21,17 @@ class Technology(object):
     def running_costs(self):
         return self._running_costs
 
+    @property
+    def num_scientists(self):
+        return self._num_scientists
+
 
 class Accelerator(Technology):
     """
         An accelerator can store a number of experiments.
     """
-    def __init__(self, name, price, running_costs, slots, rate, purity):
-        super(Accelerator, self).__init__(name, price, running_costs)
+    def __init__(self, name, price, running_costs, num_scientists, slots, rate, purity):
+        super(Accelerator, self).__init__(name, price, running_costs, num_scientists)
         self._slots = slots
         self._rate = rate
         self._purity = purity
@@ -74,8 +79,8 @@ class Detector(Technology):
     """
         A detector processes events from the accelerator and produces data.
     """
-    def __init__(self, name, price, running_costs, purity_factor, rate_factor):
-        super(Detector, self).__init__(name, price, running_costs)
+    def __init__(self, name, price, running_costs, num_scientists, purity_factor, rate_factor):
+        super(Detector, self).__init__(name, price, running_costs, num_scientists)
         self._purity_factor = purity_factor
         self._rate_factor = rate_factor
 
@@ -92,8 +97,8 @@ def DataCentre(Technology):
     """
         The data centre stores data until it's processed by scientists.
     """
-    def __init__(self, name, price, running_costs, storage_capacity):
-        super(DataCentre, self).__init__(name, price, running_costs)
+    def __init__(self, name, price, running_costs, num_scientists, storage_capacity):
+        super(DataCentre, self).__init__(name, price, running_costs, num_scientists)
         self._storage_capacity = storage_capacity
 
     @property
