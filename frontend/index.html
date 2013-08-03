@@ -186,23 +186,23 @@
             </li>
           </ul>
 		</div>
-        <div class="panel panel-primary" id="grant">
+        <div class="panel panel-primary" id="grant" ng-controller="DataCenter">
           <div class="panel-heading">
             <h3 class="panel-title"><span class="glyphicon glyphicon-hdd"></span> Data centre</h3>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-info" style="width: 31%"></div>
+                <div class="progress-bar progress-bar-info" ng-style="getProgressbarStyle()"></div>
               </div>
-              <p class="text-right"><strong><span id="iGrantPts">31</span>/<span id="iReqGrantPts">100</span> PetaBytes</strong></p>
+              <p class="text-right"><strong>{{usage}}/{{capacity}} PetaBytes</strong></p>
             </li>
             <li class="list-group-item">
               <div class="pull-right">
                 <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost <span id="iUpgradeCost">200</span>)</small></a>
               </div>
               <div>
-                <p>Level <span id="iDataCentreLvl">1</span> Data Centre</p>
+                <p>Level {{level}} Data Centre</p>
               </div>
             </li>
           </ul>
@@ -215,6 +215,7 @@
     <script src="js/ajax.js"></script>
     <script src="js/scientists.js"></script>
     <script src="js/accelerators.js"></script>
+    <script src="js/data-center.js"></script>
     <script src="js/ui.js"></script>
   </body>
 </html>
