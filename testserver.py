@@ -65,7 +65,7 @@ def poweron_accelerator():
 
 @app.route("/accelerator/upgrade")
 def upgrade_accelerator():
-    assert gamemanager.accelerator.can_upgrade()
+    assert gamemanager.accelerator.can_upgrade
     gamemanager.accelerator = gamemanager.accelerator.upgrade_from_tech_tree()
     return jsonify()
 
@@ -80,7 +80,7 @@ def get_detectors():
 
 @app.route("/datacenter/upgrade")
 def upgrade_datacenter():
-    assert gamemanager.datacenter.can_upgrade()
+    assert gamemanager.datacenter.can_upgrade
     gamemanager.datacenter = gamemanager.datacenter.upgrade_from_tech_tree()
     return jsonify()
 
@@ -97,4 +97,4 @@ def methods_json():
 
 methods_json()
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")

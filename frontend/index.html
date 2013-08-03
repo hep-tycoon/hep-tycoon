@@ -152,11 +152,11 @@
             <h1>{{name}}</h1>
             </li>
              <li class="list-group-item">
-              <div class="pull-right">
-                  <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
+              <div class="pull-right" ng-show="can_upgrade">
+                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
               </div>
               <div>
-                <p>Level {{level}} <a data-popover="hover">{{description}}</a></p>
+                <p>Level {{level+1}} <a data-popover="hover">{{description}}</a></p>
                 <p>&radic;s = {{energy}} TeV</p>
               </div>
             </li>
@@ -214,7 +214,7 @@
                   <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
               </div>
               <div>
-                <p>Level {{level}} Data Centre</p>
+                <p>Level {{level+1}} Data Centre</p>
               </div>
             </li>
           </ul>

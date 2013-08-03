@@ -15,14 +15,15 @@ class Technology(object):
         self.max_level = max_level
         self.query = query
 
+    @property
     def can_upgrade(self):
-        return self.level < self.max_level
+        return self.level < self.max_level - 1
 
     def upgrade_from_tech_tree(self):
         return from_tech_tree(*self.query[:-1] + [self.level + 1])
 
     def json(self):
-        return dict((key, getattr(self, key)) for key in ("name", "price", "running_costs", "num_scientists", "level", "max_level"))
+        return dict((key, getattr(self, key)) for key in ("name", "price", "running_costs", "num_scientists", "level", "max_level", "can_upgrade"))
 
 
 class Accelerator(Technology):
