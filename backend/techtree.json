@@ -4,7 +4,7 @@
             "ee": [
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Linear ee collider",
                     "slots": 1,
                     "rate": 1,
                     "purity": 1,
@@ -13,7 +13,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Linear ee collider with storage ring",
                     "running_costs": 1,
                     "slots": 2,
                     "rate": 1,
@@ -22,7 +22,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Linear ee collider with extended storage ring",
                     "running_costs": 1,
                     "slots": 3,
                     "rate": 1,
@@ -31,7 +31,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Reversed linear ee collider",
                     "running_costs": 1,
                     "slots": 4,
                     "rate": 1,
@@ -42,7 +42,7 @@
             "pp": [
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Linear pp collider",
                     "running_costs": 1,
                     "slots": 1,
                     "rate": 1,
@@ -51,7 +51,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Linear pp collider with storage ring",
                     "running_costs": 1,
                     "slots": 2,
                     "rate": 1,
@@ -60,7 +60,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Linear pp collider with extended storage ring",
                     "running_costs": 1,
                     "slots": 3,
                     "rate": 1,
@@ -69,7 +69,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "Reversed linear pp collider",
                     "running_costs": 1,
                     "slots": 4,
                     "rate": 1,
@@ -82,7 +82,7 @@
             "ee": [
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "ee Cyclotron",
                     "running_costs": 1,
                     "slots": 1,
                     "rate": 1,
@@ -91,7 +91,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "ee Synchrotron",
                     "running_costs": 1,
                     "slots": 2,
                     "rate": 1,
@@ -100,18 +100,18 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "ee Super Synchrotron",
                     "running_costs": 1,
-                    "slots": 3,
+                    "slots": 5,
                     "rate": 1,
                     "purity": 1,
                     "num_scientists": 1
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "ee Hyper Synchrotron",
                     "running_costs": 1,
-                    "slots": 4,
+                    "slots": 12,
                     "rate": 1,
                     "purity": 1,
                     "num_scientists": 1
@@ -120,7 +120,7 @@
             "pp": [
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "pp Cyclotron",
                     "running_costs": 1,
                     "slots": 1,
                     "rate": 1,
@@ -129,7 +129,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "pp Synchrotron",
                     "running_costs": 1,
                     "slots": 2,
                     "rate": 1,
@@ -138,23 +138,87 @@
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "pp Super Synchrotron",
                     "running_costs": 1,
-                    "slots": 3,
+                    "slots": 5,
                     "rate": 1,
                     "purity": 1,
                     "num_scientists": 1
                 },
                 {
                     "price": 1,
-                    "name": "LHC",
+                    "name": "pp Hyper Synchrotron",
                     "running_costs": 1,
-                    "slots": 4,
+                    "slots": 12,
                     "rate": 1,
                     "purity": 1,
                     "num_scientists": 1
                 }
             ]
         }
-    }
+    },
+    "detectors": [
+                {
+                    "price": 1,
+                    "name": "Bubble Chamber",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Calorimeter",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Tracking Detector",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Muon Chambers",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                }
+                ],
+    "datacentres": [
+                {
+                    "price": 1,
+                    "name": "Tape Storage",
+                    "storage_capacity": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Hard Drive Storage",
+                    "storage_capacity": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Cluster Storage",
+                    "storage_capacity": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "The Grid",
+                    "storage_capacity": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                }
+                ]
 }
