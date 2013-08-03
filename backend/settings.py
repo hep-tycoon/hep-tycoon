@@ -4,7 +4,7 @@
 """
 
 # Game set up
-INITIAL_FUNDS = 1
+INITIAL_FUNDS = 9000001
 
 # Scientist
 GLOBAL_SKILL = 1  # the scientists' skill

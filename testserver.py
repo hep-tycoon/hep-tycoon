@@ -13,25 +13,33 @@ app.debug = True
 gamemanager = GameManager('My cool lab', 'linear', 'ee')
 hr = gamemanager.hr_manager  # just for testing, later we should use only the game manager
 
+def jsonres(**obj):
+    return jsonify(
+        response=obj,
+        gameStatus={
+            "funds": gamemanager.funds
+        }
+    )
+
 @app.route('/')
 def index():
     return redirect('/frontend/index.html')
 
 @app.route('/time')
 def time():
-    return jsonify(**{
+    return jsonres(**{
         'time': gamemanager.start_time
     })
 
 @app.route('/funds')
 def funds():
-    return jsonify(**{
+    return jsonres(**{
         'funds': gamemanager.funds
     })
 
 @app.route('/hr/scientists/')
 def list_scientists():
-    return jsonify(**{
+    return jsonres(**{
         'max_scientists': hr.max_scientists,
         'scientists': map(str, hr.scientists)
     })
@@ -39,7 +47,7 @@ def list_scientists():
 @app.route('/hr/hire/<int:n>')
 def hire_scientists(n):
     hired = gamemanager.hr_hire(n)
-    return jsonify(**{
+    return jsonres(**{
         'n': n,
         'hired': hired
     })
@@ -47,7 +55,7 @@ def hire_scientists(n):
 @app.route('/hr/fire/<int:n>')
 def fire_scientists(n):
     fired, penalty = hr.fire(n)
-    return jsonify(**{
+    return jsonres(**{
         'n': n,
         'fired': fired,
         'penalty': penalty
@@ -58,31 +66,31 @@ def set_salary(newsalary):
     assert newsalary >= 0
     for scientist in hr.scientists:
         scientist.salary = newsalary
-    return jsonify()
+    return jsonres()
 
 @app.route("/accelerator")
 def get_accelerator():
-    return jsonify(**gamemanager.accelerator.json())
+    return jsonres(**gamemanager.accelerator.json())
 
 
 @app.route("/accelerator/shutdown")
 def shutdown_accelerator():
     gamemanager.accelerator_stop()
-    return jsonify()
+    return jsonres()
 
 @app.route("/accelerator/poweron")
 def poweron_accelerator():
     gamemanager.accelerator_start()
-    return jsonify()
+    return jsonres()
 
 @app.route("/accelerator/upgrade")
 def upgrade_accelerator():
     gamemanager.accelerator_upgrade()
-    return jsonify()
+    return jsonres()
 
 @app.route("/datacenter")
 def get_datacenter():
-    return jsonify(**gamemanager.data_centre.json())
+    return jsonres(**gamemanager.data_centre.json())
 
 @app.route("/detectors")
 def get_detectors():
@@ -92,7 +100,7 @@ def get_detectors():
     installed = set([d.slug for d in detectors])
     avaliable = all_detectors.difference(installed)
 
-    return jsonify(
+    return jsonres(
         detectors=[d.json() for d in detectors],
         max_detectors=gamemanager.accelerator.slots,
         free_slots=gamemanager.accelerator.free_slots,
@@ -102,22 +110,22 @@ def get_detectors():
 @app.route("/detector/<detector>/upgrade")
 def upgrade_detector(detector):
     gamemanager.detector_upgrade(detector)
-    return jsonify()
+    return jsonres()
 
 @app.route("/detector/<detector>/remove")
 def remove_detector(detector):
     gamemanager.detector_remove(detector)
-    return jsonify()
+    return jsonres()
 
 @app.route("/detector/<detector>/add")
 def buy_detector(detector):
     gamemanager.detector_buy(detector)
-    return jsonify()
+    return jsonres()
 
 @app.route("/datacenter/upgrade")
 def upgrade_datacenter():
     gamemanager.datacentre_upgrade()
-    return jsonify()
+    return jsonres()
 
 def methods_json():
     methods = []

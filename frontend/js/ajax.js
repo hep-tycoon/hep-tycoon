@@ -8,7 +8,8 @@ function ajax(method, object, callback) {
         type: method,
         dataType: "json"
     }).done(function(data){
-        callback(data);
+        $("#iFunds").text(jetons(data.gameStatus.funds));
+        callback(data.response);
     }).error(function(){
         alert("Error"); // TODO: nicer errors
         console.log(arguments);
