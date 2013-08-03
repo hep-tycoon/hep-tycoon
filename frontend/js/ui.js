@@ -35,7 +35,7 @@ function jetons(input, $filter) {
   }
 }
 
-var startTime = new Date();
+var startTime = null;
 var GAME_SPEED = (60*60*24*365)/(30); // 30 seconds is one year
 var START_DATE = new Date(1960, 6, 4).getTime();
 var MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec".split(",");
@@ -49,11 +49,16 @@ function formatDate(date){
 }
 
 function updateClock(){
-  var elapsed = (new Date() - startTime);
+  var elapsed = new Date() - startTime;
   var gameTime = new Date(START_DATE + elapsed*GAME_SPEED);
   $clock.text(formatDate(gameTime));
 }
-setInterval(updateClock, 250);
+
+time(function(data){
+    startTime = 1000*data.time;
+    setInterval(updateClock, 250);
+});
+
 
 $('a[data-toggle=tooltip]').tooltip();
 $('a[data-popover="hover"]').popover({ title: 'get title', content: 'get content from md', html: true, trigger: 'hover' });

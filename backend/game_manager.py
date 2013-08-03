@@ -14,8 +14,10 @@ class GameManager(object):
         from hr import HR
         import settings
         import technology
+        from time import time
         """
         """
+        self.start_time = time()
         self.lab_name = lab_name
         self.data_centre = technology.from_tech_tree('datacentres', 0)
         self.accelerator = technology.from_tech_tree('accelerators', accelerator_geometry, accelerator_particles, 0)
@@ -91,3 +93,4 @@ class GameManager(object):
             Invoked after technology upgrade.
         """
         self.hr_manager.max_scientists = sum([t.num_scientists for t in self.all_technology])
+

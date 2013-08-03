@@ -18,6 +18,12 @@ def index():
     test = {'name': 'Peter', 'lastname': 'Petersen'}
     return jsonify(**test)
 
+@app.route('/time')
+def time():
+    return jsonify(**{
+        'time': gamemanager.start_time
+    })
+
 @app.route('/hr/scientists/')
 def list_scientists():
     return jsonify(**{
