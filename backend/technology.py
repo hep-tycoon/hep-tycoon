@@ -104,5 +104,5 @@ def DataCentre(Technology):
 # load the technology tree from a file (beta)
 techtree = None
 with open('techtree.json') as tt_file:
-    from json import loads
-    techtree = json.load(tt_file)
+    from json import load
+    techtree = load(tt_file)
