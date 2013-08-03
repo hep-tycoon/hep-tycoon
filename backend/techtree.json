@@ -1,0 +1,112 @@
+{
+    "accelerators": {
+        "linear": {
+            "ee": [
+                {
+                    "price": 1,
+                    "slots": 1,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 2,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 3,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 4,
+                    "rate": 1,
+                    "quality": 1
+                }
+            ],
+            "pp": [
+                {
+                    "price": 1,
+                    "slots": 1,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 2,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 3,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 4,
+                    "rate": 1,
+                    "quality": 1
+                }
+            ]
+        },
+        "circular": {
+            "ee": [
+                {
+                    "price": 1,
+                    "slots": 1,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 2,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 3,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 4,
+                    "rate": 1,
+                    "quality": 1
+                }
+            ],
+            "pp": [
+                {
+                    "price": 1,
+                    "slots": 1,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 2,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 3,
+                    "rate": 1,
+                    "quality": 1
+                },
+                {
+                    "price": 1,
+                    "slots": 4,
+                    "rate": 1,
+                    "quality": 1
+                }
+            ]
+        }
+    }
+}
