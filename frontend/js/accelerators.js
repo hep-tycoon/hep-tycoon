@@ -8,11 +8,32 @@ function Accelerators($scope) {
     $scope.cost = 200;
 
     $scope.shutdown = function(){
-      $scope.active = false;
+      shutdown_accelerator(function(){
+        $scope.active = false;
+        $scope.$apply();
+      });
     };
 
     $scope.powerOn = function(){
-      $scope.active = true;
+      poweron_accelerator(function(){
+        $scope.active = true;
+        $scope.$apply();
+      });
     };
+
+    $scope.upgrade = function(){
+      upgrade_accelerator(function(){
+        $scope.update();
+      });
+    };
+
+    $scope.update = function(){
+      get_accelerator(function(res){
+        angular.extend($scope, res);
+        $scope.$apply();
+      });
+    };
+
+    $scope.update();
 }
 

@@ -40,6 +40,47 @@ def fire_scientists(n):
         'penalty': penalty
     })
 
+@app.route("/hr/salary/<float:newsalary>")
+def set_salary(newsalary):
+    assert newsalary >= 0
+    for scientist in hr.scientists:
+        scientist.salary = newsalary
+    return jsonify()
+
+@app.route("/accelerator")
+def get_accelerator():
+    return jsonify(**gamemanager.accelerator.json())
+
+
+@app.route("/accelerator/shutdown")
+def shutdown_accelerator():
+    return jsonify()
+
+@app.route("/accelerator/poweron")
+def poweron_accelerator():
+    return jsonify()
+
+@app.route("/accelerator/upgrade")
+def upgrade_accelerator():
+    assert gamemanager.accelerator.can_upgrade()
+    gamemanager.accelerator = gamemanager.accelerator.upgrade_from_tech_tree()
+    return jsonify()
+
+@app.route("/datacenter")
+def upgrade_datacenter():
+    return jsonify(**gamemanager.datacenter.json())
+
+@app.route("/detectors")
+def upgrade_datacenter():
+    detectors = gamemanager.accelerator.detectors
+    return jsonify(detectors=detectors)
+
+@app.route("/datacenter/upgrade")
+def upgrade_datacenter():
+    assert gamemanager.datacenter.can_upgrade()
+    gamemanager.datacenter = gamemanager.datacenter.upgrade_from_tech_tree()
+    return jsonify()
+
 def methods_json():
     methods = []
     for rule in app.url_map.iter_rules():

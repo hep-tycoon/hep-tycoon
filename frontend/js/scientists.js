@@ -30,7 +30,13 @@ function Scientists($scope){
     };
 
     $scope.adjustSalary = function(){
-        $scope.hireScientistsCost = $scope.hireScientistsCostNew;
+        set_salary(
+            $scope.hireScientistsCostNew,
+            function(){
+                $scope.hireScientistsCost = $scope.hireScientistsCostNew;
+                $scope.$apply();
+            }
+        );
     };
 
     $scope.maxScientists = 100;

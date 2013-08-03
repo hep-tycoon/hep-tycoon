@@ -18,6 +18,9 @@ class Technology(object):
     def upgrade_from_tech_tree(self):
         return from_tech_tree(*self.query[:-1] + [self.level + 1])
 
+    def json(self):
+        return dict((key, getattr(self, key)) for key in ("name", "price", "running_costs", "num_scientists", "level", "max_level"))
+
 class Accelerator(Technology):
     """
         An accelerator can store a number of experiments.
@@ -49,6 +52,17 @@ class Accelerator(Technology):
     @property
     def free_slots(self):
         return self._slots - len(self._detectors)
+
+    def json(self):
+        res = Technology.json(self)
+        res.update({
+            "free_slots": self.free_slots,
+            "slots": self.slots,
+            "rate": self.rate,
+            "purity": self.purity,
+        })
+        return res
+
 
 class Detector(Technology):
     """
