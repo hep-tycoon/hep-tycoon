@@ -29,9 +29,14 @@ function Scientists($scope){
         );
     };
 
+    $scope.adjustSalary = function(){
+        $scope.hireScientistsCost = $scope.hireScientistsCostNew;
+    };
+
     $scope.maxScientists = 100;
     $scope.fireScientistsCost = 1000;
     $scope.hireScientistsCost = 1000;
+    $scope.hireScientistsCostNew = 1000;
     $scope.updateEmployees();
 
 }

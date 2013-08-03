@@ -44,8 +44,8 @@
               <fieldset>
                 <legend><span class="glyphicon glyphicon-sort"></span> Adjust scientist salaries</legend>
                 <div class="form-group">
-                  <input type="number" class="form-control" id="iSalary" min="0" max="10" placeholder="1">
-                  <button type="submit" class="btn btn-info pull-right" data-target="#modConfirmSalary" data-toggle="modal">Adjust</button>
+                  <input type="number" class="form-control" ng-model="hireScientistsCostNew" min="0" placeholder="1">
+                  <button type="submit" class="btn btn-info pull-right" ng-click="adjustSalary()" ng-disabled="hireScientistsCostNew == hireScientistsCost">Adjust</button>
                 </div>
               </fieldset>
             </form>
