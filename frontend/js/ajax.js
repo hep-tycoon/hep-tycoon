@@ -1,5 +1,5 @@
 
-var API_ROOT = "http://localhost:5000";
+var API_ROOT = "";
 var METHODS = [{"url": "/hr/scientists/", "args": [], "name": "list_scientists"}, {"url": "/", "args": [], "name": "index"}, {"url": "/hr/hire/<float:salary>/<int:n>", "args": ["salary", "n"], "name": "hire_scientists"}, {"url": "/hr/fire/<int:n>", "args": ["n"], "name": "fire_scientists"}, {"url": "/static/<path:filename>", "args": ["filename"], "name": "static"}];
 
 function ajax(method, object, callback) {
