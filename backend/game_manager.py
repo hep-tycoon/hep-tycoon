@@ -13,11 +13,12 @@ class GameManager(object):
     def __init__(self, lab_name, accelerator_geometry, accelerator_particles):
         from hr import HR
         import settings
+        import technology
         """
         """
         self._lab_name = lab_name
-        self._data_centre = technology.from_tech_tree('datacentre', 0)
-        self._accelerator = technology.from_tech_tree('accelerator', accelerator_geometry, accelerator_particles, 0)
+        self._data_centre = technology.from_tech_tree('datacentres', 0)
+        self._accelerator = technology.from_tech_tree('accelerators', accelerator_geometry, accelerator_particles, 0)
         self._funds = settings.INITIAL_FUNDS - self._accelerator.price
         self._hr_manager = HR(self._accelerator.num_scientists)
         self._accelerator_started = 0
@@ -37,21 +38,29 @@ class GameManager(object):
     def accelerator_start(self):
         from time import time
         """
+            Start the data-taking.
+            Returns False if the accelerator is already running.
         """
         if not self.accelerator_running:
             self._accelerator_started = time()
+            return True
+        return False
     
     def accelerator_stop(self):
-        from data_set import DataSet
         from time import time
         """
+            Stop the data-taking and store the collected data in the data storage.
+            Returns the number of collected data sets and the mean purity.
         """
         if self.accelerator_running:
             runtime = time() - self._accelerator_started
             self._accelerator_started = 0
-            for detector in self._accelerator.detectors:
-                # working here
-                data = DataSet(size, purity)
+            data = self._accelerator.run(runtime)
+            n = len(data)
+            mean_purity = sum([d.purity for d in data]) / n
+            self._data_centre.store(data)
+            return n, mean_purity
+        return 0, 0
 
     @upgrade_technology_hook
     def accelerator_upgrade(self): pass

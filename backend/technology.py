@@ -44,11 +44,17 @@ class Accelerator(Technology):
         self._detectors.append(detector)
 
     def run(self, time):
+        from data_set import DataSet
         """
             Run the accelerator for an amount of time.
             Returns the data sets produced by the experiments or something like that.
         """
-        pass  # implement!
+        datasets = []
+        size = time * self.rate
+        for detector in self.detectors:
+            for i in range(int(size * detector.rate_factor)):
+                datasets.append(DataSet(self.purity * detector.purity_factor))
+        return datasets
 
     @property
     def free_slots(self):
@@ -95,8 +101,12 @@ class DataCentre(Technology):
 
     @storage_capacity.setter
     def storage_capacity(self, value):
-        old = self._storage
-        self._storage = deque(old, maxlen=value)
+        from collections import deque
+        """
+            Update the storage capacity.
+            Since deques are used, all the data has to be moved which in a way is quite realistic.
+        """
+        self._storage = deque(self._storage, maxlen=value)
 
     @property
     def storage_used(self):
@@ -109,8 +119,16 @@ class DataCentre(Technology):
     def empty(self):
         return self.storage_used == 0
 
-    def store(self, dataset):
-        self._storage.append(dataset)
+    def store(self, data):
+        from collections import Iterable
+        """
+            Add one or multiple datasets to the store.
+            If the store is over capacity, old data is just dumped.
+        """
+        if isinstance(data, Iterable):
+            self._storage.extend(data)
+        else:
+            self._storage.append(data)
 
     def retrieve(self):
         if self.empty():
