@@ -1,5 +1,3 @@
-from ht_exceptions import NegativeSalaryException, NegativeNumberScientistsException
-
 class HR(object):
     """
         Manage human resources in the game.
@@ -60,7 +58,7 @@ class HR(object):
         return self.max_scientists - self.num_scientists
 
     def hire(self, salary, n=1):
-        from scientist import Scientist
+        from ht_exceptions import NegativeSalaryException, NegativeNumberScientistsException
         """
             Hire n new scientists with a certain salary.
             Since at this point they are all the same it is pretty straightforward.
@@ -71,13 +69,14 @@ class HR(object):
         if salary < 0:
             raise NegativeSalaryException()
         if n < 0:
-            raise NegativeSalaryException()
+            raise NegativeNumberScientistsException()
         if n > self.positions:
             n = self.positions  # hire as many as possible
         self._scientists.extend([Scientist(salary) for i in range(n)])
         return n
 
     def fire(self, n=1):
+        from ht_exceptions import NegativeNumberScientistsException
         """
             Fire n scientists.
             Since they are all the same, it doesn't matter whom you fire, right?
@@ -101,6 +100,7 @@ class HR(object):
         return sum([s.salary for s in self._scientists])
 
     def adjust_salary(self, salary):
+        from ht_exceptions import NegativeSalaryException
         """
             Set the salary for all the scientists.
             This is only valid as long as all scientists are treated the same.
@@ -109,3 +109,68 @@ class HR(object):
             raise NegativeSalaryException()
         for s in self._scientists:
             s.salary = salary
+
+
+class Scientist(object):
+    """
+        A scientist in the game.
+    """
+    def __init__(self, salary):
+        import settings
+        """
+            Create a new scientist with a given salary.
+            The name is (at this point) assigned randomly.
+            All the other variables are the same for all scientists.
+        """
+        self._name = Scientist.random_name()
+        self._salary = salary
+        # set parameters according to global options
+        self._skill = settings.GLOBAL_SKILL
+        self._firing_penalty_factor = settings.GLOBAL_FIRING_PENALTY_FACTOR
+        self._firing_penalty_constant = settings.GLOBAL_FIRING_PENALTY_CONSTANT
+
+    def __str__(self):
+        """
+            Return a string identifying the scientist.
+            At this point it's just the name since skill and salary are the same for all of them.
+        """
+        return '{}'.format(self._name)
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def salary(self):
+        return self._salary
+
+    @salary.setter
+    def salary(self, salary):
+        self._salary = salary
+
+    @property
+    def productivity(self):
+        from math import exp
+        import settings
+        """
+            Very cool logistic function for the productivity of the scientist.
+        """
+        return 2.0 / (1 + exp(-settings.GLOBAL_PRODUCTIVITY_CONVERSION * self.salary)) - 1
+
+    @property
+    def skill(self):
+        return self._skill
+
+    @property
+    def firing_penalty(self):
+        return self._salary * self._firing_penalty_factor + self._firing_penalty_constant
+
+    @staticmethod
+    def random_name():
+        from random import choice
+        from string import uppercase
+        """
+            Construct a random name for a scientist.
+        """
+        names = ['Hansen', 'Petersen', 'Klausen', 'Dungs', 'Maguire', 'Bel']
+        return '{}. {}. {}'.format(choice(uppercase), choice(uppercase), choice(names))
