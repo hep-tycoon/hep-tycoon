@@ -102,10 +102,7 @@ class GameManager(object):
         self.hr_manager.adjust_salary(salary)
 
     def pay_running_costs(self):
-        totalCost = accelerator.running_costs;
-        for detector in accelerator.detectors:
-            totalCost += detector.running_costs;
-        totalCost += data_centre.running_costs;
+        totalCost = sum([tech.running_costs for tech in self.all_technology()])
         self.funds -= totalCost;
     
     def pay_salaries(self):
