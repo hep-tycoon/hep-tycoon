@@ -18,10 +18,11 @@ We will have short sections of text in game and a section with more information
  * pp beams have a lot of backgorund noise because they collide protons. Protons are not elementary particles, they are made up of three quarks, up up and down (uud). The high energy given to the protons by the collider allows more particles to be present in the proton. So it may contain more than three quarks and many gluons. So in every pp interaction there can be many different interactions between all the different particles inside a proton which creates a lot of different types of particles that hide the events you are interested in. Proton's do produce syncotron radiation when they move through a bending magnetic field, but because of their high mass the effect is very small.
  * Example: http://home.web.cern.ch/about/accelerators/large-hadron-collider
 3. linear
- * These machines accelerate particles in a stright line. Such a device is usually called a Linac. High energy linacs need to be very long, so take up a lot of space.
+ * These machines accelerate particles in a stright line. Such a device is usually called a Linac. High energy linacs need to be very long, so take up a lot of space. Their disadvantage is 
  * Linacs can have a fixed traget at the end, or a storage ring which can hold the beam for many hours. They can also accelerate two beams at the same time and bend them towards eachother for a collison.
  * Example: http://www-sldnt.slac.stanford.edu/alr/slc.htm
 4. Circular
+ * These accelerators 
  * Cyclotron
     	+ A cheap and compact acceletrator of charged particles with relatively high luminosity. However, it can't acceletrate particles to a very high energy because it doesn't adjust for relativistic effects 
     	+ A cyclotron is an early form of particle accelerator which produces charged particles at the center of a circle and uses rapidly varying RF electric fields to accelerate the particles. It uses a static magnetic field to keep the particles in a spiral trajectory away from the center of the circle. It can then fire the beam out in a stright line to use in experiments. See http://en.wikipedia.org/wiki/Cyclotron#Principle_of_operation
