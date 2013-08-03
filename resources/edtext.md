@@ -125,20 +125,18 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/HiggsFound.png "Graph Showing the discovery of the Higgs Boson")
  * Source: http://muon.files.wordpress.com/2012/07/plot-cms-gg.gif
 2. Charm and Beauty Physics fro CPV
- * Charm and Beauty physics decays involve hadrons which contain charm or beauty quarks. Physicists study these decays to learn about CP. C stands for charge conjugation, the operation which switches a particle with its anti-particle and P stands for parity, the operation analogous to switching a system with its mirror image. Physicists want to prove that the CP symmetry is violated by the weak interaction. They also want to find out to what extent CP is violated.  
+ * Charm and Beauty physics decays involve hadrons which contain charm or beauty quarks. Physicists study these decays to learn about CP. C stands for charge conjugation, the operation which switches a particle with its anti-particle and P stands for parity, the operation analogous to switching a system with its mirror image. Physicists want to prove that the CP symmetry is violated by the weak interaction. They also want to find out to what extent CP is violated. The standard model (SM) preditcs very small CPV, so if we find high CPV this indicates new physics beyond the standard model.
 4. Neutrino physics
 5. SUSY
-
-#People
-
-1. Ph.d
-2. Fellow
-3. Professor
-
-#Info about scientists if we have names
-1. Not in the code yet
+ * SUSY stands for SUper SYmmetry. Many physicists at particle colliders are trying to find evidence for this theory. See http://en.wikipedia.org/wiki/Supersymmetry.
+![alt text](/img/SUZY.png "SUZY particles")
+ * Source: http://scitechdaily.com/images/Susy-particles.jpg
 
 #Misc
 
 1. Proton source
+ * See http://www.lhc-closer.es/1/3/10/0
 2. Antimatter
+ * Every particle of matter has a corresponding anti-particle. The first observed anti-matter was in 1929 when the positron was observed, the anti-particle of the electron. At HEP research centers physicists create anti Hydrogen atoms to do experiments on anti-matter.
+![alt text](/img/Positron.png "SUZY particles")
+ * Source: http://www.hep.man.ac.uk/babarph/babarphysics/images/positron.gif
