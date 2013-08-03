@@ -2,7 +2,7 @@
     A minimal server for testing stuff.
 """
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect
 from backend import technology
 from backend.game_manager import GameManager
 
@@ -15,8 +15,7 @@ hr = gamemanager.hr_manager  # just for testing, later we should use only the ga
 
 @app.route('/')
 def index():
-    test = {'name': 'Peter', 'lastname': 'Petersen'}
-    return jsonify(**test)
+    return redirect('/frontend/index.html')
 
 @app.route('/time')
 def time():
