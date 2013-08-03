@@ -69,8 +69,12 @@ We will have short sections of text in game and a section with more information
 6. Luminosity
 	* The higher the luminosity the more collisons per second.
 	* This quantity is the number of particles per unit area per unit time. The integral of the luminosity with respect to time (Integrated Luminosity) gives the rate, the number of interactions per unit time. Luminosity is measured in inverse femtobarns (fb^{-1}).
+	* http://cas.web.cern.ch/cas/Bulgaria-2010/Talks-web/Herr-1-web.pdf
 
 #Detectors (different sections)
+
+*Most particle physics detectors have a similar layout. The sections below explain the different parts of the following schematic.
+![alt text](/img/CMS_Slice.png "Typical detector slice")
 
 1. muon chambers
 2. hadronic calorimeter
