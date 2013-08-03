@@ -6,25 +6,29 @@
                     "price": 1,
                     "slots": 1,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 2,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 3,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 4,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 }
             ],
             "pp": [
@@ -32,25 +36,29 @@
                     "price": 1,
                     "slots": 1,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 2,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 3,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 4,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 }
             ]
         },
@@ -60,25 +68,29 @@
                     "price": 1,
                     "slots": 1,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 2,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 3,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 4,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 }
             ],
             "pp": [
@@ -86,25 +98,29 @@
                     "price": 1,
                     "slots": 1,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 2,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 3,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 },
                 {
                     "price": 1,
                     "slots": 4,
                     "rate": 1,
-                    "purity": 1
+                    "purity": 1,
+                    "num_scientists": 1
                 }
             ]
         }
