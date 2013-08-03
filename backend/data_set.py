@@ -1,3 +1,3 @@
 from collections import namedtuple
 
-DataSet = namedtuple('DataSet', ['size', 'purity'])
+DataSet = namedtuple('DataSet', ['purity'])
