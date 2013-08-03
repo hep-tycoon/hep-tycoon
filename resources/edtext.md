@@ -55,7 +55,9 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/Bunches.png "Bunches")
 ![alt text](/img/RFaccelerator.png "Bunches")
  * Kicker magnets
- 		+ Usually large particle colliders have smaller colliders that speed up the bunches before they are injected into the main collider. Kicker magnets can, very quickly, move a beam from a circular trajectory to a straight line trajectory or vise versa. So they enable accelerators to be connected to eachother. They can also connect the accelerator to the beam dump. 
+ 		+ Kicker magnets can, very quickly, move a beam from a circular trajectory to a straight line trajectory or vise versa
+ 		+ Usually large particle colliders have smaller colliders that speed up the bunches before they are injected into the main collider. Kicker magnets can, very quickly, move a beam from a circular trajectory to a straight line trajectory or vise versa. So they enable accelerators to be connected to eachother. They can also connect the accelerator to the beam dump. The Kicker magnet needs to turn on and off extremely quickly. It must be able to turn on in the time between one bunch and the next. This can be as small as 25 nano seconds (ns). 
+![alt text](/img/RFaccelerator.png "Bunches")
  * Beam dump
  * Collimaters
  * bunches
