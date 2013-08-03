@@ -121,6 +121,9 @@ We will have short sections of text in game and a section with more information
 #The physics of the different types of data
 
 1. Higgs search
+ * Searching for the higgs boson involves looking for certain decay producs of the higgs. The higgs boson is the particle that mediates the Higgs field, which give mass to matter. See https://en.wikipedia.org/wiki/Higgs_boson. The LHC at CERN was built to discover the higgs boson. On 4th July 2012 the discovery of the Higgs boson was announced at CERN.
+![alt text](/img/HiggsFound.png "Graph Showing the discovery of the Higgs Boson")
+ * Source: http://muon.files.wordpress.com/2012/07/plot-cms-gg.gif
 2. B physics
 3. Charm
 4. Neutrino physics
@@ -140,4 +143,3 @@ We will have short sections of text in game and a section with more information
 
 1. Proton source
 2. Antimatter
-3. Luminosity
