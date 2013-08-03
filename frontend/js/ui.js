@@ -35,6 +35,25 @@ function jetons(input, $filter) {
   }
 }
 
-$('a[data-toggle=tooltip]').tooltip();
+var startTime = new Date();
+var GAME_SPEED = (60*60*24*365)/(30); // 30 seconds is one year
+var START_DATE = new Date(1960, 6, 4).getTime();
+var MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec".split(",");
+var $clock = $("#clock_target");
 
+function formatDate(date){
+  var month = MONTHS[date.getMonth()];
+  var day = "0" + date.getDate();
+  day = day.substring(day.length-2);
+  return day + " " + month + " " + date.getFullYear();
+}
+
+function updateClock(){
+  var elapsed = (new Date() - startTime);
+  var gameTime = new Date(START_DATE + elapsed*GAME_SPEED);
+  $clock.text(formatDate(gameTime));
+}
+setInterval(updateClock, 250);
+
+$('a[data-toggle=tooltip]').tooltip();
 $('a[data-popover="hover"]').popover({ title: 'get title', content: 'get content from md', html: true, trigger: 'hover' });
