@@ -12,8 +12,9 @@ We will have short sections of text in game and a section with more information
 2. pp
 3. linear
 4. Circular
- * cyclotron
-    	+ A cyclotron is an early form of particle accelerator which produces charged particles at the center of a circle and uses RF electric fields to accelerate the particles. As the particles accelerate they spiral outwards.
+ * Cyclotron
+    	+ A cyclotron is an early form of particle accelerator which produces charged particles at the center of a circle and uses rapidly varying RF electric fields to accelerate the particles. It uses a static magnetic field to keep the particles in a spiral trajectory away from the center of the circle.
+    	+ ![alt text](/img/Cyclotron_patent.png "Title")
  * Syncotron
  * Radius/energy/etc.
 5. Modules
