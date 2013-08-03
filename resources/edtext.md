@@ -96,8 +96,8 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/AtlasMagnet.png "The Atlas solenoid")
  * Source: http://www.ep.ph.bham.ac.uk/DiscoveringParticles/lhc/experiments/images/atlas-large.jpg
 6. RICH
- * RICH detectors are used to measure the velocity and position of particles using the Cerenkov effect
- * RICH stands for Ring Imaging CHerenkov detector. The Cernenkov effect is similar to the cone of water vapour produced by a jet breaking the sound barrier. See the image below.
+ * RICH detectors are used to measure the velocity and position of particles using the Cerenkov effect. They don't directly interact with particles so they can be placed almost anywhere in the detector.
+ * RICH stands for Ring Imaging CHerenkov detector. The Cernenkov effect is similar to the cone of water vapour produced by a jet breaking the sound barrier. See the image below. When particles move thorugh a medium with a velocity greater than the velocity of light in that medium then they produce Cherenkov radiation in a cone shape. From measuring the acute angle between the particles trajectory and the cone we can determine the particles velocity and position. See https://en.wikipedia.org/wiki/Cherenkov_radiation. 
 ![alt text](/img/JetCone.png "Jet breaking sound barrier")
  * Source: http://i.telegraph.co.uk/multimedia/archive/01410/hornet_1410652c.jpg
 7. Muon chambers
@@ -106,7 +106,14 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/LeptonGens.png "Lepton Generations and quarks")
  * Source: http://physicsmasterclasses.org/exercises/keyhole/en/theory/quarks_leptons.jpg
 8. Shape
-	
+ * A detectors shpae determines what type of decays it is best suited to observing.
+ * Drum shapped detectors like CMS and ATLAS on the LHC, are designed to completely surround the collision point so that they can discover new particles.
+![alt text](/img/JetCone.png "Jet breaking sound barrier")
+ * Source: http://www.ncp.edu.pk/NCP-OLD/images/rpc/cms_3d_detector_50.gif
+ * Wedge shaped detectors like LHCb on the LHC are suited to studying charm and beauty physics. These types of decays involve hadrons which contain charm or beauty quarks. The decay products from these particles are created with high momentum in the same direction. So there is no need for the detector to surround the interaction point.
+![alt text](/img/Shape_LHCb.png "Shape of the LHCb detector to study Charm and beauty physics")
+9. Bubble Chamber
+
 #The physics of the different types of data
 
 1. Higgs search
