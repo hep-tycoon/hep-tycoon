@@ -129,7 +129,7 @@ We will have short sections of text in game and a section with more information
 4. Neutrino physics
 5. SUSY
  * SUSY stands for SUper SYmmetry. Many physicists at particle colliders are trying to find evidence for this theory. See http://en.wikipedia.org/wiki/Supersymmetry.
-![alt text](/img/SUZY.png "SUZY particles")
+![alt text](/img/SUSY.png "SUSY particles")
  * Source: http://scitechdaily.com/images/Susy-particles.jpg
 
 #Misc
@@ -138,5 +138,5 @@ We will have short sections of text in game and a section with more information
  * See http://www.lhc-closer.es/1/3/10/0
 2. Antimatter
  * Every particle of matter has a corresponding anti-particle. The first observed anti-matter was in 1929 when the positron was observed, the anti-particle of the electron. At HEP research centers physicists create anti Hydrogen atoms to do experiments on anti-matter.
-![alt text](/img/Positron.png "SUZY particles")
+![alt text](/img/Positron.png "First observed positron")
  * Source: http://www.hep.man.ac.uk/babarph/babarphysics/images/positron.gif
