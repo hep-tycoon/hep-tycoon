@@ -1,3 +1,7 @@
+import technology
+from time import time
+from hr import HR
+
 def upgrade_technology_hook(original_function):
     def new_function(self, *args, **kwargs):
         result = original_function(self, *args, **kwargs)
@@ -11,10 +15,7 @@ class GameManager(object):
         The core piece of code that manages the game.
     """
     def __init__(self, lab_name, accelerator_geometry, accelerator_particles):
-        from hr import HR
         import settings
-        import technology
-        from time import time
         """
         """
         self.start_time = time()
@@ -34,7 +35,6 @@ class GameManager(object):
         return self.accelerator_started != 0
 
     def accelerator_start(self):
-        from time import time
         """
             Start the data-taking.
             Returns False if the accelerator is already running.
@@ -45,7 +45,6 @@ class GameManager(object):
         return False
 
     def accelerator_stop(self):
-        from time import time
         """
             Stop the data-taking and store the collected data in the data storage.
             Returns the number of collected data sets and the mean purity.
@@ -65,7 +64,8 @@ class GameManager(object):
         assert self.accelerator.can_upgrade
         self.accelerator = self.accelerator.upgrade_from_tech_tree()
     
-    def detector_buy(self): pass
+    def detector_buy(self, slug):
+        self.accelerator.add_detector(technology.from_tech_tree("detectors", slug, 0))
     
     def detector_remove(self): pass
     

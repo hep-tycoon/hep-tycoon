@@ -3,13 +3,13 @@
 """
 
 from flask import Flask, jsonify
+from backend import technology
+from backend.game_manager import GameManager
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 app.debug = True
 
 # testing the game manager
-from backend.game_manager import GameManager
-
 gamemanager = GameManager('My cool lab', 'linear', 'ee')
 hr = gamemanager.hr_manager  # just for testing, later we should use only the game manager
 
@@ -27,7 +27,7 @@ def time():
 @app.route('/hr/scientists/')
 def list_scientists():
     return jsonify(**{
-        'num_scientists': hr.num_scientists,
+        'max_scientists': hr.max_scientists,
         'scientists': map(str, hr.scientists)
     })
 
@@ -63,10 +63,12 @@ def get_accelerator():
 
 @app.route("/accelerator/shutdown")
 def shutdown_accelerator():
+    gamemanager.accelerator_stop()
     return jsonify()
 
 @app.route("/accelerator/poweron")
 def poweron_accelerator():
+    gamemanager.accelerator_start()
     return jsonify()
 
 @app.route("/accelerator/upgrade")
@@ -81,7 +83,31 @@ def get_datacenter():
 @app.route("/detectors")
 def get_detectors():
     detectors = gamemanager.accelerator.detectors
-    return jsonify(detectors=detectors)
+
+    all_detectors = set(technology.query_tech_tree(["detectors"]).keys())
+    installed = set([d.name for d in detectors])
+    avaliable = all_detectors.difference(installed)
+
+    return jsonify(
+        detectors=[d.json() for d in detectors],
+        free_slots=gamemanager.accelerator.free_slots,
+        available=[technology.from_tech_tree("detectors", d, 0).json() for d in avaliable],
+    )
+
+@app.route("/detector/<detector>/upgrade")
+def upgrade_detector(detector):
+    gamemanager.detector_upgrade(detector)
+    return jsonify()
+
+@app.route("/detector/<detector>/remove")
+def remove_detector(detector):
+    gamemanager.detector_remove(detector)
+    return jsonify()
+
+@app.route("/detector/<detector>/add")
+def buy_detector(detector):
+    gamemanager.detector_buy(detector)
+    return jsonify()
 
 @app.route("/datacenter/upgrade")
 def upgrade_datacenter():

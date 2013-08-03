@@ -191,8 +191,8 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <div class="pull-right">
-                <a href="#" class="btn btn-success btn-double-width"><span class="glyphicon glyphicon-plus-sign"></span> Show available detectors</a>
+              <div class="pull-right" ng-show="free_slots > 0">
+                <a href="#modDetectors" data-toggle="modal" class="btn btn-success btn-double-width"><span class="glyphicon glyphicon-plus-sign"></span> Show available detectors</a>
               </div>
               <h4>{{detectors.length}}/{{max_detectors}} detector slots in use</h4>
             </li>
@@ -207,6 +207,25 @@
               </li>
             </div>
           </ul>
+          <!-- Modal: confirm scientist hire -->
+          <div class="modal fade" id="modDetectors">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Available detectors</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" ng-repeat="detector in availableDetectors">
+                            <h4>{{detector.name}}</h4>
+                            <button class="btn btn-success pull-right" ng-click="install(detector.slug)">Install detector</button>
+                        </li>
+                    </ul>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
 		</div>
         <div class="panel panel-primary" id="grant" ng-controller="DataCenter">
           <div class="panel-heading">

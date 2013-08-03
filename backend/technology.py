@@ -87,6 +87,16 @@ class Detector(Technology):
     def process_events(self, size, purity):
         return (size * self.rate_factor, purity * self.purity_factor)
 
+    def json(self):
+        res = Technology.json(self)
+        res.update({
+            "purity_factor": self.purity_factor,
+            "rate_factor": self.rate_factor,
+            "slug": self.query[-2]
+        })
+        return res
+
+
 
 class DataCentre(Technology):
     """

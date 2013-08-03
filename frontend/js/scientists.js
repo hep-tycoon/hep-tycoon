@@ -4,6 +4,7 @@ function Scientists($scope){
     $scope.updateEmployees = function(){
         list_scientists(function(data){
             $scope.scientists = data.scientists;
+            $scope.maxScientists = data.max_scientists;
             $scope.$apply();
         });
     };
@@ -39,7 +40,6 @@ function Scientists($scope){
         );
     };
 
-    $scope.maxScientists = 100;
     $scope.fireScientistsCost = 1000;
     $scope.hireScientistsCost = 1000;
     $scope.hireScientistsCostNew = 1000;

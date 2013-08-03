@@ -9,7 +9,7 @@
                     "rate": 1,
                     "purity": 1,
                     "running_costs": 1,
-                    "num_scientists": 1
+                    "num_scientists": 10
                 },
                 {
                     "price": 1,
@@ -18,7 +18,7 @@
                     "slots": 2,
                     "rate": 1,
                     "purity": 1,
-                    "num_scientists": 1
+                    "num_scientists": 100
                 },
                 {
                     "price": 1,
@@ -27,7 +27,7 @@
                     "slots": 3,
                     "rate": 1,
                     "purity": 1,
-                    "num_scientists": 1
+                    "num_scientists": 1000
                 },
                 {
                     "price": 1,
@@ -36,7 +36,7 @@
                     "slots": 4,
                     "rate": 1,
                     "purity": 1,
-                    "num_scientists": 1
+                    "num_scientists": 10000
                 }
             ],
             "pp": [
