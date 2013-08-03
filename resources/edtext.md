@@ -30,11 +30,16 @@ We will have short sections of text in game and a section with more information
     	+ http://en.wikipedia.org/wiki/File:Cyclotron_patent.png
  * Syncotron
     	+ A syncotron is a more advanced cyclotron that that takes relitivitic effect into account and so can accelerate particles to higher energies
-    	+ These devices can have different types of magnets, each with a specific job. See http://en.wikipedia.org/wiki/Synchrotron
+    	+ Cyclotrons have a fixed magnetic field. Syncotrons have time dependant magentic field which allows you to to keep the beam moving in a circle of a fixed radius rather than a siral. These devices can have different types of magnets, each with a specific job. See http://en.wikipedia.org/wiki/Synchrotron
 
 ![alt text](/img/Syncotron.png "Syncotron Schematic")
     	+ http://www.src.wisc.edu/images/Tantalus-Schematic.png
- * Radius/energy/etc.
+ * Radius
+ 	+ The radius of the circular collider determines the energy of the particles. The particles move in a circle due to magnetic fields. The radius of curvature depends on the energy of the particles and the strength of the magnetic field. See http://www.egglescliffe.org.uk/physics/particles/newfolder/acc1.html
+ ![alt text](/img/Radius.png "LHC Schematic")
+ 	+ 
+
+ * /energy/etc.
 5. Modules
  * dipole magnets
     	+ These magnets keep the particle beam moving in the right direction. They don't accelerate the beam. Most of the LHC is made of dipole magnets.
