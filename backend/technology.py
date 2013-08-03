@@ -99,3 +99,10 @@ def DataCentre(Technology):
     @property
     def storage_capacity(self):
         return self._storage_capacity
+
+
+# load the technology tree from a file (beta)
+techtree = None
+with open('techtree.json') as tt_file:
+    from json import loads
+    techtree = json.load(tt_file)
