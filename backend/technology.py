@@ -21,6 +21,7 @@ class Technology(object):
     def json(self):
         return dict((key, getattr(self, key)) for key in ("name", "price", "running_costs", "num_scientists", "level", "max_level"))
 
+
 class Accelerator(Technology):
     """
         An accelerator can store a number of experiments.
@@ -73,18 +74,40 @@ class Detector(Technology):
         self.purity_factor = purity_factor
         self.rate_factor = rate_factor
 
+    def process_events(self, size, purity):
+        return (size * self.rate_factor, purity * self.purity_factor)
 
-def DataCentre(Technology):
+
+class DataCentre(Technology):
     """
         The data centre stores data until it's processed by scientists.
     """
     def __init__(self, storage_capacity, **kwargs):
         super(DataCentre, self).__init__(**kwargs)
         self._storage_capacity = storage_capacity
+        self._storage = []
 
     @property
     def storage_capacity(self):
         return self._storage_capacity
+
+    @property
+    def storage_used(self):
+        return sum([d.size for d in self._storage])
+
+    @property
+    def storage_free(self):
+        return self.storage_capacity - self.storage_used
+
+    def store(self, dataset):
+        if self.storage_free > 0:
+            if self.storage_free < dataset.size:
+                dataset.size = self.storage_free
+            self._storage.append(dataset)
+
+    def retrieve(self, size):
+        if self.storage_used <= 0:  # although it should never be 0
+            return None
 
 
 def query_tech_tree(path):
@@ -115,4 +138,3 @@ techtree = None
 with open('techtree.json') as tt_file:
     from json import load
     techtree = load(tt_file)
-

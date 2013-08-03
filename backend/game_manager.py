@@ -20,6 +20,7 @@ class GameManager(object):
         self._accelerator = technology.from_tech_tree('accelerator', accelerator_geometry, accelerator_particles, 0)
         self._funds = settings.INITIAL_FUNDS - self._accelerator.price
         self._hr_manager = HR(self._accelerator.num_scientists)
+        self._accelerator_started = 0
 
     @property
     def funds(self):
@@ -29,9 +30,28 @@ class GameManager(object):
     def all_technology(self):
         return [self._accelerator, self._data_centre] + self._accelerator.detectors
 
-    def accelerator_start(self): pass
+    @property
+    def accelerator_running(self):
+        return self._accelerator_started != 0
+
+    def accelerator_start(self):
+        from time import time
+        """
+        """
+        if not self.accelerator_running:
+            self._accelerator_started = time()
     
-    def accelerator_stop(self): pass
+    def accelerator_stop(self):
+        from data_set import DataSet
+        from time import time
+        """
+        """
+        if self.accelerator_running:
+            runtime = time() - self._accelerator_started
+            self._accelerator_started = 0
+            for detector in self._accelerator.detectors:
+                # working here
+                data = DataSet(size, purity)
 
     @upgrade_technology_hook
     def accelerator_upgrade(self): pass
