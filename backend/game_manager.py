@@ -59,7 +59,9 @@ class GameManager(object):
         return 0, 0
 
     @upgrade_technology_hook
-    def accelerator_upgrade(self): pass
+    def accelerator_upgrade(self):
+        assert self.accelerator.can_upgrade
+        self.accelerator = self.accelerator.upgrade_from_tech_tree()
     
     def detector_buy(self): pass
     
@@ -69,7 +71,9 @@ class GameManager(object):
     def detector_upgrade(self): pass
     
     @upgrade_technology_hook
-    def datacentre_upgrade(self): pass
+    def datacentre_upgrade(self):
+        assert self.data_centre.can_upgrade
+        self.data_centre = self.data_centre.upgrade_from_tech_tree()
     
     def hr_hire(self): pass
     

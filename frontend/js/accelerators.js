@@ -5,7 +5,7 @@ function Accelerators($scope) {
     $scope.description = "linear electron-positron collider";
     $scope.name = "LEP";
     $scope.energy = 42;
-    $scope.cost = 200;
+    $scope.running_costs = 200;
 
     $scope.shutdown = function(){
       shutdown_accelerator(function(){

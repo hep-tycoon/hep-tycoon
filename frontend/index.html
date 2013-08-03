@@ -182,7 +182,7 @@
                   Power On
                 </a>
             </div>
-            <p>Operating cost: <strong>{{cost|currency}}</strong> per hour</p></li> 
+            <p>Operating cost: <strong>{{running_costs|currency}}</strong> per hour</p></li> 
           </ul>
         </div>
         <div class="panel panel-primary" ng-controller="Detectors">
@@ -220,8 +220,8 @@
               <p class="text-right"><strong>{{usage}}/{{capacity}} PetaBytes</strong></p>
             </li>
             <li class="list-group-item">
-              <div class="pull-right">
-                  <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
+              <div class="pull-right" ng-show="can_upgrade">
+                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
               </div>
               <div>
                 <p>Level {{level+1}} Data Centre</p>
