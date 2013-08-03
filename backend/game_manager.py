@@ -16,24 +16,20 @@ class GameManager(object):
         import technology
         """
         """
-        self._lab_name = lab_name
-        self._data_centre = technology.from_tech_tree('datacentres', 0)
-        self._accelerator = technology.from_tech_tree('accelerators', accelerator_geometry, accelerator_particles, 0)
-        self._funds = settings.INITIAL_FUNDS - self._accelerator.price
-        self._hr_manager = HR(self._accelerator.num_scientists)
-        self._accelerator_started = 0
-
-    @property
-    def funds(self):
-        return self._funds
+        self.lab_name = lab_name
+        self.data_centre = technology.from_tech_tree('datacentres', 0)
+        self.accelerator = technology.from_tech_tree('accelerators', accelerator_geometry, accelerator_particles, 0)
+        self.funds = settings.INITIAL_FUNDS - self.accelerator.price
+        self.hr_manager = HR(self.accelerator.num_scientists)
+        self.accelerator_started = 0
 
     @property
     def all_technology(self):
-        return [self._accelerator, self._data_centre] + self._accelerator.detectors
+        return [self.accelerator, self.data_centre] + self.accelerator.detectors
 
     @property
     def accelerator_running(self):
-        return self._accelerator_started != 0
+        return self.accelerator_started != 0
 
     def accelerator_start(self):
         from time import time
@@ -42,10 +38,10 @@ class GameManager(object):
             Returns False if the accelerator is already running.
         """
         if not self.accelerator_running:
-            self._accelerator_started = time()
+            self.accelerator_started = time()
             return True
         return False
-    
+
     def accelerator_stop(self):
         from time import time
         """
@@ -53,12 +49,12 @@ class GameManager(object):
             Returns the number of collected data sets and the mean purity.
         """
         if self.accelerator_running:
-            runtime = time() - self._accelerator_started
-            self._accelerator_started = 0
-            data = self._accelerator.run(runtime)
+            runtime = time() - self.accelerator_started
+            self.accelerator_started = 0
+            data = self.accelerator.run(runtime)
             n = len(data)
             mean_purity = sum([d.purity for d in data]) / n
-            self._data_centre.store(data)
+            self.data_centre.store(data)
             return n, mean_purity
         return 0, 0
 
@@ -90,4 +86,4 @@ class GameManager(object):
             Update the maximum number of scientists in the human resources manager.
             Invoked after technology upgrade.
         """
-        self._hr_manager.max_scientists = sum([t.num_scientists for t in self.all_technology])
+        self.hr_manager.max_scientists = sum([t.num_scientists for t in self.all_technology])

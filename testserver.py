@@ -5,12 +5,13 @@
 from flask import Flask, jsonify
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
+app.debug = True
 
 # testing the game manager
 from backend.game_manager import GameManager
 
 gamemanager = GameManager('My cool lab', 'linear', 'ee')
-hr = gamemanager._hr_manager  # just for testing, later we should use only the game manager
+hr = gamemanager.hr_manager  # just for testing, later we should use only the game manager
 
 @app.route('/')
 def index():
@@ -70,7 +71,7 @@ def upgrade_accelerator():
 
 @app.route("/datacenter")
 def get_datacenter():
-    return jsonify(**gamemanager.datacenter.json())
+    return jsonify(**gamemanager.data_centre.json())
 
 @app.route("/detectors")
 def get_detectors():

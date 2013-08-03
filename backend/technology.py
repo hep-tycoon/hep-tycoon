@@ -1,3 +1,6 @@
+import os
+import json
+
 class Technology(object):
     """
         Implement a piece of technology in the game.
@@ -41,7 +44,7 @@ class Accelerator(Technology):
         from ht_exceptions import NoMoreFreeSlotsException
         if self.free_slots <= 0:
             raise NoMoreFreeSlotsException()
-        self._detectors.append(detector)
+        self.detectors.append(detector)
 
     def run(self, time):
         from data_set import DataSet
@@ -58,7 +61,7 @@ class Accelerator(Technology):
 
     @property
     def free_slots(self):
-        return self._slots - len(self._detectors)
+        return self.slots - len(self.detectors)
 
     def json(self):
         res = Technology.json(self)
@@ -161,6 +164,5 @@ def from_tech_tree(*query):
 
 # load the technology tree from a file (beta)
 techtree = None
-with open('techtree.json') as tt_file:
-    from json import load
-    techtree = load(tt_file)
+with open(os.path.join(os.path.dirname(__file__), 'techtree.json')) as tt_file:
+    techtree = json.load(tt_file)
