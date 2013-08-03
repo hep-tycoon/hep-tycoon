@@ -1,4 +1,5 @@
-GLOBAL_SKILL = 1
+"""
+"""
 
 def random_name():
     from random import choice
@@ -10,14 +11,23 @@ def random_name():
     return '{}. {}. {}'.format(choice(uppercase), choice(uppercase), choice(names))
 
 
-class Scientist:
+class Scientist(object):
     """
         A scientist in the game.
     """
     def __init__(self, salary):
+        import settings
+        """
+            Create a new scientist with a given salary.
+            The name is (at this point) assigned randomly.
+            All the other variables are the same for all scientists.
+        """
         self._name = random_name()
         self._salary = salary
-        self._skill = GLOBAL_SKILL
+        # set parameters according to global options
+        self._skill = settings.GLOBAL_SKILL
+        self._firing_penalty_factor = settings.GLOBAL_FIRING_PENALTY_FACTOR
+        self._firing_penalty_constant = settings.GLOBAL_FIRING_PENALTY_CONSTANT
 
     def __str__(self):
         """
@@ -41,3 +51,7 @@ class Scientist:
     @property
     def skill(self):
         return self._skill
+
+    @property
+    def firing_penalty(self):
+        return self._salary * self._firing_penalty_factor + self._firing_penalty_constant
