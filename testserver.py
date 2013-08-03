@@ -23,6 +23,12 @@ def time():
         'time': gamemanager.start_time
     })
 
+@app.route('/funds')
+def funds():
+    return jsonify(**{
+        'funds': gamemanager.funds
+    })
+
 @app.route('/hr/scientists/')
 def list_scientists():
     return jsonify(**{
@@ -30,11 +36,10 @@ def list_scientists():
         'scientists': map(str, hr.scientists)
     })
 
-@app.route('/hr/hire/<float:salary>/<int:n>')
-def hire_scientists(salary, n):
-    hired = hr.hire(salary, n)
+@app.route('/hr/hire/<int:n>')
+def hire_scientists(n):
+    hired = gamemanager.hr_hire(n)
     return jsonify(**{
-        'salary': salary,
         'n': n,
         'hired': hired
     })

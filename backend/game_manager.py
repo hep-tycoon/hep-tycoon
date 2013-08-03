@@ -25,6 +25,7 @@ class GameManager(object):
         self.funds = settings.INITIAL_FUNDS - self.accelerator.price
         self.hr_manager = HR(self.accelerator.num_scientists)
         self.accelerator_started = 0
+        self.salary = 0
 
     @property
     def all_technology(self):
@@ -33,6 +34,17 @@ class GameManager(object):
     @property
     def accelerator_running(self):
         return self.accelerator_started != 0
+
+    @property
+    def funds(self):
+        return self._funds
+
+    @funds.setter
+    def funds(self, value):
+        from ht_exceptions import BankruptcyException
+        if value < 0:
+            raise BankruptcyException()
+        self._funds = value
 
     def accelerator_start(self):
         """
@@ -79,15 +91,25 @@ class GameManager(object):
     def datacentre_upgrade(self):
         self.data_centre = self.data_centre.upgrade_from_tech_tree()
     
-    def hr_hire(self): pass
+    def hr_hire(self, n):
+        return self.hr_manager.hire(self.salary, n)
     
-    def hr_fire(self): pass
+    def hr_fire(self, n):
+        self.hr_manager.fire(n)
     
-    def hr_adjust_salary(self): pass
+    def hr_adjust_salary(self, salary):
+        self.salary = salary
+        self.hr_manager.adjust_salary(salary)
 
-    def pay_running_costs(self): pass
+    def pay_running_costs(self):
+        totalCost = accelerator.running_costs;
+        for detector in accelerator.detectors:
+            totalCost += detector.running_costs;
+        totalCost += data_centre.running_costs;
+        self.funds -= totalCost;
     
-    def pay_salaries(self): pass
+    def pay_salaries(self):
+        self.funds -= hr_manager.sum_salary()
 
     def update_max_number_scientists(self):
         """

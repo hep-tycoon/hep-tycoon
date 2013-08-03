@@ -11,7 +11,6 @@ function Scientists($scope){
 
     $scope.hire = function(){
         hire_scientists(
-            $scope.hireScientistsCost,
             $scope.hireScientistsCount,
             function(){
                 $("#modConfirmHire").modal("hide");
