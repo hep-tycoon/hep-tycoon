@@ -6,9 +6,11 @@ from flask import Flask, jsonify
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 
-# testing the hr
-from backend.hr import HR
-hr = HR(100)
+# testing the game manager
+from backend.game_manager import GameManager
+
+gamemanager = GameManager('My cool lab', 'linear', 'ee')
+hr = gamemanager._hr_manager  # just for testing, later we should use only the game manager
 
 @app.route('/')
 def index():
