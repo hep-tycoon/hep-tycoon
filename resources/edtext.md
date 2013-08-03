@@ -76,13 +76,17 @@ We will have short sections of text in game and a section with more information
 *Most particle physics detectors have a similar layout. The sections below explain the different parts of the following schematic.
 ![alt text](/img/CMS_Slice.png "Typical detector slice")
 
-1. muon chambers
-2. hadronic calorimeter
-3. electromagnetic calorimeter
-4. vertex locator
- * These devices measure the point in space where an interaction takes place. They are placed very close to the particle bema. 
+1. vertex locator
+	* These devices measure the point in space where an interaction takes place. They are placed very close to the particle beam.
+	* A vertex locator is a very precise and accurate device made from silicon whoes job it is to measure the tracks of particles and from this determine at what point in space the particle was created. Hence they determine where the collison point was. They must be sensitive enough to resolve two vertecies which may be extremely close together. 
+![alt text](/img/VertexDetector.png "Silicon Vertex detector modules for the LHCb")
+	* Source: http://www.sciencedaily.com/
+2. electromagnetic calorimeter
+3. Magnet
+4. hadronic calorimeter
 5. RICH
-6. Shape
+6. Muon chambers
+7. Shape
 	
 #The physics of the different types of data
 
