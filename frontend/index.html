@@ -44,10 +44,21 @@
             <li class="list-group-item">
             <form class="form-inline">
               <fieldset>
+                <legend><span class="glyphicon glyphicon-sort"></span> Adjust scientist salaries</legend>
+                <div class="form-group">
+                  <input type="number" class="form-control" id="iSalary" min="0" max="10" placeholder="1">
+                  <button type="submit" class="btn btn-info pull-right" data-target="#modConfirmSalary" data-toggle="modal">Adjust</button>
+                </div>
+              </fieldset>
+            </form>
+            </li>
+            <li class="list-group-item">
+            <form class="form-inline">
+              <fieldset>
                 <legend><span class="glyphicon glyphicon-shopping-cart"></span> Hire new scientists</legend>
                 <div class="form-group">
                   <input type="number" class="form-control" id="iHireScientists" min="1" placeholder="1">
-                  <button type="submit" class="btn btn-info pull-right" data-target="#modConfirmHire" data-toggle="modal">Hire</button>
+                  <button type="submit" class="btn btn-success pull-right" data-target="#modConfirmHire" data-toggle="modal">Hire</button>
                 </div>
                 <span class="help-block">Cost: <span id="iHireScientistsCost">2000</span></span>
               </fieldset>
@@ -112,6 +123,12 @@
             </li>
           </ul>
         </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-eye-open"></span> Detectors</h3>
+          </div>
+          <h3><span id="iDetectorCnt">0</span>/<span id="iMaxDetectors">2</span> detectors installed</h3>
+		</div>
         <div class="panel panel-primary" id="grant">
           <div class="panel-heading">
             <h3 class="panel-title"><span class="glyphicon glyphicon-hdd"></span> Data centre</h3>
@@ -144,11 +161,29 @@
             <h4 class="modal-title">Shutdown accelerator?</h4>
           </div>
           <div class="modal-body">
-            Shutting down the accelerator doesn't cost any money, but it does mean you will not have to pay running costs. Note that no data is gathered while the detector is shut down.
+            Shutting down the accelerator doesn't cost any money. During shutdown, no running costs are charged and no data is gathered.
           </div>
           <div class="modal-footer">
             <a href="#" class="btn">Cancel</a>
             <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Shutdown</a>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- Modal: confirm scientist salary adjustment -->
+    <div class="modal fade" id="modConfirmSalary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Adjust scientist salaries</h4>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to adjust the salaries of your scientists to <span id="iScientistSalary">100</span>?
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn">Cancel</a>
+            <a href="#" class="btn btn-info" id="hireScientistsBtn">Adjust</a>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -166,7 +201,7 @@
           </div>
           <div class="modal-footer">
             <a href="#" class="btn">Cancel</a>
-            <a href="#" class="btn btn-info" id="hireScientistsBtn">Hire</a>
+            <a href="#" class="btn btn-success" id="hireScientistsBtn">Hire</a>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
