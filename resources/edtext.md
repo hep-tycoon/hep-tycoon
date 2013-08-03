@@ -83,6 +83,7 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/VertexDetector.png "Silicon Vertex detector modules for the LHCb")
 	* Source: http://www.sciencedaily.com/
 2. electromagnetic calorimeter
+ * measures the energy and position of 
 3. Magnet
 4. hadronic calorimeter
 5. RICH
