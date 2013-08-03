@@ -51,6 +51,8 @@ We will have short sections of text in game and a section with more information
 ![alt text](/img/Quadrupole.png "Quadrupole schematic")
  * RF accelerators
     	+ These devices use electric fields to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can change its acceleration and direction.
+    	+ These devices use electric fields to accelerate the beam according to Lorenz law. This force tells us that a magnetic field can only change a particles direction, and an electric field can change its acceleration and direction. In colliders the particle beam is actually made up of many bunches of particles. Between the bunches is just empty space. 
+![alt text](/img/Bunches.png "Bunches")
  * Kicker magnets
  	+ 
  * Beam dump
