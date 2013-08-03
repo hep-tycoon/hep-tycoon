@@ -157,40 +157,149 @@
             ]
         }
     },
-    "detectors": [
+
+   "detectors": {
+      "bubble": [
                 {
                     "price": 1,
-                    "name": "Bubble Chamber",
+                    "name": "Level 1 Bubble Chamber",
                     "purity_factor": 1,
                     "rate_factor": 1,
                     "running_costs": 1,
                     "num_scientists": 1
                 },
                 {
-                    "price": 1,
-                    "name": "Calorimeter",
+                    "price": 2,
+                    "name": "Level 1 Bubble Chamber",
                     "purity_factor": 1,
                     "rate_factor": 1,
                     "running_costs": 1,
                     "num_scientists": 1
                 },
                 {
-                    "price": 1,
-                    "name": "Tracking Detector",
+                    "price": 3,
+                    "name": "Level 3 Bubble Chamber",
                     "purity_factor": 1,
                     "rate_factor": 1,
                     "running_costs": 1,
                     "num_scientists": 1
                 },
                 {
-                    "price": 1,
-                    "name": "Muon Chambers",
+                    "price": 4,
+                    "name": "Level 4 Bubble Chamber",
                     "purity_factor": 1,
                     "rate_factor": 1,
                     "running_costs": 1,
                     "num_scientists": 1
                 }
                 ],
+
+ "calorimeter": [
+                {
+                    "price": 1,
+                    "name": "Level 1 Calorimeter",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 2,
+                    "name": "Level 1 Calorimeter",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 3,
+                    "name": "Level 3 Calorimeter",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 4,
+                    "name": "Level 4 Calorimeter",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                }
+                ],
+
+     "tracker": [
+                {
+                    "price": 1,
+                    "name": "Level 1 Tracking Detector",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Level 2 Tracking Detector",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Level 3 Tracking Detector",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Level 4 Tracking Detector",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                }
+                ],
+
+        "muon": [
+                {
+                    "price": 1,
+                    "name": "Level 1 Muon Chambers",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Level 2 Muon Chambers",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Level 3 Muon Chambers",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                },
+                {
+                    "price": 1,
+                    "name": "Level 4 Muon Chambers",
+                    "purity_factor": 1,
+                    "rate_factor": 1,
+                    "running_costs": 1,
+                    "num_scientists": 1
+                }
+                ]
+    },
+
     "datacentres": [
                 {
                     "price": 1,
