@@ -13,6 +13,15 @@ function ajax(method, object, callback) {
         funds = data.gameStatus.funds;
         setDatacenterInfo(data.gameStatus.storage_used, data.gameStatus.storage_capacity);
         setGrantInfo(data.gameStatus.grant_bar, data.gameStatus.grant_bar_max);
+        data.gameStatus.events.forEach(function(event){
+            switch(event[0]){
+                case "bankruptcy":
+                    funds = -1;
+                    $("#modGameOver").modal("show");
+                    break;
+            }
+        });
+
         callback(data.response);
     }).error(function(){
         alert("Error"); // TODO: nicer errors

@@ -52,7 +52,9 @@ time(function(data){
 });
 
 setInterval(function(){
-    trigger(angular.noop);
+    if(funds >= 0){
+      trigger(angular.noop);
+    }
 }, 1000);
 
 $('a[data-toggle=tooltip]').tooltip();

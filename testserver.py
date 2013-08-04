@@ -5,6 +5,8 @@
 from flask import Flask, jsonify, redirect
 from backend import technology
 from backend.game_manager import GameManager
+from backend.ht_exceptions import BankruptcyException
+from functools import wraps
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 app.debug = True
@@ -21,39 +23,54 @@ def jsonres(**obj):
             "grant_bar": gamemanager.grant_bar,
             "grant_bar_max": 2000,
             "storage_used": gamemanager.data_centre.storage_used,
-            "storage_capacity": gamemanager.data_centre.storage_capacity
+            "storage_capacity": gamemanager.data_centre.storage_capacity,
+            "events": gamemanager.events(),
         }
     )
 
-@app.route('/')
+def view(route):
+    def decorator(viewfn):
+        @wraps(viewfn)
+        def __inner__(*args, **kwargs):
+            try:
+                return viewfn(*args, **kwargs)
+            except BankruptcyException:
+                gamemanager.event("bankruptcy");
+                return jsonres()
+        return app.route(route)(__inner__)
+
+    return decorator
+
+
+@view('/')
 def index():
     return redirect('/frontend/index.html')
 
-@app.route("/trigger")
+@view("/trigger")
 def trigger():
     gamemanager.process_events()
     return jsonres()
 
-@app.route('/time')
+@view('/time')
 def time():
     return jsonres(**{
         'time': gamemanager.start_time
     })
 
-@app.route('/funds')
+@view('/funds')
 def funds():
     return jsonres(**{
         'funds': gamemanager.funds
     })
 
-@app.route('/hr/scientists/')
+@view('/hr/scientists/')
 def list_scientists():
     return jsonres(**{
         'max_scientists': hr.max_scientists,
         'scientists': map(str, hr.scientists)
     })
 
-@app.route('/hr/hire/<int:n>')
+@view('/hr/hire/<int:n>')
 def hire_scientists(n):
     hired = gamemanager.hr_hire(n)
     return jsonres(**{
@@ -61,7 +78,7 @@ def hire_scientists(n):
         'hired': hired
     })
 
-@app.route('/hr/fire/<int:n>')
+@view('/hr/fire/<int:n>')
 def fire_scientists(n):
     fired, penalty = hr.fire(n)
     return jsonres(**{
@@ -70,38 +87,38 @@ def fire_scientists(n):
         'penalty': penalty
     })
 
-@app.route("/hr/salary/<float:newsalary>")
+@view("/hr/salary/<float:newsalary>")
 def set_salary(newsalary):
     assert newsalary >= 0
     for scientist in hr.scientists:
         scientist.salary = newsalary
     return jsonres()
 
-@app.route("/accelerator")
+@view("/accelerator")
 def get_accelerator():
     return jsonres(**gamemanager.accelerator.json())
 
 
-@app.route("/accelerator/shutdown")
+@view("/accelerator/shutdown")
 def shutdown_accelerator():
     gamemanager.accelerator_stop()
     return jsonres()
 
-@app.route("/accelerator/poweron")
+@view("/accelerator/poweron")
 def poweron_accelerator():
     gamemanager.accelerator_start()
     return jsonres()
 
-@app.route("/accelerator/upgrade")
+@view("/accelerator/upgrade")
 def upgrade_accelerator():
     gamemanager.accelerator_upgrade()
     return jsonres()
 
-@app.route("/datacenter")
+@view("/datacenter")
 def get_datacenter():
     return jsonres(**gamemanager.data_centre.json())
 
-@app.route("/detectors")
+@view("/detectors")
 def get_detectors():
     detectors = gamemanager.accelerator.detectors
 
@@ -116,22 +133,22 @@ def get_detectors():
         available=[technology.from_tech_tree("detectors", d, 0).json() for d in avaliable],
     )
 
-@app.route("/detector/<detector>/upgrade")
+@view("/detector/<detector>/upgrade")
 def upgrade_detector(detector):
     gamemanager.detector_upgrade(detector)
     return jsonres()
 
-@app.route("/detector/<detector>/remove")
+@view("/detector/<detector>/remove")
 def remove_detector(detector):
     gamemanager.detector_remove(detector)
     return jsonres()
 
-@app.route("/detector/<detector>/add")
+@view("/detector/<detector>/add")
 def buy_detector(detector):
     gamemanager.detector_buy(detector)
     return jsonres()
 
-@app.route("/datacenter/upgrade")
+@view("/datacenter/upgrade")
 def upgrade_datacenter():
     gamemanager.datacentre_upgrade()
     return jsonres()
@@ -147,6 +164,6 @@ def methods_json():
     import json
     print json.dumps(methods)
 
-methods_json()
+#methods_json()
 if __name__ == '__main__':
     app.run(host="0.0.0.0")

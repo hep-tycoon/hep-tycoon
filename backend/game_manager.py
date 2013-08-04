@@ -30,6 +30,15 @@ class GameManager(object):
         self.salary = 0
         self.grant_bar = 0
         self.accelerator_running = False
+        self._events = []
+
+    def event(self, *args):
+        self._events.append(args)
+
+    def events(self):
+        res = self._events
+        self._events = []
+        return res
 
     @property
     def all_technology(self):
