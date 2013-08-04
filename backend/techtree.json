@@ -3,7 +3,7 @@
         "linear": {
             "ee": [
                 {
-                    "price": 1,
+                    "price": 10,
                     "name": "Linear ee collider",
                     "slots": 1,
                     "rate": 1,
@@ -12,7 +12,7 @@
                     "num_scientists": 10
                 },
                 {
-                    "price": 1,
+                    "price": 100,
                     "name": "Linear ee collider with storage ring",
                     "running_costs": 1,
                     "slots": 2,
@@ -21,7 +21,7 @@
                     "num_scientists": 100
                 },
                 {
-                    "price": 1,
+                    "price": 2000,
                     "name": "Linear ee collider with extended storage ring",
                     "running_costs": 1,
                     "slots": 3,
@@ -30,7 +30,7 @@
                     "num_scientists": 1000
                 },
                 {
-                    "price": 1,
+                    "price": 300000,
                     "name": "Reversed linear ee collider",
                     "running_costs": 1,
                     "slots": 4,
@@ -158,9 +158,9 @@
         }
     },
    "detectors": {
-        "4π": [
+        "4pi": [
             {
-                "price": 1,
+                "price": 1000000,
                 "name": "Level 1 4π Detector",
                 "purity_factor": 1,
                 "rate_factor": 1,

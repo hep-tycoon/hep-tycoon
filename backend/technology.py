@@ -59,13 +59,18 @@ class Accelerator(Technology):
         if self.free_slots <= 0:
             raise NoMoreFreeSlotsException()
         self.detectors.append(detector)
+        return detector.price
 
     def remove_detector(self, slug):
-        del self.detectors[self.get_index_by_slug(slug)]
+        index = self.get_index_by_slug(slug)
+        cost = self.detectors.remove_cost
+        del self.detectors[index]
+        return cost
 
     def upgrade_detector(self, slug):
         i = self.get_index_by_slug(slug)
         self.detectors[i] = self.detectors[i].upgrade_from_tech_tree()
+        return self.detectors[i].price
 
     def run(self, time):
         from data_set import DataSet

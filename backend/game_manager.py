@@ -64,23 +64,24 @@ class GameManager(object):
 
     @upgrade_technology_hook
     def accelerator_upgrade(self):
-        self.funds -= self.accelerator.upgrade_cost()
+        self.funds -= self.accelerator.upgrade_cost
         self.accelerator = self.accelerator.upgrade_from_tech_tree()
 
     @upgrade_technology_hook
     def detector_buy(self, slug):
-        self.accelerator.add_detector(technology.from_tech_tree("detectors", slug, 0))
+        self.funds -= self.accelerator.add_detector(technology.from_tech_tree("detectors", slug, 0))
 
     @upgrade_technology_hook
     def detector_remove(self, slug):
-        self.accelerator.remove_detector(slug)
+        self.funds -= self.accelerator.remove_detector(slug)
 
     @upgrade_technology_hook
     def detector_upgrade(self, slug):
-        self.accelerator.upgrade_detector(slug)
+        self.funds -= self.accelerator.upgrade_detector(slug)
 
     @upgrade_technology_hook
     def datacentre_upgrade(self):
+        self.funds -= self.data_centre.upgrade_cost
         self.data_centre = self.data_centre.upgrade_from_tech_tree()
     
     def hr_hire(self, n):
