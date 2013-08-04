@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Tycoon">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/hep_tycoon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-glyphicons.css">
+    <link rel="stylesheet" href="css/hep-tycoon.css">
+    <title>HEP Tycoon</title>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li>
+          <div class="btn-group">
+            <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown">
+              HEP Tycoon <span class="caret"></span>
+            </a>
+          </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>HEP Tycoon</h1>
+            <p>Manage your own High Energy Physics laboratory</p>
+        </div>
+        <form class="form-horizontal col-offset-0">
+          <div class="form-group">
+            <label for="inputName" class="col-lg-4 control-label">Laboratory name:</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" id="inputName" placeholder="Enter the name of your lab">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-4 control-label">Accelerator type</label>
+            <div class="col-lg-8">
+                <label class="radio">
+                  <input type="radio" id="inlineradio1" value="linear" name="acc" class="acc"> Linear particle collider
+                </label>
+                <label class="radio">
+                  <input type="radio" id="inlineradio2" value="circular" name="acc" class="acc"> Circular particle collider
+                </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-4 control-label">Particle types</label>
+            <div class="col-lg-8">
+                <label class="radio">
+                  <input type="radio" id="inlineradio1" value="ep" name="part" class="part"> Electron-Positrop collider
+                </label>
+                <label class="radio">
+                  <input type="radio" id="inlineradio2" value="pp" name="part" class="part"> Proton-Proton collider
+                </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-offset-4 col-lg-10">
+              <button type="submit" class="btn btn-default btn-primary" id="submit">Let's do this!</button>
+            </div>
+          </div>
+        </form>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#submit").click(function(){
+            location.href="/init_game/" + $(".acc:checked").val() + "/" + $(".part:checked").val() + "/" + encodeURIComponent($("#inputName").val());
+            return false;
+        });
+    </script>
+  </body>
+</html>

@@ -10,10 +10,8 @@ from functools import wraps
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 app.debug = True
-
-# testing the game manager
-gamemanager = GameManager('My cool lab', 'linear', 'ee')
-hr = gamemanager.hr_manager  # just for testing, later we should use only the game manager
+gamemanager = None
+hr = None
 
 def jsonres(**obj):
     return jsonify(
@@ -44,7 +42,14 @@ def view(route):
 
 @view('/')
 def index():
-    return redirect('/frontend/index.html')
+    return redirect('/frontend/config.html')
+
+@view('/init_game/<type>/<partitles>/<name>')
+def init(name, type, partitles):
+    global gamemanager, hr
+    gamemanager = GameManager(name, type, partitles)
+    hr = gamemanager.hr_manager
+    return redirect('/frontend/game.html')
 
 @view("/trigger")
 def trigger():
