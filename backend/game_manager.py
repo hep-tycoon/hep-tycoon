@@ -1,6 +1,7 @@
 import technology
 from time import time
 from hr import HR
+from backend import settings
 
 def upgrade_technology_hook(original_function):
     def new_function(self, *args, **kwargs):
@@ -15,25 +16,24 @@ class GameManager(object):
         The core piece of code that manages the game.
     """
     def __init__(self, lab_name, accelerator_geometry, accelerator_particles):
-        import settings
         """
         """
         self.start_time = time()
+        self.last_updated = time()
+        self.last_month_start = time()
+
         self.lab_name = lab_name
         self.data_centre = technology.from_tech_tree('datacentres', 0)
         self.accelerator = technology.from_tech_tree('accelerators', accelerator_geometry, accelerator_particles, 0)
         self.funds = settings.INITIAL_FUNDS - self.accelerator.price
         self.hr_manager = HR(self.accelerator.num_scientists)
-        self.accelerator_started = 0
         self.salary = 0
+        self.grant_bar = 0
+        self.accelerator_running = False
 
     @property
     def all_technology(self):
         return [self.accelerator, self.data_centre] + self.accelerator.detectors
-
-    @property
-    def accelerator_running(self):
-        return self.accelerator_started != 0
 
     @property
     def funds(self):
@@ -51,28 +51,20 @@ class GameManager(object):
             Start the data-taking.
             Returns False if the accelerator is already running.
         """
-        if not self.accelerator_running:
-            self.accelerator_started = time()
-            return True
-        return False
+        self.process_events()
+        self.accelerator_running = True
 
     def accelerator_stop(self):
         """
             Stop the data-taking and store the collected data in the data storage.
             Returns the number of collected data sets and the mean purity.
         """
-        if self.accelerator_running:
-            runtime = time() - self.accelerator_started
-            self.accelerator_started = 0
-            data = self.accelerator.run(runtime)
-            n = len(data)
-            mean_purity = sum([d.purity for d in data]) / n
-            self.data_centre.store(data)
-            return n, mean_purity
-        return 0, 0
+        self.process_events()
+        self.accelerator_running = False
 
     @upgrade_technology_hook
     def accelerator_upgrade(self):
+        self.funds -= self.accelerator.upgrade_cost()
         self.accelerator = self.accelerator.upgrade_from_tech_tree()
 
     @upgrade_technology_hook
@@ -106,7 +98,28 @@ class GameManager(object):
         self.funds -= totalCost;
     
     def pay_salaries(self):
-        self.funds -= hr_manager.sum_salary()
+        self.funds -= self.hr_manager.sum_salary()
+
+    def process_events(self):
+        elapsed = (time() - self.last_updated)
+
+        if self.accelerator_running:
+            for _ in xrange(int(elapsed)):
+                for scientist in self.hr_manager.scientists:
+                    if scientist.can_work() and not self.data_centre.empty():
+                        quality = scientist.publish(self.data_centre.retrieve())
+                        self.grant_bar += quality*settings.GRANT_BAR_CONSTANT
+
+                data = self.accelerator.run(1)
+                self.data_centre.store(data)
+                self.last_updated += 1
+
+        month_time = (60*60*24*30)/settings.TIME_CONVERSION # Month duration in real time
+        elapsed_months = (time() - self.last_month_start) / month_time
+        for _ in xrange(int(elapsed_months)):
+            self.pay_salaries()
+            self.pay_running_costs()
+            self.last_month_start += month_time
 
     def update_max_number_scientists(self):
         """

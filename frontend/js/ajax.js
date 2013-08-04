@@ -9,6 +9,7 @@ function ajax(method, object, callback) {
         dataType: "json"
     }).done(function(data){
         $("#iFunds").text(jetons(data.gameStatus.funds));
+        setDatacenterInfo(data.gameStatus.storage_used, data.gameStatus.storage_capacity);
         callback(data.response);
     }).error(function(){
         alert("Error"); // TODO: nicer errors

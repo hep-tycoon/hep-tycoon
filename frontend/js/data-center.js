@@ -28,3 +28,10 @@ function DataCenter($scope){
     $scope.update();
 }
 
+function setDatacenterInfo(usage, capacity){
+    var $scope = $("#datacenter").scope();
+    $scope.usage = usage;
+    $scope.capacity = capacity;
+    $scope.$apply();
+}
+

@@ -1,3 +1,7 @@
+from time import time
+from backend import settings
+
+
 class HR(object):
     """
         Manage human resources in the game.
@@ -128,6 +132,7 @@ class Scientist(object):
         self._skill = settings.GLOBAL_SKILL
         self._firing_penalty_factor = settings.GLOBAL_FIRING_PENALTY_FACTOR
         self._firing_penalty_constant = settings.GLOBAL_FIRING_PENALTY_CONSTANT
+        self.last_published = 0
 
     def __str__(self):
         """
@@ -135,6 +140,13 @@ class Scientist(object):
             At this point it's just the name since skill and salary are the same for all of them.
         """
         return '{}'.format(self._name)
+
+    def can_work(self):
+        return (time() - self.last_published) < settings.PUBLISH_TIME/self.productivity()
+
+    def publish(self, dataset):
+        self.last_published = time()
+        return self.skill()*dataset.purity
 
     @property
     def name(self):
