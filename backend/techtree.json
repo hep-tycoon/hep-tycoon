@@ -157,177 +157,104 @@
             ]
         }
     },
-
    "detectors": {
-      "bubble": [
-                {
-                    "price": 1,
-                    "name": "Level 1 Bubble Chamber",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 2,
-                    "name": "Level 2 Bubble Chamber",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 3,
-                    "name": "Level 3 Bubble Chamber",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 4,
-                    "name": "Level 4 Bubble Chamber",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                }
-                ],
-
- "calorimeter": [
-                {
-                    "price": 1,
-                    "name": "Level 1 Calorimeter",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 2,
-                    "name": "Level 2 Calorimeter",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 3,
-                    "name": "Level 3 Calorimeter",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 4,
-                    "name": "Level 4 Calorimeter",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                }
-                ],
-
-     "tracker": [
-                {
-                    "price": 1,
-                    "name": "Level 1 Tracking Detector",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Level 2 Tracking Detector",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Level 3 Tracking Detector",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Level 4 Tracking Detector",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                }
-                ],
-
-        "muon": [
-                {
-                    "price": 1,
-                    "name": "Level 1 Muon Chambers",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Level 2 Muon Chambers",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Level 3 Muon Chambers",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Level 4 Muon Chambers",
-                    "purity_factor": 1,
-                    "rate_factor": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                }
-                ]
+        "4π": [
+            {
+                "price": 1,
+                "name": "Level 1 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 2 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 3 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 4 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            }
+        ],
+        "forward_spectrometer": [
+            {
+                "price": 1,
+                "name": "Level 1 Forward Spectrometer",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 2 Forward Spectrometer",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 3 Forward Spectrometer",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 4 Forward Spectrometer",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            }
+        ]
     },
-
     "datacentres": [
-                {
-                    "price": 1,
-                    "name": "Tape Storage",
-                    "storage_capacity": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Hard Drive Storage",
-                    "storage_capacity": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "Cluster Storage",
-                    "storage_capacity": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                },
-                {
-                    "price": 1,
-                    "name": "The Grid",
-                    "storage_capacity": 1,
-                    "running_costs": 1,
-                    "num_scientists": 1
-                }
-                ]
+        {
+            "price": 1,
+            "name": "Tape Storage",
+            "storage_capacity": 1,
+            "running_costs": 1,
+            "num_scientists": 1
+        },
+        {
+            "price": 1,
+            "name": "Hard Drive Storage",
+            "storage_capacity": 1,
+            "running_costs": 1,
+            "num_scientists": 1
+        },
+        {
+            "price": 1,
+            "name": "Cluster Storage",
+            "storage_capacity": 1,
+            "running_costs": 1,
+            "num_scientists": 1
+        },
+        {
+            "price": 1,
+            "name": "The GRID",
+            "storage_capacity": 1,
+            "running_costs": 1,
+            "num_scientists": 1
+        }
+    ]
 }
