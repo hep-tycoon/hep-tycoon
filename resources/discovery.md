@@ -33,7 +33,7 @@ Particles to be Discovered by Level
 # Level 4:
 
 * up squark
-* We have clear evidence from our experiments that the up squark exists. This is conclusive proof of super symmetry. Now we have to find proofs that all particles have super symmetric partners. 
+* We have clear evidence from our experiments that the up squark exists. This is conclusive proof of super symmetry. Now we have to find proof that all particles have super symmetric partners. 
 ![alt text](/img/img_discovery/SUSY.png "Higgs reasonance")
 * Source: http://www.physics.gla.ac.uk/ppt/images/susyparticles_sm.png
 
