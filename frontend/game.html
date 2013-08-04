@@ -166,7 +166,7 @@
               </div>
               <div>
                 <p>Level {{level+1}} <a href="#" data-target="#modDocsAcclerator" data-toggle="modal">{{description}}</a></p>
-                <img src="img/accelerator/Linear/fixed_target_64.png" alt="Picture of the accelerator.">
+                <img src="img/accelerator/{{geometry}}/{{particles}}/{{level+1}}_64.png" alt="Picture of the accelerator.">
               </div>
               <!-- Modal: accelerator docs -->
               <div class="modal fade" id="modDocsAcclerator">
@@ -219,7 +219,7 @@
                 <h4><a href="#" data-toggle="modal" data-target="#modDocsDetector{{detector.slug}}">{{detector.name}}</a></h4>
                 <p><small>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</small></p>
                 <p>{{detector.description}}</p>
-                <img src="img/accelerator/Linear/fixed_target_64.png" alt="Picture of the accelerator.">
+                <img src="img/detector/{{detector.slug}}/{{detector.level+1}}_64.png" alt="Picture of the accelerator.">
                 <!-- Modal: detector docs -->
                 <div class="modal fade" id="modDocsDetector{{detector.slug}}">
                   <div class="modal-dialog">
@@ -310,6 +310,7 @@
                 <h3>{{name}}</h3>
                 <p>Level {{level+1}} Data Centre<br>
                 Running cost: <strong>{{running_costs|currency}}</strong> per month</p>
+                <img src="img/data_center/{{level+1}}_64.png" alt="Picture of the accelerator.">
               </div>
               </li>
             </ul>
