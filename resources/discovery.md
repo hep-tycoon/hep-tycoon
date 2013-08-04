@@ -22,3 +22,18 @@ Particles to be Discovered by Level
 * We have confirmed the theoretical predictions made 10 years ago that there are more types of quarks. We have seen evidence for the J/psi particle and have deduced it contains a charm quark. We have seen a meson which we will call the B meson. We now know it contains a new type of quark. The bottom quark. Now we must investigate the possiblity that CP symmetry is violated.
 ![alt text](/img/img_discovery/JPsi.png "J/Psi reasonance")
 * Source: http://www-cdf.fnal.gov/physics/new/bottom/080724.blessed-X-Mass/gif/massX3872.gif
+
+# Level 3:
+
+* Higgs Boson
+* We have done it. We have discoverd the particle predicted 50 years ago that is the last missing piece of the standard model. We have observed the decay of the higgs boson into two photons. 
+![alt text](/img/img_discovery/Higgs.png "Higgs reasonance")
+* Source: http://muon.files.wordpress.com/2012/07/plot-cms-gg.gif
+
+# Level 4:
+
+* up squark
+* We have clear evidence from our experiments that the up squark exists. This is conclusive proof of super symmetry. Now we have to find proofs that all particles have super symmetric partners. 
+![alt text](/img/img_discovery/SUSY.png "Higgs reasonance")
+* Source: http://www.physics.gla.ac.uk/ppt/images/susyparticles_sm.png
+
