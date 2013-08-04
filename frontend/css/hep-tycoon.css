@@ -8,9 +8,14 @@ p
   font-size: 16px;
 }
 
-.panel, li.list-group-item
+.panel
 {
   overflow: auto;
+}
+
+.list-group-item
+{
+  min-height: 100px;
 }
 
 .btn
