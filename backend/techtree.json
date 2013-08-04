@@ -4,7 +4,7 @@
             "ee": [
                 {
                     "price": 10000,
-                    "name": "Linear ee collider",
+                    "name": "Fixed-target linear electron-positron collider",
                     "slots": 1,
                     "rate": 0.8,
                     "purity": 0.75,
@@ -13,7 +13,7 @@
                 },
                 {
                     "price": 40000,
-                    "name": "Linear ee collider with storage ring",
+                    "name": "Linear electron-positron collider with storage ring",
                     "running_costs": 12000,
                     "slots": 2,
                     "rate": 1.2,
@@ -22,7 +22,7 @@
                 },
                 {
                     "price": 100000,
-                    "name": "Linear ee collider with extended storage ring",
+                    "name": "Extended linear electron-positron collider",
                     "running_costs": 25000,
                     "slots": 3,
                     "rate": 1.6,
@@ -31,7 +31,7 @@
                 },
                 {
                     "price": 400000,
-                    "name": "Reversed linear ee collider",
+                    "name": "Reversed linear electron-positron collider",
                     "running_costs": 50000,
                     "slots": 4,
                     "rate": 2,
@@ -42,7 +42,7 @@
             "pp": [
                 {
                     "price": 11000,
-                    "name": "Linear pp collider",
+                    "name": "Fixed-target linear proton-proton collider",
                     "running_costs": 5000,
                     "slots": 1,
                     "rate": 1,
@@ -51,7 +51,7 @@
                 },
                 {
                     "price": 44000,
-                    "name": "Linear pp collider with storage ring",
+                    "name": "Linear proton-proton collider with storage ring",
                     "running_costs": 12000,
                     "slots": 2,
                     "rate": 1.5,
@@ -60,7 +60,7 @@
                 },
                 {
                     "price": 110000,
-                    "name": "Linear pp collider with extended storage ring",
+                    "name": "Extended linear proton-proton collider",
                     "running_costs": 25000,
                     "slots": 3,
                     "rate": 2,
@@ -69,7 +69,7 @@
                 },
                 {
                     "price": 440000,
-                    "name": "Reversed linear pp collider",
+                    "name": "Reversed linear proton-proton collider",
                     "running_costs": 50000,
                     "slots": 4,
                     "rate": 2.5,
@@ -82,7 +82,7 @@
             "ee": [
                 {
                     "price": 9000,
-                    "name": "ee Cyclotron",
+                    "name": "Electron-positron Cyclotron",
                     "running_costs": 5000,
                     "slots": 1,
                     "rate": 1,
@@ -91,7 +91,7 @@
                 },
                 {
                     "price": 36000,
-                    "name": "ee Synchrotron",
+                    "name": "Electron-positron Synchrotron",
                     "running_costs": 12000,
                     "slots": 2,
                     "rate": 1.5,
@@ -100,7 +100,7 @@
                 },
                 {
                     "price": 90000,
-                    "name": "ee Super Synchrotron",
+                    "name": "Electron-positron Super Synchrotron",
                     "running_costs": 25000,
                     "slots": 3,
                     "rate": 2,
@@ -109,7 +109,7 @@
                 },
                 {
                     "price": 360000,
-                    "name": "ee Hyper Synchrotron",
+                    "name": "Electron-positron Hyper Synchrotron",
                     "running_costs": 50000,
                     "slots": 4,
                     "rate": 2.5,
@@ -120,7 +120,7 @@
             "pp": [
                 {
                     "price": 1,
-                    "name": "pp Cyclotron",
+                    "name": "Proton-proton Cyclotron",
                     "running_costs": 5000,
                     "slots": 1,
                     "rate": 1.1,
@@ -129,7 +129,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "pp Synchrotron",
+                    "name": "Proton-proton Synchrotron",
                     "running_costs": 12000,
                     "slots": 2,
                     "rate": 1.7,
@@ -138,7 +138,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "pp Super Synchrotron",
+                    "name": "Proton-proton Super Synchrotron",
                     "running_costs": 25000,
                     "slots": 3,
                     "rate": 2.3,
@@ -147,7 +147,7 @@
                 },
                 {
                     "price": 1,
-                    "name": "pp Hyper Synchrotron",
+                    "name": "Proton-proton Hyper Synchrotron",
                     "running_costs": 50000,
                     "slots": 4,
                     "rate": 2.9,

@@ -160,14 +160,14 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-            <h1>{{name}}</h1>
+            <h1><a href="#" data-target="#modDocsAcclerator" data-toggle="modal">{{name}}</a></p></h1>
             </li>
              <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
                   <button disable-cost="{{upgrade_cost}}" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></button>
               </div>
               <div>
-                <p>Level {{level+1}} <a href="#" data-target="#modDocsAcclerator" data-toggle="modal">{{description}}</a></p>
+                <p>Level {{level+1}}</p>
                 <img src="img/accelerator/{{geometry}}/{{particles}}/{{level+1}}_64.png" alt="Picture of the accelerator.">
               </div>
               <!-- Modal: accelerator docs -->

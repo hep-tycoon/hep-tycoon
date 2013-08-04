@@ -4,14 +4,9 @@
         "grant": 3141592,
         "discoveries": [
             {
-                "name": "Some Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
-            },
-            {
-                "name": "Some other Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
+                "name": "You have discovered the J/Psi!",
+                "description": "Congratulations! You have discovered the J/Psi resonance (see <a href=\"http://en.wikipedia.org/wiki/J/psi\">wikipedia</a>).",
+                "img": "/img/discovery/JPsi.png"
             }
         ]
     },
@@ -20,14 +15,9 @@
         "grant": 42000000,
         "discoveries": [
             {
-                "name": "Some Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
-            },
-            {
-                "name": "Some other Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
+                "name": "You have discovered the W boson!",
+                "description": "Congratulations! You have discovered a new gauge boson: the W (see <a href=\"http://en.wikipedia.org/wiki/W_boson\">wikipedia</a>).",
+                "img": "/img/discovery/WBoson.png"
             }
         ]
     },
@@ -36,14 +26,9 @@
         "grant": 90000001,
         "discoveries": [
             {
-                "name": "Some Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
-            },
-            {
-                "name": "Some other Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
+                "name": "You have discovered the Higgs boson!",
+                "description": "Congratulations! You have discovered the Higgs boson, the particle that is responsible for giving mass to other particles (see <a href=\"http://en.wikipedia.org/wiki/Higgs_boson\">wikipedia</a>).",
+                "img": "/img/discovery/Higgs.png"
             }
         ]
     },
@@ -52,14 +37,9 @@
         "grant": 7000000000,
         "discoveries": [
             {
-                "name": "Some Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
-            },
-            {
-                "name": "Some other Particle",
-                "description": "Some description.",
-                "img": "some/path/to/an/image.png"
+                "name": "You have discovered supersymmetry!",
+                "description": "Congratulations! You have discovered supersymmetric particles, which are the extremely massive counterparts of ordinary matter (see <a href=\"http://en.wikipedia.org/wiki/Supersymmetry\">wikipedia</a>).",
+                "img": "/img/discovery/SUSY.png"
             }
         ]
     },

@@ -2,7 +2,6 @@
 function Accelerators($scope) {
     $scope.active = false;
     $scope.level = 1;
-    $scope.description = "linear electron-positron collider";
     $scope.name = "LEP";
     $scope.energy = 42;
     $scope.running_costs = 200;
