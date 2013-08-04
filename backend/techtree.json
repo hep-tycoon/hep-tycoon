@@ -158,10 +158,10 @@
         }
     },
    "detectors": {
-        "4pi": [
+        "compact_4pi": [
             {
                 "price": 1000000,
-                "name": "Level 1 4π Detector",
+                "name": "Level 1 Compact 4π Detector",
                 "purity_factor": 1,
                 "rate_factor": 1,
                 "running_costs": 1,
@@ -169,7 +169,7 @@
             },
             {
                 "price": 1,
-                "name": "Level 2 4π Detector",
+                "name": "Level 2 Compact 4π Detector",
                 "purity_factor": 1,
                 "rate_factor": 1,
                 "running_costs": 1,
@@ -177,7 +177,7 @@
             },
             {
                 "price": 1,
-                "name": "Level 3 4π Detector",
+                "name": "Level 3 Compact 4π Detector",
                 "purity_factor": 1,
                 "rate_factor": 1,
                 "running_costs": 1,
@@ -185,7 +185,41 @@
             },
             {
                 "price": 1,
-                "name": "Level 4 4π Detector",
+                "name": "Level 4 Compact 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            }
+        ],
+        "big_4pi": [
+            {
+                "price": 1000000,
+                "name": "Level 1 Big 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 2 Big 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 3 Big 4π Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 4 Big 4π Detector",
                 "purity_factor": 1,
                 "rate_factor": 1,
                 "running_costs": 1,
@@ -225,7 +259,42 @@
                 "running_costs": 1,
                 "num_scientists": 1
             }
+        ],
+        "combined": [
+            {
+                "price": 1,
+                "name": "Level 1 Combined Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 2 Combined Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 3 Combined Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            },
+            {
+                "price": 1,
+                "name": "Level 4 Combined Detector",
+                "purity_factor": 1,
+                "rate_factor": 1,
+                "running_costs": 1,
+                "num_scientists": 1
+            }
         ]
+
     },
     "datacentres": [
         {
