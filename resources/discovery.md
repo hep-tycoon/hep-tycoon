@@ -11,10 +11,11 @@ Particles to be Discovered by Level
 
 # Level 1:
 
-* W boson
-* We see a clear signal of a new particle in our data. This is a guage boson. One of the class of particles that mediate the four fundamental forces of nature. We call our new particle the W boson. The W boson mediates the weak force. It exists in two forms with charges of -1 and +1. They have huge masses of about 80 Ge/c^2. 
+* W and Z bosons
+* We see a clear signal of two new particle in our data. They are guage bosons, a class of particles that mediate the four fundamental forces of nature. We call our new particle the W and Z bosons. These bosons mediate the weak force. The w boson exists in two forms with charges of -1 and +1 and has a huge mass of about 80 Ge/c^2. The Z boson has netural charge and has a mass of about 91 GeV/c^2 
+
+* Source: http://en.wikipedia.org/wiki/File:Beta_Negative_Decay.svg
 
 # Level 2:
 
-* Z boson
-* Another clear signal of a new particle. We call our discovery the Z boson. It is a gauge boson, one of the class of particles that mediate the four fundamental forces of nature. The Z boson mediates the weak force. It has neutral charge and a high mass of about 91 GeV/C^2. Your experiments hint that there is more about the weak force to discover.
+
