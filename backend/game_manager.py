@@ -1,7 +1,9 @@
 import technology
+import random
 from time import time
 from hr import HR
 from backend import settings
+from backend import level
 
 def upgrade_technology_hook(original_function):
     def new_function(self, *args, **kwargs):
@@ -29,6 +31,7 @@ class GameManager(object):
         self.hr_manager = HR(self.accelerator.num_scientists)
         self.salary = 0
         self.grant_bar = 0
+        self.level = level.current_level()
         self.accelerator_running = False
         self._events = []
 
@@ -108,9 +111,20 @@ class GameManager(object):
         if not self.accelerator_running:
             totalCost -= self.accelerator.running_costs
         self.funds -= totalCost
-    
+
     def pay_salaries(self):
         self.funds -= self.hr_manager.sum_salary()
+
+    def grant_bar_add(self, gnt):
+        self.grant_bar += gnt
+        if self.grant_bar > self.level.publication_target:
+            lvl = level.pop_level()
+            self.level = level.current_level()
+            self.grant_bar -= lvl.publication_target
+            self.funds += lvl.grant
+            discovery = random.choice(lvl.discoveries)
+            discovery["granted"] = lvl.grant
+            self.event("grant", discovery)
 
     def process_events(self):
         elapsed = (time() - self.last_updated)
@@ -119,7 +133,7 @@ class GameManager(object):
             for scientist in self.hr_manager.scientists:
                 if scientist.can_work() and not self.data_centre.empty():
                     quality = scientist.publish(self.data_centre.retrieve())
-                    self.grant_bar += quality*settings.GRANT_BAR_CONSTANT
+                    self.grant_bar_add(quality*settings.GRANT_BAR_CONSTANT)
             if self.accelerator_running:
                 data = self.accelerator.run(1)
                 self.data_centre.store(data)

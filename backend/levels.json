@@ -12,7 +12,7 @@
                 "name": "Some other Particle",
                 "description": "Some description.",
                 "img": "some/path/to/an/image.png"
-            },
+            }
         ]
     },
     {
@@ -28,7 +28,7 @@
                 "name": "Some other Particle",
                 "description": "Some description.",
                 "img": "some/path/to/an/image.png"
-            },
+            }
         ]
     },
     {
@@ -44,7 +44,7 @@
                 "name": "Some other Particle",
                 "description": "Some description.",
                 "img": "some/path/to/an/image.png"
-            },
+            }
         ]
     },
     {
@@ -60,7 +60,7 @@
                 "name": "Some other Particle",
                 "description": "Some description.",
                 "img": "some/path/to/an/image.png"
-            },
+            }
         ]
     }
 ]
