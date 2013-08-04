@@ -63,7 +63,7 @@ class Accelerator(Technology):
 
     def remove_detector(self, slug):
         index = self.get_index_by_slug(slug)
-        cost = self.detectors.remove_cost
+        cost = self.detectors[index].remove_cost
         del self.detectors[index]
         return cost
 
