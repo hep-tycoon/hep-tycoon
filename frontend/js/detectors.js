@@ -40,11 +40,6 @@ function Detectors($scope){
         return 'pull-right';
     }
 
-    $scope.slots = function(slots){
-        if(slots == 1) return 'slot';
-        return 'slots';
-    }
-
     $scope.update();
 }
 

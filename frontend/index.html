@@ -194,7 +194,7 @@
               <div class="pull-right" ng-show="free_slots > 0">
                 <a href="#modDetectors" data-toggle="modal" class="btn btn-success btn-double-width"><span class="glyphicon glyphicon-plus-sign"></span> Show available detectors</a>
               </div>
-              <h4>{{detectors.length}}/{{max_detectors}} detector {{slots(detectors.length)}} in use</h4>
+              <h4>{{detectors.length}}/{{max_detectors}} detector <ng-pluralize count="max_detectors" when="{'1':'slot','other':'slots'}"></ng-pluralize> in use</h4>
             </li>
               <li class="list-group-item" ng-repeat="detector in detectors">
 
