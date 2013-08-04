@@ -30,7 +30,7 @@ function jetons(input, $filter) {
 var startTime = null;
 var GAME_SPEED = (60*60*24*365)/(30); // 30 seconds is one year
 var START_DATE = new Date(1960, 6, 4).getTime();
-var MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec".split(",");
+var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var $clock = $("#clock_target");
 
 function formatDate(date){
