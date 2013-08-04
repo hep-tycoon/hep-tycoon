@@ -68,6 +68,11 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
         $("#submit").click(function(){
+            acc = $(".acc:checked").val();
+            part = $(".part:checked").val();
+            name = $("#inputName").val();
+            if (!acc || !part || !name)
+              return false;
             location.href="/init_game/" + $(".acc:checked").val() + "/" + $(".part:checked").val() + "/" + encodeURIComponent($("#inputName").val());
             return false;
         });
