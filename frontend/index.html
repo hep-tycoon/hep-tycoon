@@ -66,6 +66,7 @@
             <form class="form-inline">
               <fieldset>
                 <legend><span class="glyphicon glyphicon-sort"></span> Adjust scientist salaries</legend>
+                <p>Current salary: <span id="iHireScientistsCost">{{hireScientistsCost|currency}}</span></p>
                 <div class="form-group">
                   <input type="number" class="form-control" ng-model="hireScientistsCostNew" min="0" value="1">
                   <button type="submit" class="btn btn-info pull-right" ng-click="adjustSalary()" ng-disabled="hireScientistsCostNew == hireScientistsCost">Adjust</button>
@@ -81,7 +82,6 @@
                   <input type="number" class="form-control" ng-model="hireScientistsCount" min="1" value="1">
                   <button type="submit" class="btn btn-info pull-right" data-target="#modConfirmHire" data-toggle="modal">Hire</button>
                 </div>
-                <span class="help-block">Cost: <span id="iHireScientistsCost">{{hireScientistsCost|currency}}</span></span>
               </fieldset>
             </form>
             </li>
