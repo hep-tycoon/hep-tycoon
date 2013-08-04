@@ -19,6 +19,7 @@ def jsonres(**obj):
         gameStatus={
             "funds": gamemanager.funds,
             "grant_bar": gamemanager.grant_bar,
+            "grant_bar_max": 2000,
             "storage_used": gamemanager.data_centre.storage_used,
             "storage_capacity": gamemanager.data_centre.storage_capacity
         }
