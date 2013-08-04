@@ -95,7 +95,9 @@ class GameManager(object):
 
     def pay_running_costs(self):
         totalCost = sum([tech.running_costs for tech in self.all_technology])
-        self.funds -= totalCost;
+        if not self.accelerator_running:
+            totalCost -= self.accelerator.running_costs
+        self.funds -= totalCost
     
     def pay_salaries(self):
         self.funds -= self.hr_manager.sum_salary()
