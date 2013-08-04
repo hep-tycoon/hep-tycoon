@@ -140,12 +140,10 @@ class Scientist(object):
     def can_work(self):
         import settings
         from time import time
-        return (time() - self.last_published) > settings.PUBLISH_TIME/1 #self.productivity TODO
+        return (time() - self.last_published) > settings.PUBLISH_TIME #*self.productivity #TODO
 
     def publish(self, dataset):
-        from time import time
-        self.last_published = time()
-        return self.skill*dataset.purity
+        return self.skill*dataset.purity*self.productivity
 
     @property
     def name(self):
@@ -166,7 +164,8 @@ class Scientist(object):
         """
             Very cool logistic function for the productivity of the scientist.
         """
-        return 2.0 / (1 + exp(-settings.GLOBAL_PRODUCTIVITY_CONVERSION * self.salary)) - 1
+        return max(self.salary/float(1000), 3)
+        #return 2.0 / (1 + exp(-settings.GLOBAL_PRODUCTIVITY_CONVERSION * self.salary)) - 1
 
     @property
     def skill(self):

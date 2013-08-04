@@ -29,7 +29,7 @@ class GameManager(object):
         self.accelerator = technology.from_tech_tree('accelerators', accelerator_geometry, accelerator_particles, 0)
         self.funds = settings.INITIAL_FUNDS - self.accelerator.price
         self.hr_manager = HR(self.accelerator.num_scientists)
-        self.salary = 0
+        self.salary = 1000
         self.grant_bar = 0
         self.level = level.current_level()
         self.accelerator_running = False
@@ -116,7 +116,7 @@ class GameManager(object):
         self.funds -= self.hr_manager.sum_salary()
 
     def grant_bar_add(self, gnt):
-        self.grant_bar += int(gnt)
+        self.grant_bar += gnt
         if self.grant_bar > self.level.publication_target:
             lvl = level.pop_level()
             self.level = level.current_level()
