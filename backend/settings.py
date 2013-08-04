@@ -4,13 +4,13 @@
 """
 
 # Game set up
-INITIAL_FUNDS = 1000000
+INITIAL_FUNDS = 300000
 TIME_CONVERSION = float(60*60*24*365)/30 # Real-Game time conversion factor
 
 GRANT_BAR_CONSTANT = 1
 
 # Scientist
-GLOBAL_SKILL = 1  # the scientists' skill
+GLOBAL_SKILL = 0.05  # the scientists' skill
 GLOBAL_PRODUCTIVITY_CONVERSION = float(1)/1000  # conversion factor between salary and productivity
 GLOBAL_FIRING_PENALTY_FACTOR = 2
 GLOBAL_FIRING_PENALTY_CONSTANT = 1

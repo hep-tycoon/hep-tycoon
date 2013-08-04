@@ -300,28 +300,28 @@
             "price": 10000,
             "name": "Tape Storage",
             "storage_capacity": 1000,
-            "running_costs": 10000,
+            "running_costs": 1000,
             "num_scientists": 5
         },
         {
             "price": 40000,
             "name": "Hard Drive Storage",
             "storage_capacity": 10000,
-            "running_costs": 25000,
+            "running_costs": 2500,
             "num_scientists": 15
         },
         {
             "price": 160000,
             "name": "Cluster Storage",
             "storage_capacity": 100000,
-            "running_costs": 80000,
+            "running_costs": 8000,
             "num_scientists": 30
         },
         {
             "price": 640000,
             "name": "The GRID",
             "storage_capacity": 1000000,
-            "running_costs": 250000,
+            "running_costs": 25000,
             "num_scientists": 40
         }
     ]
