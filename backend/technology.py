@@ -94,9 +94,11 @@ class Detector(Technology):
         A detector processes events from the accelerator and produces data.
     """
     def __init__(self, purity_factor, rate_factor, **kwargs):
+        import settings
         super(Detector, self).__init__(**kwargs)
         self.purity_factor = purity_factor
         self.rate_factor = rate_factor
+        self.remove_cost = settings.GLOBAL_DETECTOR_REMOVAL_COST
 
     def process_events(self, size, purity):
         return (size * self.rate_factor, purity * self.purity_factor)
@@ -110,6 +112,7 @@ class Detector(Technology):
         res.update({
             "purity_factor": self.purity_factor,
             "rate_factor": self.rate_factor,
+            "remove_cost": self.remove_cost,
             "slug": self.slug
         })
         return res
