@@ -1,7 +1,7 @@
 [
     {
         "publication_target": 10,
-        "grant": 10000,
+        "grant": 3141592,
         "discoveries": [
             {
                 "name": "Some Particle",
@@ -17,7 +17,7 @@
     },
     {
         "publication_target": 100,
-        "grant": 100000,
+        "grant": 42000000,
         "discoveries": [
             {
                 "name": "Some Particle",
@@ -33,7 +33,7 @@
     },
     {
         "publication_target": 1000,
-        "grant": 1000000,
+        "grant": 90000001,
         "discoveries": [
             {
                 "name": "Some Particle",
@@ -49,7 +49,7 @@
     },
     {
         "publication_target": 10000,
-        "grant": 10000000,
+        "grant": 7000000000,
         "discoveries": [
             {
                 "name": "Some Particle",
@@ -62,5 +62,10 @@
                 "img": "some/path/to/an/image.png"
             }
         ]
+    },
+    {
+        "publication_target": 9999999999999999,
+        "grant": 10,
+        "discoveries": []
     }
 ]

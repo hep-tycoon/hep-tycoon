@@ -1,7 +1,7 @@
 function Grant($scope){
     $scope.papers = 0;
     $scope.total = 100;
-    $scope.price = 100000;
+    $scope.price = 0;
 
     $scope.getProgressbarStyle = function(){
         return {
@@ -10,10 +10,11 @@ function Grant($scope){
     };
 }
 
-function setGrantInfo(papers, total){
+function setGrantInfo(papers, total, price){
     var $scope = $("#grant").scope();
     $scope.papers = papers;
     $scope.total = total;
+    $scope.price = price;
     $scope.$apply();
 }
 

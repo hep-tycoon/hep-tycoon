@@ -116,7 +116,7 @@ class GameManager(object):
         self.funds -= self.hr_manager.sum_salary()
 
     def grant_bar_add(self, gnt):
-        self.grant_bar += gnt
+        self.grant_bar += int(gnt)
         if self.grant_bar > self.level.publication_target:
             lvl = level.pop_level()
             self.level = level.current_level()

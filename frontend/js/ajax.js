@@ -12,7 +12,7 @@ function ajax(method, object, callback) {
         $("#iFunds").text(jetons(data.gameStatus.funds));
         funds = data.gameStatus.funds;
         setDatacenterInfo(data.gameStatus.storage_used, data.gameStatus.storage_capacity);
-        setGrantInfo(data.gameStatus.grant_bar, data.gameStatus.grant_bar_max);
+        setGrantInfo(data.gameStatus.grant_bar, data.gameStatus.grant_bar_max, data.gameStatus.grant_bar_price);
         data.gameStatus.events.forEach(function(event){
             switch(event[0]){
                 case "bankruptcy":
@@ -31,8 +31,8 @@ function ajax(method, object, callback) {
         });
 
         callback(data.response);
-    }).error(function(xhr, ajaxOptions, thrownError){
-        alert(thrownError); // TODO: nicer errors
+    }).error(function(){
+        alert("Error"); // TODO: nicer errors
         console.log(arguments);
     });
 }

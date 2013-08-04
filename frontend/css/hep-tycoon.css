@@ -57,6 +57,7 @@ ul.list-group li.list-group-item h1
 
 .navbar-text.clock {
   margin-right: 20px;
+  margin-top: 11px;
   font-family: monospace;
   font-size: 14px;
   background-color: #666;
