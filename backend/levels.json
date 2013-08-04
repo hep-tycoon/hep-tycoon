@@ -2,37 +2,65 @@
     {
         "publication_target": 10,
         "grant": 10000,
-        "discovery": {
-            "name": "Some Particle",
-            "description": "Some description.",
-            "img": "some/path/to/an/image.png"
-        }
+        "discoveries": [
+            {
+                "name": "Some Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+            {
+                "name": "Some other Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+        ]
     },
     {
         "publication_target": 100,
         "grant": 100000,
-        "discovery": {
-            "name": "Some Particle",
-            "description": "Some description.",
-            "img": "some/path/to/an/image.png"
-        }
+        "discoveries": [
+            {
+                "name": "Some Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+            {
+                "name": "Some other Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+        ]
     },
     {
         "publication_target": 1000,
         "grant": 1000000,
-        "discovery": {
-            "name": "Some Particle",
-            "description": "Some description.",
-            "img": "some/path/to/an/image.png"
-        }
+        "discoveries": [
+            {
+                "name": "Some Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+            {
+                "name": "Some other Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+        ]
     },
     {
         "publication_target": 10000,
         "grant": 10000000,
-        "discovery": {
-            "name": "Some Particle",
-            "description": "Some description.",
-            "img": "some/path/to/an/image.png"
-        }
+        "discoveries": [
+            {
+                "name": "Some Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+            {
+                "name": "Some other Particle",
+                "description": "Some description.",
+                "img": "some/path/to/an/image.png"
+            },
+        ]
     }
 ]
