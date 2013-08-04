@@ -276,29 +276,29 @@
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
-        </div>
-        <div class="panel panel-primary" id="datacenter" ng-controller="DataCenter">
-          <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-hdd"></span> Data centre</h3>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <div class="panel panel-primary" id="datacenter" ng-controller="DataCenter">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="glyphicon glyphicon-hdd"></span> Data centre</h3>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
               <div class="progress progress-striped">
                 <div class="progress-bar progress-bar-info" ng-style="getProgressbarStyle()"></div>
               </div>
               <p class="text-right"><strong>{{usage}}/{{capacity}} PetaBytes</strong></p>
-            </li>
-            <li class="list-group-item">
+              </li>
+              <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                  <a href="#" class="btn btn-primary" ng-click="upgrade()" disable-cost="{{upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
+                <a href="#" class="btn btn-primary" ng-click="upgrade()" disable-cost="{{upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
               </div>
               <div>
-                  <h3>{{name}}</h3>
-                  <p>Level {{level+1}} Data Centre<br>
-                  Running cost: <strong>{{running_costs|currency}}</strong> per month</p>
+                <h3>{{name}}</h3>
+                <p>Level {{level+1}} Data Centre<br>
+                Running cost: <strong>{{running_costs|currency}}</strong> per month</p>
               </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
