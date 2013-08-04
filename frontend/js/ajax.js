@@ -23,7 +23,7 @@ function ajax(method, object, callback) {
                     $("#modGrant")
                         .find(".granted").text(jetons(event[1].granted)).end()
                         .find(".discovery-name").text(event[1].name).end()
-                        .find(".discovery-description").text(event[1].description).end()
+                        .find(".discovery-description").html(event[1].description).end()
                         .find(".discovery-img").attr("src", event[1].img).end()
                         .modal("show");
                     break;

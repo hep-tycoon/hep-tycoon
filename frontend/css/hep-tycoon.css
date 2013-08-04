@@ -49,6 +49,11 @@ ul.list-group li.list-group-item h1
   margin-top: -5px;
 }
 
+img.discovery-img
+{
+  width: 100%;
+}
+
 .scrollable
 {
   max-height: 200px;

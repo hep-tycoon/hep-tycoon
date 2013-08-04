@@ -6,7 +6,7 @@
             {
                 "name": "You have discovered the J/Psi!",
                 "description": "Congratulations! You have discovered the J/Psi resonance (see <a href=\"http://en.wikipedia.org/wiki/J/psi\">wikipedia</a>).",
-                "img": "/img/discovery/JPsi.png"
+                "img": "/frontend/img/discovery/JPsi.png"
             }
         ]
     },
@@ -17,7 +17,7 @@
             {
                 "name": "You have discovered the W boson!",
                 "description": "Congratulations! You have discovered a new gauge boson: the W (see <a href=\"http://en.wikipedia.org/wiki/W_boson\">wikipedia</a>).",
-                "img": "/img/discovery/WBoson.png"
+                "img": "/frontend/img/discovery/WBoson.png"
             }
         ]
     },
@@ -28,7 +28,7 @@
             {
                 "name": "You have discovered the Higgs boson!",
                 "description": "Congratulations! You have discovered the Higgs boson, the particle that is responsible for giving mass to other particles (see <a href=\"http://en.wikipedia.org/wiki/Higgs_boson\">wikipedia</a>).",
-                "img": "/img/discovery/Higgs.png"
+                "img": "/frontend/img/discovery/Higgs.png"
             }
         ]
     },
@@ -39,7 +39,7 @@
             {
                 "name": "You have discovered supersymmetry!",
                 "description": "Congratulations! You have discovered supersymmetric particles, which are the extremely massive counterparts of ordinary matter (see <a href=\"http://en.wikipedia.org/wiki/Supersymmetry\">wikipedia</a>).",
-                "img": "/img/discovery/SUSY.png"
+                "img": "/frontend/img/discovery/SUSY.png"
             }
         ]
     },
