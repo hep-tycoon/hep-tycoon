@@ -1,7 +1,3 @@
-from time import time
-from backend import settings
-
-
 class HR(object):
     """
         Manage human resources in the game.
@@ -142,9 +138,12 @@ class Scientist(object):
         return '{}'.format(self._name)
 
     def can_work(self):
+        import settings
+        from time import time
         return (time() - self.last_published) > settings.PUBLISH_TIME/1 #self.productivity TODO
 
     def publish(self, dataset):
+        from time import time
         self.last_published = time()
         return self.skill*dataset.purity
 
@@ -163,6 +162,7 @@ class Scientist(object):
     @property
     def productivity(self):
         from math import exp
+        import settings
         """
             Very cool logistic function for the productivity of the scientist.
         """
