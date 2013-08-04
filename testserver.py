@@ -167,7 +167,7 @@ def methods_json():
             "name": rule.endpoint
         })
     import json
-    print json.dumps(methods)
+    print(json.dumps(methods))
 
 #methods_json()
 if __name__ == '__main__':
