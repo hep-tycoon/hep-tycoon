@@ -163,7 +163,7 @@
             </li>
              <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
+                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
               </div>
               <div>
                 <p>Level {{level+1}} <a data-popover="hover">{{description}}</a></p>
@@ -199,7 +199,7 @@
               <li class="list-group-item" ng-repeat="detector in detectors">
 
                 <div ng-class="btngroupclass(detector.can_upgrade)">
-                    <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.price|currency}})</small></a>
+                    <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
                     <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.remove_cost|currency}})</small></a>
                 </div>
                 <h4>{{detector.name}}</h4>
@@ -242,7 +242,7 @@
             </li>
             <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{price|currency}})</small></a>
+                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
               </div>
               <div>
                   <h3>{{name}}</h3>

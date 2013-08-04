@@ -28,6 +28,11 @@ def jsonres(**obj):
 def index():
     return redirect('/frontend/index.html')
 
+@app.route("/trigger")
+def trigger():
+    gamemanager.process_events()
+    return jsonres()
+
 @app.route('/time')
 def time():
     return jsonres(**{

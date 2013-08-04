@@ -36,6 +36,9 @@ time(function(data){
     setInterval(updateClock, 250);
 });
 
+setInterval(function(){
+    trigger(angular.noop);
+}, 1000);
 
 $('a[data-toggle=tooltip]').tooltip();
 $('a[data-popover="hover"]').popover({ title: 'get title', content: 'get content from md', html: true, trigger: 'hover' });
