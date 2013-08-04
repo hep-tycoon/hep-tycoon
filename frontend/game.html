@@ -174,9 +174,9 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title">{{description}}</h4>
+                      <h4 class="modal-title">{{name}}</h4>
                     </div>
-                    <div class="modal-body" data-docs="accelerator"></div>
+                    <div class="modal-body" id="docsaccelerator" data-docs="accelerator"></div>
                     <div class="modal-footer">
                       <a href="#" class="btn" data-dismiss="modal">Close</a>
                     </div>
@@ -216,10 +216,25 @@
                     <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade" disable-cost="{{detector.upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgrade_cost|currency}})</small></a>
                     <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)" disable-cost="{{detector.remove_cost}}"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.remove_cost|currency}})</small></a>
                 </div>
-                <h4>{{detector.name}}</h4>
+                <h4><a href="#" data-toggle="modal" data-target="#modDocsDetector{{detector.slug}}">{{detector.name}}</a></h4>
                 <p><small>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</small></p>
                 <p>{{detector.description}}</p>
                 <img src="img/accelerator/Linear/fixed_target_64.png" alt="Picture of the accelerator.">
+                <!-- Modal: detector docs -->
+                <div class="modal fade" id="modDocsDetector{{detector.slug}}">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">{{detector.name}}</h4>
+                      </div>
+                      <div class="modal-body" data-docs="detector_{{detector.slug}}"></div>
+                      <div class="modal-footer">
+                        <a href="#" class="btn" data-dismiss="modal">Close</a>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
               </li>
           </ul>
           <!-- Modal: available detector list -->

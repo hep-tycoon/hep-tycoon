@@ -51,6 +51,7 @@ function updateClock(){
 function readTextFile(file, callback)
 {
     $.ajax({
+            async: false,
             url : file,
             success : callback
     });
@@ -63,7 +64,7 @@ time(function(data){
 
 setInterval(function(){
     if(funds >= 0){
-      trigger(angular.noop);
+      //trigger(angular.noop);
     }
 }, 1000);
 
