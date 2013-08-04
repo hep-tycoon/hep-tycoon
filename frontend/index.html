@@ -163,7 +163,7 @@
             </li>
              <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
+                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{price|currency}})</small></a>
               </div>
               <div>
                 <p>Level {{level+1}} <a data-popover="hover">{{description}}</a></p>
@@ -228,7 +228,7 @@
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
-		</div>
+        </div>
         <div class="panel panel-primary" id="grant" ng-controller="DataCenter">
           <div class="panel-heading">
             <h3 class="panel-title"><span class="glyphicon glyphicon-hdd"></span> Data centre</h3>
@@ -242,7 +242,7 @@
             </li>
             <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgradeCost|currency}})</small></a>
+                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{price|currency}})</small></a>
               </div>
               <div>
                   <h3>{{name}}</h3>
