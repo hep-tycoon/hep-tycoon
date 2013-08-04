@@ -1,7 +1,7 @@
 from collections import namedtuple
 from os import path
 
-Level = namedtuple('Level', ['publication_target', 'grant', 'discovery'])
+Level = namedtuple('Level', ['publication_target', 'grant', 'discoveries'])
 
 levels = None
 with open(path.join(path.dirname(__file__), 'levels.json')) as level_file:
