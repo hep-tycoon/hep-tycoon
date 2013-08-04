@@ -35,6 +35,11 @@ function Detectors($scope){
         });
     };
 
+    $scope.btngroupclass = function(can_upgrade){
+        if(can_upgrade) return 'pull-right btn-group';
+        return 'pull-right';
+    }
+
     $scope.update();
 }
 

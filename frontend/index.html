@@ -187,7 +187,7 @@
         </div>
         <div class="panel panel-primary" id="detectors" ng-controller="Detectors">
           <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-eye-open"></span> Installed Detectors</h3>
+            <h3 class="panel-title"><span class="glyphicon glyphicon-eye-open"></span> Detectors</h3>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -196,9 +196,9 @@
               </div>
               <h4>{{detectors.length}}/{{max_detectors}} detector slots in use</h4>
             </li>
-            <div ng-repeat="detector in detectors">
-              <li class="list-group-item">
-                <div class="pull-right btn-group">
+              <li class="list-group-item" ng-repeat="detector in detectors">
+
+                <div ng-class="btngroupclass(detector.can_upgrade)">
                     <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgradeCost|currency}})</small></a>
                     <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.removeCost|currency}})</small></a>
                 </div>
@@ -206,9 +206,8 @@
                 <p>{{detector.description}}</p>
                 <img src="img/accelerator/Linear/fixed_target_64.png" alt="Picture of the accelerator.">
               </li>
-            </div>
           </ul>
-          <!-- Modal: confirm scientist hire -->
+          <!-- Modal: available detector list -->
           <div class="modal fade" id="modDetectors">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -219,8 +218,8 @@
                 <div class="modal-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" ng-repeat="detector in availableDetectors">
-                            <h4>{{detector.name}}</h4>
                             <button class="btn btn-success pull-right" ng-click="install(detector.slug)">Install detector</button>
+                            <h4>{{detector.name}}</h4>
                         </li>
                     </ul>
                 </div>
