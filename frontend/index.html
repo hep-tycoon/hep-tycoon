@@ -152,7 +152,6 @@
       <div class="col-lg-6">
         <div class="panel panel-primary" id="accelerator" ng-controller="Accelerators">
           <div class="panel-heading">
-                    
             <h3 class="panel-title"><span class="glyphicon glyphicon-forward"></span> Accelerator
               <span class="label label-success pull-right" ng-show="active">Running</span>
               <span class="label label-warning pull-right" ng-hide="active">Shut down</span></h3>
@@ -163,7 +162,7 @@
             </li>
              <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
+                  <button disable-cost="{{upgrade_cost}}" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></button>
               </div>
               <div>
                 <p>Level {{level+1}} <a data-popover="hover">{{description}}</a></p>
@@ -199,8 +198,8 @@
               <li class="list-group-item" ng-repeat="detector in detectors">
 
                 <div ng-class="btngroupclass(detector.can_upgrade)">
-                    <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgrade_cost|currency}})</small></a>
-                    <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.remove_cost|currency}})</small></a>
+                    <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade" disable-cost="{{detector.upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgrade_cost|currency}})</small></a>
+                    <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)" disable-cost="{{detector.remove_cost}}"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.remove_cost|currency}})</small></a>
                 </div>
                 <h4>{{detector.name}}</h4>
                 <p><small>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</small></p>
@@ -219,7 +218,7 @@
                 <div class="modal-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" ng-repeat="detector in availableDetectors">
-                          <button class="btn btn-success pull-right" ng-click="install(detector.slug)">Install detector<br><small>(cost {{detector.price|currency}})</small></button>
+                          <button class="btn btn-success pull-right" ng-click="install(detector.slug)" disable-cost="{{detector.price}}">Install detector<br><small>(cost {{detector.price|currency}})</small></button>
                           <h4>{{detector.name}}</h4>
                           <p><small>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</small></p>
                         </li>
@@ -242,7 +241,7 @@
             </li>
             <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                  <a href="#" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
+                  <a href="#" class="btn btn-primary" ng-click="upgrade()" disable-cost="{{upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
               </div>
               <div>
                   <h3>{{name}}</h3>

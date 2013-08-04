@@ -1,10 +1,25 @@
 
+var funds = 0;
+
 angular.module("Tycoon", [])
     .filter("currency", ["$filter", function($filter){
         return function(input){
             return jetons(input, $filter);
         };
-    }]);
+    }])
+    .directive("disableCost", function(){
+        return function(scope, $elm, attrs){
+            var price = attrs.disableCost;
+
+            var unwatch = scope.$watch(function(){
+                return funds;
+            }, function(){
+                var price = attrs.disableCost;
+                $elm[price>funds?"attr":"removeAttr"]("disabled", "1");
+            });
+            $elm.bind("$destroy", unwatch);
+        };
+    });
 
 function jetons(input, $filter) {
   input = Math.round(input) + ".";

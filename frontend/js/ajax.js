@@ -10,6 +10,7 @@ function ajax(method, object, callback) {
         dataType: "json"
     }).done(function(data){
         $("#iFunds").text(jetons(data.gameStatus.funds));
+        funds = data.gameStatus.funds;
         setDatacenterInfo(data.gameStatus.storage_used, data.gameStatus.storage_capacity);
         setGrantInfo(data.gameStatus.grant_bar, data.gameStatus.grant_bar_max);
         callback(data.response);
