@@ -37,8 +37,10 @@ class Accelerator(Technology):
     """
         An accelerator can store a number of experiments.
     """
-    def __init__(self, slots, rate, purity, **kwargs):
+    def __init__(self, geometry, particles, slots, rate, purity, **kwargs):
         super(Accelerator, self).__init__(**kwargs)
+        self.geometry = geometry
+        self.particles = particles
         self.slots = slots
         self.rate = rate
         self.purity = purity
@@ -92,6 +94,8 @@ class Accelerator(Technology):
     def json(self):
         res = Technology.json(self)
         res.update({
+            "geometry": self.geometry,
+            "particles": self.particles,
             "free_slots": self.free_slots,
             "slots": self.slots,
             "rate": self.rate,
@@ -104,9 +108,10 @@ class Detector(Technology):
     """
         A detector processes events from the accelerator and produces data.
     """
-    def __init__(self, purity_factor, rate_factor, **kwargs):
+    def __init__(self, dtype, purity_factor, rate_factor, **kwargs):
         import settings
         super(Detector, self).__init__(**kwargs)
+        self.dtype = dtype
         self.purity_factor = purity_factor
         self.rate_factor = rate_factor
         self.remove_cost = settings.GLOBAL_DETECTOR_REMOVAL_COST
@@ -202,6 +207,11 @@ def from_tech_tree(*query):
     data["level"] = query[-1]
     data["max_level"] = len(levels)
     data["query"] = query
+    if tech_class == Accelerator:
+        data["geometry"] = query[1]
+        data["particles"] = query[2]
+    elif tech_class == Detector:
+        data["dtype"] = query[1]
     return tech_class(**data)
 
 

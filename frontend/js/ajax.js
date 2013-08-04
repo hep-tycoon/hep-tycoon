@@ -31,8 +31,8 @@ function ajax(method, object, callback) {
         });
 
         callback(data.response);
-    }).error(function(){
-        alert("Error"); // TODO: nicer errors
+    }).error(function(xhr, ajaxOptions, thrownError){
+        alert(thrownError); // TODO: nicer errors
         console.log(arguments);
     });
 }

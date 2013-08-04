@@ -33,6 +33,8 @@ var START_DATE = new Date(1960, 6, 4).getTime();
 var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var $clock = $("#clock_target");
 
+var DOCS_DIR = '/frontend/docs/';
+
 function formatDate(date){
   var month = MONTHS[date.getMonth()];
   var day = "0" + date.getDate();
@@ -44,6 +46,14 @@ function updateClock(){
   var elapsed = new Date() - startTime;
   var gameTime = new Date(START_DATE + elapsed*GAME_SPEED);
   $clock.text(formatDate(gameTime));
+}
+
+function readTextFile(file, callback)
+{
+    $.ajax({
+            url : file,
+            success : callback
+    });
 }
 
 time(function(data){
@@ -58,4 +68,3 @@ setInterval(function(){
 }, 1000);
 
 $('a[data-toggle=tooltip]').tooltip();
-$('a[data-popover="hover"]').popover({ title: 'get title', content: 'get content from md', html: true, trigger: 'hover' });

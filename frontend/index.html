@@ -165,9 +165,24 @@
                   <button disable-cost="{{upgrade_cost}}" class="btn btn-primary" ng-click="upgrade()"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></button>
               </div>
               <div>
-                <p>Level {{level+1}} <a data-popover="hover">{{description}}</a></p>
+                <p>Level {{level+1}} <a href="#" data-target="#modDocsAcclerator" data-toggle="modal">{{description}}</a></p>
                 <img src="img/accelerator/Linear/fixed_target_64.png" alt="Picture of the accelerator.">
               </div>
+              <!-- Modal: accelerator docs -->
+              <div class="modal fade" id="modDocsAcclerator">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title">{{description}}</h4>
+                    </div>
+                    <div class="modal-body" data-docs="accelerator"></div>
+                    <div class="modal-footer">
+                      <a href="#" class="btn" data-dismiss="modal">Close</a>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
             </li>
             <li class="list-group-item">
             <div class="pull-right">
@@ -290,6 +305,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/scientists.js"></script>
     <script src="js/accelerators.js"></script>

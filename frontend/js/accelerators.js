@@ -32,6 +32,7 @@ function Accelerators($scope) {
     $scope.update = function(){
       get_accelerator(function(res){
         angular.extend($scope, res);
+        readTextFile(DOCS_DIR + 'accelerators/' + $scope.geometry + '/' + $scope.particles + '/' + $scope.level + '.html', function (result) { $('div[data-docs="accelerator"]').innerHtml = result; } );
         $scope.$apply();
       });
     };
