@@ -115,16 +115,15 @@ class GameManager(object):
     def process_events(self):
         elapsed = (time() - self.last_updated)
 
-        if self.accelerator_running:
-            for _ in xrange(int(elapsed)):
-                for scientist in self.hr_manager.scientists:
-                    if scientist.can_work() and not self.data_centre.empty():
-                        quality = scientist.publish(self.data_centre.retrieve())
-                        self.grant_bar += quality*settings.GRANT_BAR_CONSTANT
-
+        for _ in xrange(int(elapsed)):
+            for scientist in self.hr_manager.scientists:
+                if scientist.can_work() and not self.data_centre.empty():
+                    quality = scientist.publish(self.data_centre.retrieve())
+                    self.grant_bar += quality*settings.GRANT_BAR_CONSTANT
+            if self.accelerator_running:
                 data = self.accelerator.run(1)
                 self.data_centre.store(data)
-                self.last_updated += 1
+            self.last_updated += 1
 
         month_time = (60*60*24*30)/settings.TIME_CONVERSION # Month duration in real time
         elapsed_months = (time() - self.last_month_start) / month_time

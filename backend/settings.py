@@ -4,7 +4,7 @@
 """
 
 # Game set up
-INITIAL_FUNDS = 12
+INITIAL_FUNDS = 120000000
 TIME_CONVERSION = float(60*60*24*365)/30 # Real-Game time conversion factor
 
 GRANT_BAR_CONSTANT = 1
