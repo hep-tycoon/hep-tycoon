@@ -39,7 +39,7 @@ function Accelerators($scope) {
 
 function setAcceleratorInfo(active){
     var $scope = $("#accelerator").scope();
-    $scope.active = active
+    $scope.active = active;
     $scope.$apply();
 }
 

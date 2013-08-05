@@ -11,7 +11,8 @@ function Detectors($scope){
             $scope.availableDetectors = data.available;
             $scope.max_detectors = data.max_detectors;
             $scope.$apply();
-            for (var i = 0; i < $scope.detectors.length; i++)
+            var i;
+            for (i = 0; i < $scope.detectors.length; i++)
             {
               var detector = $scope.detectors[i];
               readTextFile(DOCS_DIR + 'detectors/' + detector.slug + '/' + detector.level + '.html', function (result) { $('div[data-docs="detector_' + detector.slug + '"]').html(result); } );
