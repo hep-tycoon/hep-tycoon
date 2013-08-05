@@ -1,6 +1,12 @@
 
 var funds = 0;
 
+function jetons(input, $filter) {
+  input = Math.round(input) + ".";
+  input = input.replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+  return "JTN " + input.substring(0, input.length-1);
+}
+
 angular.module("Tycoon", [])
     .filter("currency", ["$filter", function($filter){
         return function(input){
@@ -20,12 +26,6 @@ angular.module("Tycoon", [])
             $elm.bind("$destroy", unwatch);
         };
     });
-
-function jetons(input, $filter) {
-  input = Math.round(input) + ".";
-  input = input.replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
-  return "JTN " + input.substring(0, input.length-1);
-}
 
 var startTime = null;
 var GAME_SPEED = (60*60*24*365)/(30); // 30 seconds is one year
