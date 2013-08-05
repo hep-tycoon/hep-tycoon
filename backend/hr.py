@@ -159,8 +159,8 @@ class Scientist(object):
 
     @property
     def productivity(self):
-        from math import exp
-        import settings
+        #from math import exp
+        #import settings
         """
             Very cool logistic function for the productivity of the scientist.
         """
