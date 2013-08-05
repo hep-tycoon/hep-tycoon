@@ -33,12 +33,7 @@ function ajax(method, object, callback) {
 
         callback(data.response);
     }).error(function(){
-        $('#modError').modal({
-          backdrop: 'static',
-          keyboard: false
-        });
-        $("#modError")
-            .modal("show");
+        $("#modError").modal("show");
         console.log(arguments);
     });
 }
