@@ -33,7 +33,12 @@ function ajax(method, object, callback) {
 
         callback(data.response);
     }).error(function(){
-        alert("Error"); // TODO: nicer errors
+        $('#modError').modal({
+          backdrop: 'static',
+          keyboard: false
+        });
+        $("#modError")
+            .modal("show");
         console.log(arguments);
     });
 }
