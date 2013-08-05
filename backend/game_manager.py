@@ -76,6 +76,7 @@ class GameManager(object):
 
     @upgrade_technology_hook
     def accelerator_upgrade(self):
+        self.accelerator_stop()
         self.funds -= self.accelerator.upgrade_cost
         self.accelerator = self.accelerator.upgrade_from_tech_tree()
 
