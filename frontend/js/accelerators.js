@@ -8,14 +8,12 @@ function Accelerators($scope) {
 
     $scope.shutdown = function(){
       shutdown_accelerator(function(){
-        $scope.active = false;
         $scope.$apply();
       });
     };
 
     $scope.powerOn = function(){
       poweron_accelerator(function(){
-        $scope.active = true;
         $scope.$apply();
       });
     };
@@ -37,5 +35,11 @@ function Accelerators($scope) {
     };
 
     $scope.update();
+}
+
+function setAcceleratorInfo(active){
+    var $scope = $("#accelerator").scope();
+    $scope.active = active
+    $scope.$apply();
 }
 

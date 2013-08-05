@@ -17,6 +17,7 @@ def jsonres(**obj):
     return jsonify(
         response=obj,
         gameStatus={
+            "accelerator_running": gamemanager.accelerator_running,
             "funds": gamemanager.funds,
             "grant_bar": int(gamemanager.grant_bar),
             "grant_bar_max": gamemanager.level.publication_target,

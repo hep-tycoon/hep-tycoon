@@ -11,6 +11,7 @@ function ajax(method, object, callback) {
     }).done(function(data){
         $("#iFunds").text(jetons(data.gameStatus.funds));
         funds = data.gameStatus.funds;
+        setAcceleratorInfo(data.gameStatus.accelerator_running);
         setDatacenterInfo(data.gameStatus.storage_used, data.gameStatus.storage_capacity);
         setGrantInfo(data.gameStatus.grant_bar, data.gameStatus.grant_bar_max, data.gameStatus.grant_bar_price);
         data.gameStatus.events.forEach(function(event){
