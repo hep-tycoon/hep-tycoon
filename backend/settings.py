@@ -5,16 +5,18 @@
 
 # Game set up
 INITIAL_FUNDS = 300000
-TIME_CONVERSION = float(60 * 60 * 24 * 365) / 30  # Real-Game time conversion factor
+# real time to game time conversion factor
+TIME_CONVERSION = float(60 * 60 * 24 * 365) / 30
 
 GRANT_BAR_CONSTANT = 1.
 
 # Scientist
 GLOBAL_SKILL = .05  # the scientists' skill
-GLOBAL_PRODUCTIVITY_CONVERSION = 1. / 1000  # conversion factor between salary and productivity
+# conversion factor between salary and productivity
+GLOBAL_PRODUCTIVITY_CONVERSION = 1. / 1000
 GLOBAL_FIRING_PENALTY_FACTOR = 2.
 GLOBAL_FIRING_PENALTY_CONSTANT = 1.
-PUBLISH_TIME = 9.  # In real seconds = ~1/3 game months
+PUBLISH_TIME = 9.  # in real seconds = ~1/3 game months
 
 # Detector
 GLOBAL_DETECTOR_REMOVAL_COST = 10000.

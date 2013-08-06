@@ -2,9 +2,9 @@ from random import choice
 from string import uppercase
 from time import time
 
-from ht_exceptions import NegativeSalaryException, NegativeNumberScientistsException
-import nobel
-import settings
+from backend import ht_exceptions
+from backend import nobel
+from backend import settings
 
 
 class HR(object):
@@ -32,14 +32,16 @@ class HR(object):
     def scientists(self):
         """
             Return the list of currently employed scientists.
-            At this time it is a pointer to the list. One might consider just giving a copy.
+            At this time it is a pointer to the list. One might consider just
+            giving a copy.
         """
         return self._scientists
 
     @property
     def max_scientists(self):
         """
-            Return the maximum number of scientists that can be employed at this point.
+            Return the maximum number of scientists that can be employed at
+            this point.
             Depends on the technology of the facility.
         """
         return self._max_scientists
@@ -51,7 +53,7 @@ class HR(object):
             Should be done automatically whenever the infrastructure changes.
         """
         self._max_scientists = value
-    
+
     @property
     def num_scientists(self):
         """
@@ -69,15 +71,16 @@ class HR(object):
     def hire(self, salary, n=1):
         """
             Hire n new scientists with a certain salary.
-            Since at this point they are all the same it is pretty straightforward.
+            Since at this point they are all the same it is pretty
+            straightforward.
 
             If there are not enough free positions, only some of the are hired.
             The function returns the number of scientists actually hired.
         """
         if salary < 0:
-            raise NegativeSalaryException()
+            raise ht_exceptions.NegativeSalaryException()
         if n < 0:
-            raise NegativeNumberScientistsException()
+            raise ht_exceptions.NegativeNumberScientistsException()
         if n > self.positions:
             n = self.positions  # hire as many as possible
         self._scientists.extend([Scientist(salary) for i in range(n)])
@@ -86,13 +89,15 @@ class HR(object):
     def fire(self, n=1):
         """
             Fire n scientists.
-            Since they are all the same, it doesn't matter whom you fire, right?
-            However, there is a penalty for firing a scientist which is a multiple of his salary.
+            Since they are all the same, it doesn't matter whom you fire.
+            However, there is a penalty for firing a scientist which is a
+            multiple of his salary.
 
-            The function returns the number of scientists fired and the penalty for that.
+            The function returns the number of scientists fired and the penalty
+            for that.
         """
         if n < 0:
-            raise NegativeNumberScientistsException()
+            raise ht_exceptions.NegativeNumberScientistsException()
         if n > self.num_scientists:
             n = self.num_scientists
         penalty = sum([s.firing_penalty for s in self._scientists[:n]])
@@ -112,7 +117,7 @@ class HR(object):
             This is only valid as long as all scientists are treated the same.
         """
         if salary < 0:
-            raise NegativeSalaryException()
+            raise ht_exceptions.NegativeSalaryException()
         for s in self._scientists:
             s.salary = salary
 
@@ -138,15 +143,17 @@ class Scientist(object):
     def __str__(self):
         """
             Return a string identifying the scientist.
-            At this point it's just the name since skill and salary are the same for all of them.
+            At this point it's just the name since skill and salary are the
+            same for all of them.
         """
         return '{}'.format(self._name)
 
     def can_work(self):
-        return (time() - self.last_published) > settings.PUBLISH_TIME #*self.productivity #TODO
+        # TODO: include productivity!
+        return (time() - self.last_published) > settings.PUBLISH_TIME
 
     def publish(self, dataset):
-        return self.skill*dataset.purity*self.productivity
+        return self.skill * dataset.purity * self.productivity
 
     @property
     def name(self):
@@ -164,9 +171,14 @@ class Scientist(object):
     def productivity(self):
         """
             Very cool logistic function for the productivity of the scientist.
+            2.0 / (
+                1 + exp(
+                    -settings.GLOBAL_PRODUCTIVITY_CONVERSION * self.salary
+                )
+            ) - 1
+            But the correct constant has to be found first.
         """
         return max(self.salary/float(1000), 3)
-        #return 2.0 / (1 + exp(-settings.GLOBAL_PRODUCTIVITY_CONVERSION * self.salary)) - 1
 
     @property
     def skill(self):
@@ -174,7 +186,8 @@ class Scientist(object):
 
     @property
     def firing_penalty(self):
-        return self._salary * self._firing_penalty_factor + self._firing_penalty_constant
+        return self._salary * self._firing_penalty_factor + \
+            self._firing_penalty_constant
 
     @staticmethod
     def random_name():

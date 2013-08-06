@@ -1,17 +1,17 @@
 import random
 from time import time
 
-from hr import HR
-from ht_exceptions import BankruptcyException
-import level
-import settings
-import technology
+from backend.hr import HR
+from backend.ht_exceptions import BankruptcyException
+from backend import level
+from backend import settings
+from backend import technology
 
 
 def upgrade_technology_hook(original_function):
     def new_function(self, *args, **kwargs):
         result = original_function(self, *args, **kwargs)
-        self.update_max_number_scientists()  # update maximum number of scientists
+        self.update_max_number_scientists()
         return result
     return new_function
 
@@ -29,7 +29,12 @@ class GameManager(object):
 
         self.lab_name = lab_name
         self.data_centre = technology.from_tech_tree('datacentres', 0)
-        self.accelerator = technology.from_tech_tree('accelerators', accelerator_geometry, accelerator_particles, 0)
+        self.accelerator = technology.from_tech_tree(
+            'accelerators',
+            accelerator_geometry,
+            accelerator_particles,
+            0
+        )
         self.funds = settings.INITIAL_FUNDS - self.accelerator.price
         self.hr_manager = HR(self.accelerator.num_scientists)
         self.salary = 1000
@@ -48,7 +53,8 @@ class GameManager(object):
 
     @property
     def all_technology(self):
-        return [self.accelerator, self.data_centre] + self.accelerator.detectors
+        return [self.accelerator, self.data_centre] + \
+            self.accelerator.detectors
 
     @property
     def funds(self):
@@ -70,7 +76,8 @@ class GameManager(object):
 
     def accelerator_stop(self):
         """
-            Stop the data-taking and store the collected data in the data storage.
+            Stop the data-taking and store the collected data in the data
+            storage.
             Returns the number of collected data sets and the mean purity.
         """
         self.process_events()
@@ -84,7 +91,9 @@ class GameManager(object):
 
     @upgrade_technology_hook
     def detector_buy(self, slug):
-        self.funds -= self.accelerator.add_detector(technology.from_tech_tree("detectors", slug, 0))
+        self.funds -= self.accelerator.add_detector(
+            technology.from_tech_tree("detectors", slug, 0)
+        )
 
     @upgrade_technology_hook
     def detector_remove(self, slug):
@@ -98,13 +107,13 @@ class GameManager(object):
     def datacentre_upgrade(self):
         self.funds -= self.data_centre.upgrade_cost
         self.data_centre = self.data_centre.upgrade_from_tech_tree()
-    
+
     def hr_hire(self, n):
         return self.hr_manager.hire(self.salary, n)
-    
+
     def hr_fire(self, n):
         self.hr_manager.fire(n)
-    
+
     def hr_adjust_salary(self, salary):
         self.salary = salary
         self.hr_manager.adjust_salary(salary)
@@ -131,7 +140,6 @@ class GameManager(object):
 
     def process_events(self):
         elapsed = (time() - self.last_updated)
-
         for _ in xrange(int(elapsed)):
             for scientist in self.hr_manager.scientists:
                 if scientist.can_work() and not self.data_centre.empty():
@@ -141,8 +149,8 @@ class GameManager(object):
                 data = self.accelerator.run(1)
                 self.data_centre.store(data)
             self.last_updated += 1
-
-        month_time = (60*60*24*30)/settings.TIME_CONVERSION # Month duration in real time
+        # Month duration in real time
+        month_time = (60 * 60 * 24 * 30) / settings.TIME_CONVERSION
         elapsed_months = (time() - self.last_month_start) / month_time
         for _ in xrange(int(elapsed_months)):
             self.pay_salaries()
@@ -151,8 +159,9 @@ class GameManager(object):
 
     def update_max_number_scientists(self):
         """
-            Update the maximum number of scientists in the human resources manager.
-            Invoked after technology upgrade.
+            Update the maximum number of scientists in the human resources
+            manager. Invoked after technology upgrade.
         """
-        self.hr_manager.max_scientists = sum([t.num_scientists for t in self.all_technology])
-
+        self.hr_manager.max_scientists = sum(
+            [t.num_scientists for t in self.all_technology]
+        )

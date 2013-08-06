@@ -12,7 +12,16 @@ class Technology(object):
         Implement a piece of technology in the game.
         This is a base class for several other classes.
     """
-    def __init__(self, name, price, running_costs, num_scientists, level, max_level, query):
+    def __init__(
+        self,
+        name,
+        price,
+        running_costs,
+        num_scientists,
+        level,
+        max_level,
+        query
+    ):
         self.name = name
         self.price = price
         self.running_costs = running_costs
@@ -36,7 +45,18 @@ class Technology(object):
         return from_tech_tree(*self.query[:-1] + [self.level + 1])
 
     def json(self):
-        return dict((key, getattr(self, key)) for key in ("name", "price", "running_costs", "num_scientists", "level", "max_level", "can_upgrade", "upgrade_cost"))
+        return dict(
+            (key, getattr(self, key)) for key in (
+                "name",
+                "price",
+                "running_costs",
+                "num_scientists",
+                "level",
+                "max_level",
+                "can_upgrade",
+                "upgrade_cost"
+            )
+        )
 
 
 class Accelerator(Technology):
@@ -53,7 +73,7 @@ class Accelerator(Technology):
         self.detectors = []
 
     def get_index_by_slug(self, slug):
-        for i,d in enumerate(self.detectors):
+        for i, d in enumerate(self.detectors):
             if d.slug == slug:
                 return i
         raise Exception("Slug not found")
@@ -82,7 +102,8 @@ class Accelerator(Technology):
     def run(self, time):
         """
             Run the accelerator for an amount of time.
-            Returns the data sets produced by the experiments or something like that.
+            Returns the data sets produced by the experiments or something
+            like that.
         """
         datasets = []
         size = time * self.rate
@@ -137,7 +158,6 @@ class Detector(Technology):
         return res
 
 
-
 class DataCentre(Technology):
     """
         The data centre stores data until it's processed by scientists.
@@ -156,7 +176,8 @@ class DataCentre(Technology):
     def storage_capacity(self, value):
         """
             Update the storage capacity.
-            Since deques are used, all the data has to be moved which in a way is quite realistic.
+            Since deques are used, all the data has to be moved which in a way
+            is quite realistic.
         """
         self._storage = deque(self._storage, maxlen=value)
 
@@ -192,6 +213,7 @@ def query_tech_tree(path):
     for segment in path:
         act = act[segment]
     return act
+
 
 def from_tech_tree(*query):
     query = list(query)
