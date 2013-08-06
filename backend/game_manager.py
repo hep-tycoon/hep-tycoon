@@ -1,9 +1,12 @@
-import technology
 import random
 from time import time
+
 from hr import HR
-from backend import settings
-from backend import level
+from ht_exceptions import BankruptcyException
+import level
+import settings
+import technology
+
 
 def upgrade_technology_hook(original_function):
     def new_function(self, *args, **kwargs):
@@ -53,7 +56,6 @@ class GameManager(object):
 
     @funds.setter
     def funds(self, value):
-        from ht_exceptions import BankruptcyException
         if value < 0:
             raise BankruptcyException()
         self._funds = value

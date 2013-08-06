@@ -1,5 +1,11 @@
-import os
+from collections import deque, Iterable
 import json
+import os
+
+from data_set import DataSet
+from ht_exceptions import NoMoreFreeSlotsException
+import settings
+
 
 class Technology(object):
     """
@@ -57,7 +63,6 @@ class Accelerator(Technology):
             Add a detector to the accelerator.
             Throws an exception if no more free slots are available.
         """
-        from ht_exceptions import NoMoreFreeSlotsException
         if self.free_slots <= 0:
             raise NoMoreFreeSlotsException()
         self.detectors.append(detector)
@@ -75,7 +80,6 @@ class Accelerator(Technology):
         return self.detectors[i].price
 
     def run(self, time):
-        from data_set import DataSet
         """
             Run the accelerator for an amount of time.
             Returns the data sets produced by the experiments or something like that.
@@ -109,7 +113,6 @@ class Detector(Technology):
         A detector processes events from the accelerator and produces data.
     """
     def __init__(self, dtype, purity_factor, rate_factor, **kwargs):
-        import settings
         super(Detector, self).__init__(**kwargs)
         self.dtype = dtype
         self.purity_factor = purity_factor
@@ -140,7 +143,6 @@ class DataCentre(Technology):
         The data centre stores data until it's processed by scientists.
     """
     def __init__(self, storage_capacity, **kwargs):
-        from collections import deque
         """
         """
         super(DataCentre, self).__init__(**kwargs)
@@ -152,7 +154,6 @@ class DataCentre(Technology):
 
     @storage_capacity.setter
     def storage_capacity(self, value):
-        from collections import deque
         """
             Update the storage capacity.
             Since deques are used, all the data has to be moved which in a way is quite realistic.
@@ -171,7 +172,6 @@ class DataCentre(Technology):
         return self.storage_used == 0
 
     def store(self, data):
-        from collections import Iterable
         """
             Add one or multiple datasets to the store.
             If the store is over capacity, old data is just dumped.
