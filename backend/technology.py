@@ -2,9 +2,9 @@ from collections import deque, Iterable
 import json
 import os
 
-from data_set import DataSet
-from ht_exceptions import NoMoreFreeSlotsException
-import settings
+from backend.data_set import DataSet
+from backend.ht_exceptions import NoMoreFreeSlotsException
+from backend import settings
 
 
 class Technology(object):
