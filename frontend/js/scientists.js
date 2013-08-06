@@ -5,6 +5,7 @@ function Scientists($scope){
         list_scientists(function(data){
             $scope.scientists = data.scientists;
             $scope.maxScientists = data.max_scientists;
+            $scope.slots = $scope.maxScientists - $scope.scientists.length;
             $scope.$apply();
         });
     };
@@ -19,6 +20,10 @@ function Scientists($scope){
         );
     };
 
+    $scope.setHireCount = function(count){
+      $scope.hireScientistsCount = count;
+    }
+
     $scope.fire = function(){
         fire_scientists(
             $scope.fireScientistsCount,
@@ -28,6 +33,10 @@ function Scientists($scope){
             }
         );
     };
+
+    $scope.setFireCount = function(count){
+      $scope.fireScientistsCount = count;
+    }
 
     $scope.adjustSalary = function(){
         set_salary(
