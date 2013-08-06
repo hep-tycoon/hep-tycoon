@@ -1,3 +1,12 @@
+from random import choice
+from string import uppercase
+from time import time
+
+from ht_exceptions import NegativeSalaryException, NegativeNumberScientistsException
+from nobel import names
+import settings
+
+
 class HR(object):
     """
         Manage human resources in the game.
@@ -58,7 +67,6 @@ class HR(object):
         return self.max_scientists - self.num_scientists
 
     def hire(self, salary, n=1):
-        from ht_exceptions import NegativeSalaryException, NegativeNumberScientistsException
         """
             Hire n new scientists with a certain salary.
             Since at this point they are all the same it is pretty straightforward.
@@ -76,7 +84,6 @@ class HR(object):
         return n
 
     def fire(self, n=1):
-        from ht_exceptions import NegativeNumberScientistsException
         """
             Fire n scientists.
             Since they are all the same, it doesn't matter whom you fire, right?
@@ -100,7 +107,6 @@ class HR(object):
         return sum([s.salary for s in self._scientists])
 
     def adjust_salary(self, salary):
-        from ht_exceptions import NegativeSalaryException
         """
             Set the salary for all the scientists.
             This is only valid as long as all scientists are treated the same.
@@ -116,7 +122,6 @@ class Scientist(object):
         A scientist in the game.
     """
     def __init__(self, salary):
-        import settings
         """
             Create a new scientist with a given salary.
             The name is (at this point) assigned randomly.
@@ -138,8 +143,6 @@ class Scientist(object):
         return '{}'.format(self._name)
 
     def can_work(self):
-        import settings
-        from time import time
         return (time() - self.last_published) > settings.PUBLISH_TIME #*self.productivity #TODO
 
     def publish(self, dataset):
@@ -159,8 +162,6 @@ class Scientist(object):
 
     @property
     def productivity(self):
-        #from math import exp
-        #import settings
         """
             Very cool logistic function for the productivity of the scientist.
         """
@@ -177,9 +178,6 @@ class Scientist(object):
 
     @staticmethod
     def random_name():
-        from nobel import names
-        from random import choice
-        from string import uppercase
         """
             Construct a random name for a scientist.
         """
