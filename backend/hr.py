@@ -3,7 +3,7 @@ from string import uppercase
 from time import time
 
 from ht_exceptions import NegativeSalaryException, NegativeNumberScientistsException
-from nobel import names
+import nobel
 import settings
 
 
@@ -181,5 +181,5 @@ class Scientist(object):
         """
             Construct a random name for a scientist.
         """
-        names += ['Dungs', 'Maguire', 'Bel', 'Bengoa']
+        names = nobel.names + ['Dungs', 'Maguire', 'Bel', 'Bengoa']
         return '{}. {}'.format(choice(uppercase), choice(names))
