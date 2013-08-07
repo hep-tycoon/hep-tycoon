@@ -74,12 +74,6 @@ def time():
         'time': gamemanager.start_time
     })
 
-@view('/funds')
-def funds():
-    return jsonres(**{
-        'funds': gamemanager.funds
-    })
-
 @view('/hr/scientists/')
 def list_scientists():
     return jsonres(**{
