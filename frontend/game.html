@@ -39,7 +39,7 @@
             <li><a href="#staff">Scientists</a></li>
             <li><a href="#accelerator">Accelerator</a></li>
             <li><a href="#detectors">Detectors</a></li>
-            <li><a href="#dc">Data centre</a></li>
+            <li><a href="#datacenter">Data centre</a></li>
           </ul>
         </div>
         <p class="navbar-text pull-right"><big>Current funds: <span class="label label-info" id="iFunds"></span></big></p>
@@ -341,15 +341,22 @@
             <p class="text-right"><strong>{{usage}}/{{capacity}} PetaBytes</strong></p>
             </li>
             <li class="list-group-item">
-            <div class="pull-right" ng-show="can_upgrade">
-              <a href="#" class="btn btn-primary" ng-click="upgrade()" disable-cost="{{upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
-            </div>
-            <div>
-              <h3>{{name}}</h3>
-              <p>Level {{level+1}} Data Centre<br>
-              Running cost: <strong>{{running_costs|currency}}</strong> per month</p>
-              <img ng-src="img/data_center/{{level+1}}_64.png" alt="Picture of the accelerator.">
-            </div>
+              <div class="pull-right" ng-show="can_upgrade">
+                <a href="#" class="btn btn-primary" ng-click="upgrade()" disable-cost="{{upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
+              </div>
+              <div>
+                <h3>{{name}}</h3>
+                <p>Level {{level+1}} Data Centre<br>
+                  Running cost: <strong>{{running_costs|currency}}</strong> per month</p>
+                <img ng-src="img/data_center/{{level+1}}_64.png" alt="Picture of the accelerator.">
+              </div>
+            </li>
+            <li class="list-group-item">
+              <p>
+                <ul>
+                  <li>Scientist slots: <strong>{{num_scientists}}</strong></li>
+                </ul>
+              </p>
             </li>
           </ul>
         </div>
