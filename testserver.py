@@ -1,13 +1,15 @@
 """
     A minimal server for testing stuff.
 """
+from functools import wraps
+import sys
 
 from flask import Flask, jsonify, redirect
+
 from backend import technology
 from backend.game_manager import GameManager
 from backend.ht_exceptions import BankruptcyException
-from functools import wraps
-import sys
+
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 app.debug = True
