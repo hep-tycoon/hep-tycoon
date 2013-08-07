@@ -1,7 +1,7 @@
 #/bin/bash
 
 DEBUG=0
-if [ $1 = "--debug" ]; then
+if [[  $# > 0 && $1 = "--debug" ]]; then
     DEBUG=1
     URL="/init_game/linear/ee/$USER"
 fi
