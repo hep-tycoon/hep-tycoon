@@ -7,11 +7,16 @@ from backend import technology
 from backend.game_manager import GameManager
 from backend.ht_exceptions import BankruptcyException
 from functools import wraps
+import sys
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 app.debug = True
+
+if len(sys.argv) > 1 and sys.argv[1] == '1':
+    print "DEBUG MODE ENABLED"
+    debug = True
+
 gamemanager = None
-hr = None
 
 def jsonres(**obj):
     return jsonify(
@@ -48,9 +53,11 @@ def index():
 
 @view('/init_game/<type>/<partitles>/<name>')
 def init(name, type, partitles):
-    global gamemanager, hr
+    global gamemanager, hr, debug
     gamemanager = GameManager(name, type, partitles)
     hr = gamemanager.hr_manager
+    if debug == True:
+        gamemanager.funds *= 100000
     return redirect('/frontend/game.html')
 
 @view("/trigger")
