@@ -22,9 +22,9 @@ p
   width: 140px;
 }
 
-.btn-double-width
+.btn-var-width
 {
-  width: 280px;
+  width: auto;
 }
 
 .form-control

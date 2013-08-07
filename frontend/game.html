@@ -212,7 +212,13 @@
               <div class="pull-right">
                 <button type="button" data-toggle="button" ng-bind-html-unsafe="getPowerButtonText()" ng-class="getPowerButtonClass()" ng-click="power()"></button>
               </div>
-              <p>Running cost: <strong>{{running_costs|currency}}</strong> per month</p>
+              <p>
+                <ul>
+                  <li>Running cost: <strong>{{running_costs|currency}}</strong> per month</li>
+                  <li>Data purity: <strong>{{purity*100}}%</strong></li>
+                  <li>Scientist slots: <strong>{{num_scientists}}</strong></li>
+                </ul>
+              </p>
             </li> 
           </ul>
         </div>
@@ -223,7 +229,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="pull-right" ng-show="free_slots > 0">
-                <a href="#modDetectors" data-toggle="modal" class="btn btn-success btn-double-width"><span class="glyphicon glyphicon-plus-sign"></span> Show available detectors</a>
+                <a href="#modDetectors" data-toggle="modal" class="btn btn-success btn-var-width"><span class="glyphicon glyphicon-plus-sign"></span> Show available detectors</a>
               </div>
               <h4>{{detectors.length}}/{{max_detectors}} detector slots in use</h4>
             </li>
@@ -234,9 +240,15 @@
                     <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)" disable-cost="{{detector.remove_cost}}"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.remove_cost|currency}})</small></a>
                 </div>
                 <h4><a href="#" data-toggle="modal" data-target="#modDocsDetector{{detector.slug}}">{{detector.name}}</a></h4>
-                <p><small>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</small></p>
-                <p>{{detector.description}}</p>
                 <img ng-src="img/detector/{{detector.slug}}/{{detector.level+1}}_64.png" alt="Picture of the accelerator.">
+                <p>
+                  <ul>
+                    <li>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</li>
+                    <li>Data quality: <strong>{{detector.purity_factor * 100}}%</strong></li>
+                    <li>Scientist slots: <strong>{{detector.num_scientists}}</strong></li>
+                  </ul>
+                </p>
+                <p>{{detector.description}}</p>
                 <!-- Modal: detector docs -->
                 <div class="modal fade" id="modDocsDetector{{detector.slug}}">
                   <div class="modal-dialog">
@@ -270,7 +282,8 @@
                           <p>
                             <ul>
                               <li>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</li>
-                              <li>Data quality: <strong>{{detector.purity_factor}}</strong></li>
+                              <li>Data quality: <strong>{{detector.purity_factor * 100}}%</strong></li>
+                              <li>Scientist slots: <strong>{{detector.num_scientists}}</strong></li>
                             </ul>
                           </p>
                         </li>
