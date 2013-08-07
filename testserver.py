@@ -2,7 +2,7 @@
     A minimal server for testing stuff.
 """
 
-from flask import Flask, jsonify, redirect
+from flask import Flask, jsonify, redirect, request
 from backend import technology
 from backend.game_manager import GameManager
 from backend.ht_exceptions import BankruptcyException
@@ -10,75 +10,84 @@ from functools import wraps
 
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 app.debug = True
-gamemanager = None
-hr = None
 
 def jsonres(**obj):
     return jsonify(
         response=obj,
         gameStatus={
-            "funds": gamemanager.funds,
-            "grant_bar": int(gamemanager.grant_bar),
-            "grant_bar_max": gamemanager.level.publication_target,
-            "grant_bar_price": gamemanager.level.grant,
-            "storage_used": gamemanager.data_centre.storage_used,
-            "storage_capacity": gamemanager.data_centre.storage_capacity,
-            "events": gamemanager.events(),
+            "funds": gs().funds,
+            "grant_bar": int(gs().grant_bar),
+            "grant_bar_max": gs().level.publication_target,
+            "grant_bar_price": gs().level.grant,
+            "storage_used": gs().data_centre.storage_used,
+            "storage_capacity": gs().data_centre.storage_capacity,
+            "events": gs().events(),
         }
     )
+
+gamemanager_i = 0
+gamemanagers = {}
+def gs():
+    gm = request.cookies.get("gm")
+    return gamemanagers[int(gm)]
+
 
 def view(route):
     def decorator(viewfn):
         @wraps(viewfn)
         def __inner__(*args, **kwargs):
             try:
+                if request.cookies.get("gm") is None:
+                    return redirect("/")
                 return viewfn(*args, **kwargs)
             except BankruptcyException:
-                gamemanager.event("bankruptcy");
+                gs().event("bankruptcy");
                 return jsonres()
         return app.route(route)(__inner__)
-
     return decorator
 
 
-@view('/')
+@app.route('/')
 def index():
     return redirect('/frontend/config.html')
 
-@view('/init_game/<type>/<partitles>/<name>')
+@app.route('/init_game/<type>/<partitles>/<name>')
 def init(name, type, partitles):
-    global gamemanager, hr
+    global gamemanager_i, gamemanagers
+    gamemanager_i += 1
     gamemanager = GameManager(name, type, partitles)
-    hr = gamemanager.hr_manager
-    return redirect('/frontend/game.html')
+    gamemanagers[gamemanager_i] = gamemanager
+    resp = redirect('/frontend/game.html')
+    resp.set_cookie("gm", gamemanager_i)
+    return resp
 
 @view("/trigger")
 def trigger():
-    gamemanager.process_events()
+    gs().process_events()
     return jsonres()
 
 @view('/time')
 def time():
     return jsonres(**{
-        'time': gamemanager.start_time
+        'time': gs().start_time
     })
 
 @view('/funds')
 def funds():
     return jsonres(**{
-        'funds': gamemanager.funds
+        'funds': gs().funds
     })
 
 @view('/hr/scientists/')
 def list_scientists():
     return jsonres(**{
-        'max_scientists': hr.max_scientists,
-        'scientists': map(str, hr.scientists)
+        'max_scientists': gs().hr_manager.max_scientists,
+        'scientists': map(str, gs().hr_manager.scientists)
     })
 
 @view('/hr/hire/<int:n>')
 def hire_scientists(n):
-    hired = gamemanager.hr_hire(n)
+    hired = gs().hr_hire(n)
     return jsonres(**{
         'n': n,
         'hired': hired
@@ -86,7 +95,7 @@ def hire_scientists(n):
 
 @view('/hr/fire/<int:n>')
 def fire_scientists(n):
-    fired, penalty = hr.fire(n)
+    fired, penalty = gs().hr_manager.fire(n)
     return jsonres(**{
         'n': n,
         'fired': fired,
@@ -96,37 +105,37 @@ def fire_scientists(n):
 @view("/hr/salary/<float:newsalary>")
 def set_salary(newsalary):
     assert newsalary >= 0
-    for scientist in hr.scientists:
+    for scientist in gs().hr_manager.scientists:
         scientist.salary = newsalary
     return jsonres()
 
 @view("/accelerator")
 def get_accelerator():
-    return jsonres(**gamemanager.accelerator.json())
+    return jsonres(**gs().accelerator.json())
 
 
 @view("/accelerator/shutdown")
 def shutdown_accelerator():
-    gamemanager.accelerator_stop()
+    gs().accelerator_stop()
     return jsonres()
 
 @view("/accelerator/poweron")
 def poweron_accelerator():
-    gamemanager.accelerator_start()
+    gs().accelerator_start()
     return jsonres()
 
 @view("/accelerator/upgrade")
 def upgrade_accelerator():
-    gamemanager.accelerator_upgrade()
+    gs().accelerator_upgrade()
     return jsonres()
 
 @view("/datacenter")
 def get_datacenter():
-    return jsonres(**gamemanager.data_centre.json())
+    return jsonres(**gs().data_centre.json())
 
 @view("/detectors")
 def get_detectors():
-    detectors = gamemanager.accelerator.detectors
+    detectors = gs().accelerator.detectors
 
     all_detectors = set(technology.query_tech_tree(["detectors"]).keys())
     installed = set([d.slug for d in detectors])
@@ -134,29 +143,29 @@ def get_detectors():
 
     return jsonres(
         detectors=[d.json() for d in detectors],
-        max_detectors=gamemanager.accelerator.slots,
-        free_slots=gamemanager.accelerator.free_slots,
+        max_detectors=gs().accelerator.slots,
+        free_slots=gs().accelerator.free_slots,
         available=[technology.from_tech_tree("detectors", d, 0).json() for d in avaliable],
     )
 
 @view("/detector/<detector>/upgrade")
 def upgrade_detector(detector):
-    gamemanager.detector_upgrade(detector)
+    gs().detector_upgrade(detector)
     return jsonres()
 
 @view("/detector/<detector>/remove")
 def remove_detector(detector):
-    gamemanager.detector_remove(detector)
+    gs().detector_remove(detector)
     return jsonres()
 
 @view("/detector/<detector>/add")
 def buy_detector(detector):
-    gamemanager.detector_buy(detector)
+    gs().detector_buy(detector)
     return jsonres()
 
 @view("/datacenter/upgrade")
 def upgrade_datacenter():
-    gamemanager.datacentre_upgrade()
+    gs().datacentre_upgrade()
     return jsonres()
 
 def methods_json():

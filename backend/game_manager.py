@@ -3,7 +3,7 @@ import random
 from time import time
 from hr import HR
 from backend import settings
-from backend import level
+from backend.level import Levels
 
 def upgrade_technology_hook(original_function):
     def new_function(self, *args, **kwargs):
@@ -20,6 +20,7 @@ class GameManager(object):
     def __init__(self, lab_name, accelerator_geometry, accelerator_particles):
         """
         """
+        self.levels = Levels()
         self.start_time = time()
         self.last_updated = time()
         self.last_month_start = time()
@@ -31,7 +32,7 @@ class GameManager(object):
         self.hr_manager = HR(self.accelerator.num_scientists)
         self.salary = 1000
         self.grant_bar = 0
-        self.level = level.current_level()
+        self.level = self.levels.current_level()
         self.accelerator_running = False
         self._events = []
 
@@ -118,8 +119,8 @@ class GameManager(object):
     def grant_bar_add(self, gnt):
         self.grant_bar += gnt
         if self.grant_bar > self.level.publication_target:
-            lvl = level.pop_level()
-            self.level = level.current_level()
+            lvl = self.levels.pop_level()
+            self.level = self.levels.current_level()
             self.grant_bar -= lvl.publication_target
             self.funds += lvl.grant
             discovery = random.choice(lvl.discoveries)
