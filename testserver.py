@@ -14,6 +14,7 @@ from backend.ht_exceptions import BankruptcyException
 app = Flask('HEP Tycoon Testserver', static_folder="frontend")
 app.debug = True
 
+debug = False
 if len(sys.argv) > 1 and sys.argv[1] == '1':
     print "DEBUG MODE ENABLED"
     debug = True
