@@ -17,7 +17,7 @@ p
   min-height: 100px;
 }
 
-.btn
+.btn, .btn-group-vertical>.btn
 {
   width: 140px;
 }
