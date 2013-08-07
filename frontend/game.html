@@ -200,7 +200,7 @@
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                       <h4 class="modal-title">{{name}}</h4>
                     </div>
-                    <div class="modal-body" id="docsaccelerator" data-docs="accelerator"></div>
+                    <div class="modal-body" ng-bind-html-unsafe="docs"></div>
                     <div class="modal-footer">
                       <a href="#" class="btn" data-dismiss="modal">Close</a>
                     </div>
@@ -209,22 +209,15 @@
               </div><!-- /.modal -->
             </li>
             <li class="list-group-item">
-            <div class="pull-right">
-                <a class="btn btn-danger" data-toggle="tooltip" data-placement="left" ng-click="shutdown()" ng-show="active"
-                   title="Shutting down the accelerator doesn't cost any money. During shutdown, no data is gathered.">
-                  <span class="glyphicon glyphicon-off"></span>
-                  Shutdown
-                </a>
-                <a class="btn btn-success" ng-click="powerOn()" ng-hide="active">
-                  <span class="glyphicon glyphicon-off"></span>
-                  Power On
-                </a>
-            </div>
-            <p>Running cost: <strong>{{running_costs|currency}}</strong> per month</p></li> 
+              <div class="pull-right">
+                <button type="button" data-toggle="button" ng-bind-html-unsafe="getPowerButtonText()" ng-class="getPowerButtonClass()" ng-click="power()"></button>
+              </div>
+              <p>Running cost: <strong>{{running_costs|currency}}</strong> per month</p>
+            </li> 
           </ul>
         </div>
         <div class="panel panel-primary" id="detectors" ng-controller="Detectors">
-          <div class="panel-heading">
+        <div class="panel-heading">
             <h3 class="panel-title"><span class="glyphicon glyphicon-eye-open"></span> Detectors</h3>
           </div>
           <ul class="list-group list-group-flush">

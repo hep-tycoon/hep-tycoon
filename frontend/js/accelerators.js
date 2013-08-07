@@ -2,10 +2,17 @@
 function Accelerators($scope) {
     $scope.active = false;
     $scope.level = 1;
-    $scope.name = "LEP";
+    $scope.name = '';
     $scope.energy = 42;
     $scope.running_costs = 200;
+    $scope.docs = ''
 
+    $scope.power = function(){
+      if ($scope.active)
+        shutdown_accelerator($scope.$apply);
+      else
+        poweron_accelerator($scope.$apply);
+    };
     $scope.shutdown = function(){
       shutdown_accelerator(function(){
         $scope.$apply();
@@ -29,10 +36,22 @@ function Accelerators($scope) {
     $scope.update = function(){
       get_accelerator(function(res){
         angular.extend($scope, res);
-        readTextFile(DOCS_DIR + 'accelerators/' + $scope.geometry + '/' + $scope.particles + '/' + $scope.level + '.html', function (result) { $('div[data-docs="accelerator"]').html(result); } );
+        readTextFile(DOCS_DIR + 'accelerators/' + $scope.geometry + '/' + $scope.particles + '/' + $scope.level + '.html', function (result) { $scope.docs = result; } );
         $scope.$apply();
       });
     };
+
+    $scope.getPowerButtonClass = function(){
+      if ($scope.active)
+        return 'btn btn-danger'
+      return 'btn btn-success'
+    }
+
+    $scope.getPowerButtonText = function(){
+      if ($scope.active)
+        return '<span class="glyphicon glyphicon-off"></span> Shut down';
+      return '<span class="glyphicon glyphicon-off"></span> Run';
+    }
 
     $scope.update();
 }
