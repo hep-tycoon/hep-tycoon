@@ -267,7 +267,12 @@
                         <li class="list-group-item" ng-repeat="detector in availableDetectors">
                           <button class="btn btn-success pull-right" ng-click="install(detector.slug)" disable-cost="{{detector.price}}">Install detector<br><small>(cost {{detector.price|currency}})</small></button>
                           <h4>{{detector.name}}</h4>
-                          <p><small>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</small></p>
+                          <p>
+                            <ul>
+                              <li>Running cost: <strong>{{detector.running_costs|currency}}</strong> per month</li>
+                              <li>Data quality: <strong>{{detector.purity_factor}}</strong></li>
+                            </ul>
+                          </p>
                         </li>
                     </ul>
                 </div>
