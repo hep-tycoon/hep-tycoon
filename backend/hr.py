@@ -11,11 +11,11 @@ class HR(object):
     """
         Manage human resources in the game.
     """
-    def __init__(self, max_scientists):
+    def __init__(self):
         """
             Initialise a new human resources manager.
         """
-        self._max_scientists = max_scientists
+        self._max_scientists = 0
         self._scientists = []
 
     def __str__(self):
@@ -138,7 +138,7 @@ class Scientist(object):
         self._skill = settings.GLOBAL_SKILL
         self._firing_penalty_factor = settings.GLOBAL_FIRING_PENALTY_FACTOR
         self._firing_penalty_constant = settings.GLOBAL_FIRING_PENALTY_CONSTANT
-        self.last_published = 0
+        self.last_published = time()
 
     def __str__(self):
         """
@@ -153,7 +153,15 @@ class Scientist(object):
         return (time() - self.last_published) > settings.PUBLISH_TIME
 
     def publish(self, dataset):
+        self.reset_last_published()
         return self.skill * dataset.purity * self.productivity
+
+    def reset_last_published(self):
+        self.last_published = time()
+
+    @property
+    def progress(self):
+        return (time() - self.last_published) / settings.PUBLISH_TIME
 
     @property
     def name(self):

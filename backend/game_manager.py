@@ -36,7 +36,8 @@ class GameManager(object):
             0
         )
         self.funds = settings.INITIAL_FUNDS - self.accelerator.price
-        self.hr_manager = HR(self.accelerator.num_scientists)
+        self.hr_manager = HR()
+        self.update_max_number_scientists()
         self.salary = 1000
         self.grant_bar = 0
         self.level = level.current_level()
@@ -141,10 +142,14 @@ class GameManager(object):
     def process_events(self):
         elapsed = (time() - self.last_updated)
         for _ in xrange(int(elapsed)):
+            total_quality = 0
             for scientist in self.hr_manager.scientists:
-                if scientist.can_work() and not self.data_centre.empty():
-                    quality = scientist.publish(self.data_centre.retrieve())
-                    self.grant_bar_add(quality*settings.GRANT_BAR_CONSTANT)
+                if self.data_centre.empty():
+                    scientist.reset_last_published()
+                elif scientist.can_work():
+                    total_quality += scientist.publish(self.data_centre.retrieve())
+            self.grant_bar_add(total_quality*settings.GRANT_BAR_CONSTANT)
+
             if self.accelerator_running:
                 data = self.accelerator.run(1)
                 self.data_centre.store(data)
