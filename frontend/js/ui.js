@@ -7,10 +7,19 @@ function jetons(input, $filter) {
   return "JTN " + input.substring(0, input.length-1);
 }
 
+function progressBarStyle(input, $filter) {
+    return { width: Math.round(100 * input) + '%' };
+}
+
 angular.module("Tycoon", [])
     .filter("currency", ["$filter", function($filter){
         return function(input){
             return jetons(input, $filter);
+        };
+    }])
+    .filter("progressbar", ["$filter", function($filter){
+        return function(input){
+            return progressBarStyle(input, $filter);
         };
     }])
     .directive("disableCost", function(){

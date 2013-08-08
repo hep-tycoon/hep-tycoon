@@ -19,12 +19,6 @@ function DataCenter($scope){
         });
     };
 
-    $scope.getProgressbarStyle = function(){
-        return {
-            width: Math.round($scope.usage*100/$scope.capacity) + "%"
-        };
-    };
-
     $scope.update();
 }
 

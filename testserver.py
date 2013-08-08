@@ -78,7 +78,7 @@ def time():
 def list_scientists():
     return jsonres(**{
         'max_scientists': hr.max_scientists,
-        'scientists': map(str, hr.scientists)
+        'scientists': [{'name': str(s), 'progress': s.progress} for s in hr.scientists]
     })
 
 @view('/hr/hire/<int:n>')
