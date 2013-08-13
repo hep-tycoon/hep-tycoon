@@ -8,6 +8,11 @@ p
   font-size: 16px;
 }
 
+a
+{
+  cursor: pointer;
+}
+
 .progress-scientist
 {
   min-width: 100px;
@@ -16,6 +21,17 @@ p
 .list-group-item
 {
   min-height: 100px;
+}
+
+.btn.btn-default
+{
+  background-color: #AAAAAA;
+  border: 1px solid #AAAAAA;
+}
+.btn.btn-default:hover
+{
+  background-color: #999999;
+  border: 1px solid #999999;
 }
 
 .btn, .btn-group-vertical>.btn
@@ -48,6 +64,20 @@ ul.list-group li.list-group-item:nth-child(1)
 ul.list-group li.list-group-item h1
 {
   margin-top: -5px;
+}
+
+ul.list-group li.list-group-item ul
+{
+  padding-left: 20px;
+  list-style-type: disc;
+}
+ul.list-group li.list-group-item ul ul
+{
+  list-style-type: circle;
+}
+ul.list-group li.list-group-item ul ul ul
+{
+  list-style-type: square;
 }
 
 img.discovery-img

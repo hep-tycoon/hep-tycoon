@@ -21,7 +21,7 @@
         <ul class="nav navbar-nav">
           <li>
           <div class="btn-group">
-            <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown">
+            <a class="navbar-brand dropdown-toggle" data-toggle="dropdown">
               HEP Tycoon <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -145,8 +145,8 @@
                   <p>Are you sure you want to hire {{hireScientistsCount}} scientists for {{hireScientistsCost*hireScientistsCount|currency}} per month?
                 </div>
                 <div class="modal-footer">
-                  <a href="#" class="btn" data-dismiss="modal">Cancel</a>
-                  <a href="#" class="btn btn-info" id="hireScientistsBtn" ng-click="hire()">Hire</a>
+                  <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button class="btn btn-primary" id="hireScientistsBtn" ng-click="hire()">Hire</button>
                 </div>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -172,8 +172,8 @@
                   <p ng-show="fireScientistsCount>0">Are you sure you want to fire {{fireScientistsCount}} scientists? You will have to pay them <strong>{{fireScientistsCount*fireScientistsCost|currency}}</strong> in severence payments.</p>
                 </div>
                 <div class="modal-footer">
-                  <a href="#" class="btn" data-dismiss="modal">Cancel</a>
-                  <a href="#" class="btn btn-danger" id="iFireScientistsBtn" ng-click="fire()">Fire</a>
+                  <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button class="btn btn-danger" id="iFireScientistsBtn" ng-click="fire()">Fire</button>
                 </div>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -189,7 +189,7 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-            <h1><a href="#" data-target="#modDocsAcclerator" data-toggle="modal">{{name}}</a></h1>
+            <h1><a data-target="#modDocsAcclerator" data-toggle="modal">{{name}}</a></h1>
             </li>
              <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
@@ -209,7 +209,7 @@
                     </div>
                     <div class="modal-body" ng-bind-html-unsafe="docs"></div>
                     <div class="modal-footer">
-                      <a href="#" class="btn" data-dismiss="modal">Close</a>
+                      <button class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                   </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -236,17 +236,17 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="pull-right" ng-show="free_slots > 0">
-                <a href="#modDetectors" data-toggle="modal" class="btn btn-success btn-var-width"><span class="glyphicon glyphicon-plus-sign"></span> Show available detectors</a>
+                <button class="btn btn-success btn-var-width" data-toggle="modal" data-target="#modDetectors"><span class="glyphicon glyphicon-plus-sign"></span> Show available detectors</button>
               </div>
               <h4>{{detectors.length}}/{{max_detectors}} detector slots in use</h4>
             </li>
               <li class="list-group-item" ng-repeat="detector in detectors">
 
                 <div ng-class="btngroupclass(detector.can_upgrade)">
-                    <a href="#" class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade" disable-cost="{{detector.upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgrade_cost|currency}})</small></a>
-                    <a href="#" class="btn btn-danger" ng-click="remove(detector.slug)" disable-cost="{{detector.remove_cost}}"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.remove_cost|currency}})</small></a>
+                    <button class="btn btn-primary" ng-click="upgrade(detector.slug)" ng-show="detector.can_upgrade" disable-cost="{{detector.upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{detector.upgrade_cost|currency}})</small></button>
+                    <button class="btn btn-danger" ng-click="remove(detector.slug)" disable-cost="{{detector.remove_cost}}"><span class="glyphicon glyphicon-minus-sign"></span> Remove<br><small>(cost {{detector.remove_cost|currency}})</small></button>
                 </div>
-                <h4><a href="#" data-toggle="modal" data-target="#modDocsDetector{{detector.slug}}">{{detector.name}}</a></h4>
+                <h4><a data-toggle="modal" data-target="#modDocsDetector{{detector.slug}}">{{detector.name}}</a></h4>
                 <img ng-src="img/detector/{{detector.slug}}/{{detector.level+1}}_64.png" alt="Picture of the accelerator.">
                 <p>
                   <ul>
@@ -266,7 +266,7 @@
                       </div>
                       <div class="modal-body" data-docs="detector_{{detector.slug}}"></div>
                       <div class="modal-footer">
-                        <a href="#" class="btn" data-dismiss="modal">Close</a>
+                        <button class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </div><!-- /.modal-content -->
                   </div><!-- /.modal-dialog -->
@@ -301,11 +301,10 @@
           </div><!-- /.modal -->
         </div>
         <!-- Modal: game over! -->
-        <div class="modal fade" id="modGameOver">
+        <div class="modal fade" id="modGameOver" data-backdrop="static" data-keyboard="false">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Game Over</h4>
               </div>
               <div class="modal-body">
@@ -349,7 +348,7 @@
             </li>
             <li class="list-group-item">
               <div class="pull-right" ng-show="can_upgrade">
-                <a href="#" class="btn btn-primary" ng-click="upgrade()" disable-cost="{{upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></a>
+                <button class="btn btn-primary" ng-click="upgrade()" disable-cost="{{upgrade_cost}}"><span class="glyphicon glyphicon-wrench"></span> Upgrade<br><small>(cost {{upgrade_cost|currency}})</small></button>
               </div>
               <div>
                 <h3>{{name}}</h3>
