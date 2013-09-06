@@ -42,6 +42,7 @@ class GameManager(object):
         self.grant_bar = 0
         self.level = level.current_level()
         self.accelerator_running = False
+        self.has_won = False
         self._events = []
 
     def event(self, *args):
@@ -130,7 +131,7 @@ class GameManager(object):
 
     def grant_bar_add(self, gnt):
         self.grant_bar += gnt
-        if self.grant_bar > self.level.publication_target:
+        if level.has_more_levels() and self.grant_bar > self.level.publication_target:
             lvl = level.pop_level()
             self.level = level.current_level()
             self.grant_bar -= lvl.publication_target
@@ -154,6 +155,11 @@ class GameManager(object):
                 data = self.accelerator.run(1)
                 self.data_centre.store(data)
             self.last_updated += 1
+
+        if not self.has_won and not level.has_more_levels():
+            self.event("win")
+            self.has_won = True
+
         # Month duration in real time
         month_time = (60 * 60 * 24 * 30) / settings.TIME_CONVERSION
         elapsed_months = (time() - self.last_month_start) / month_time

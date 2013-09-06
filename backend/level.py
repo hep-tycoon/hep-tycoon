@@ -4,13 +4,16 @@ from os import path
 Level = namedtuple('Level', ['publication_target', 'grant', 'discoveries'])
 
 
-def current_level():
-    return levels[0]
+def has_more_levels():
+    return len(levels) > 0
 
+def current_level():
+    if has_more_levels():
+        return levels[0]
 
 def pop_level():
-    return levels.pop(0)
-
+    if has_more_levels():
+        return levels.pop(0)
 
 levels = None
 with open(path.join(path.dirname(__file__), 'levels.json')) as level_file:

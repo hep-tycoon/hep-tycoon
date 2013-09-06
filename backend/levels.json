@@ -42,10 +42,5 @@
                 "img": "/frontend/img/discovery/SUSY.png"
             }
         ]
-    },
-    {
-        "publication_target": 9999999999999999,
-        "grant": 10,
-        "discoveries": []
     }
 ]
