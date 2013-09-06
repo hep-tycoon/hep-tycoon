@@ -92,8 +92,8 @@
             </li>
             <li class="list-group-item">
               <div class="btn-group pull-right">
-                <button type="submit" class="btn btn-primary" data-target="#modConfirmHire" data-toggle="modal" ng-click="setHireCount(1)">Hire</button>
-                <button type="submit" class="btn btn-success" data-target="#modConfirmHire" data-toggle="modal" ng-click="setHireCount(slots)">Hire max</button>
+                <button type="submit" class="btn btn-primary" data-target="#modConfirmHire" data-toggle="modal" ng-click="setHireCount(1)" ng-disabled="slots <= 0">Hire</button>
+                <button type="submit" class="btn btn-success" data-target="#modConfirmHire" data-toggle="modal" ng-click="setHireCount(slots)" ng-disabled="slots <= 0">Hire max</button>
               </div>
               <h4>Hire scientists</h4>
             </li>
@@ -114,7 +114,7 @@
             </li>
             <li class="list-group-item">
               <div class="btn-toolbar pull-right"> 
-                <button type="submit" class="btn btn-danger" data-target="#modConfirmFire" data-toggle="modal" ng-click="setFireCount(1)">Fire</button>
+                <button type="submit" class="btn btn-danger" data-target="#modConfirmFire" data-toggle="modal" ng-click="setFireCount(1)" ng-disabled="scientists.length == 0">Fire</button>
               </div>
               <h4>Fire scientists</h4>
               <span class="help-block">Cost: <strong>{{fireScientistsCost|currency}}</strong> per scientist</span>
