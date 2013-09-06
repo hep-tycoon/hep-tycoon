@@ -28,6 +28,11 @@ function ajax(method, object, callback) {
                         .find(".discovery-img").attr("src", event[1].img).end()
                         .modal("show");
                     break;
+                case "win":
+                    $('#modGrant').on('hidden.bs.modal', function(){
+                        $("#modWin").modal("show");
+                    });
+                    break;
             }
         });
 
