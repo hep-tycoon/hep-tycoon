@@ -22,14 +22,22 @@ if len(sys.argv) > 1 and sys.argv[1] == '1':
 gamemanager = None
 
 def jsonres(**obj):
+    level = gamemanager.level
+    if level is None:
+        grant_bar_max = 0
+        grant_bar_price = 0
+    else:
+        grant_bar_max = level.publication_target
+        grant_bar_price = level.grant
+
     return jsonify(
         response=obj,
         gameStatus={
             "accelerator_running": gamemanager.accelerator_running,
             "funds": gamemanager.funds,
             "grant_bar": int(gamemanager.grant_bar),
-            "grant_bar_max": gamemanager.level.publication_target,
-            "grant_bar_price": gamemanager.level.grant,
+            "grant_bar_max": grant_bar_max,
+            "grant_bar_price": grant_bar_price,
             "storage_used": gamemanager.data_centre.storage_used,
             "storage_capacity": gamemanager.data_centre.storage_capacity,
             "events": gamemanager.events(),
@@ -43,7 +51,8 @@ def view(route):
             try:
                 return viewfn(*args, **kwargs)
             except BankruptcyException:
-                gamemanager.event("bankruptcy");
+                if not gamemanager.has_won:
+                    gamemanager.event("bankruptcy");
                 return jsonres()
         return app.route(route)(__inner__)
 
@@ -78,7 +87,7 @@ def time():
 def list_scientists():
     return jsonres(**{
         'max_scientists': hr.max_scientists,
-        'scientists': [{'name': str(s), 'progress': s.progress} for s in hr.scientists]
+        'scientists': [{'name': str(s)} for s in hr.scientists]
     })
 
 @view('/hr/hire/<int:n>')
