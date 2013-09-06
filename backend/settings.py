@@ -11,7 +11,7 @@ TIME_CONVERSION = float(60 * 60 * 24 * 365) / 30
 GRANT_BAR_CONSTANT = 1.
 
 # Scientist
-GLOBAL_SKILL = .05  # the scientists' skill
+GLOBAL_SKILL = .5  # the scientists' skill
 # conversion factor between salary and productivity
 GLOBAL_PRODUCTIVITY_CONVERSION = 1. / 1000
 GLOBAL_FIRING_PENALTY_FACTOR = 2.
