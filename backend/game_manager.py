@@ -161,12 +161,14 @@ class GameManager(object):
             self.has_won = True
 
         # Month duration in real time
-        month_time = (60 * 60 * 24 * 30) / settings.TIME_CONVERSION
-        elapsed_months = (time() - self.last_month_start) / month_time
-        for _ in xrange(int(elapsed_months)):
-            self.pay_salaries()
-            self.pay_running_costs()
-            self.last_month_start += month_time
+        elapsed_months = int((time() - self.last_month_start) / settings.MONTH_DURATION)
+        for _ in xrange(elapsed_months):
+            self.process_month()
+
+    def process_month(self):
+        self.pay_salaries()
+        self.pay_running_costs()
+        self.last_month_start += settings.MONTH_DURATION
 
     def update_max_number_scientists(self):
         """

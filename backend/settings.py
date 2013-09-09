@@ -7,6 +7,7 @@
 INITIAL_FUNDS = 300000
 # real time to game time conversion factor
 TIME_CONVERSION = float(60 * 60 * 24 * 365) / 30
+MONTH_DURATION = (60 * 60 * 24 * 30) / TIME_CONVERSION
 
 GRANT_BAR_CONSTANT = 1.
 
